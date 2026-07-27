@@ -1,0 +1,271 @@
+[2026-06-10 11:39:55,842] [__main__] [INFO] TestRunner initialized
+[2026-06-10 11:39:55,842] [__main__] [INFO] Checking Python version...
+[2026-06-10 11:39:55,842] [__main__] [INFO] ✓ Python 3.12
+[2026-06-10 11:39:55,842] [__main__] [INFO] Checking required packages...
+[2026-06-10 11:39:55,842] [__main__] [INFO] ✓ selenium is installed
+[2026-06-10 11:39:55,842] [__main__] [INFO] ✓ openpyxl is installed
+[2026-06-10 11:39:55,842] [__main__] [INFO] Checking configuration...
+[2026-06-10 11:39:55,847] [__main__] [INFO] ✓ Base URL: http://localhost:3000
+[2026-06-10 11:39:55,847] [__main__] [INFO] Checking directories...
+[2026-06-10 11:39:55,847] [__main__] [INFO] ✓ Directory ready: D:\cureconnect-backend\selenium_testing\reports
+[2026-06-10 11:39:55,861] [__main__] [INFO] ✓ Directory ready: D:\cureconnect-backend\selenium_testing\reports\logs
+[2026-06-10 11:39:55,861] [__main__] [INFO] ✓ All prerequisites met
+[2026-06-10 11:39:55,861] [__main__] [INFO] Test execution started at 2026-06-10 11:39:55
+[2026-06-10 11:39:55,861] [__main__] [INFO] Browser: chrome
+[2026-06-10 11:39:55,861] [__main__] [INFO] Base URL: http://localhost:3000
+[2026-06-10 11:39:55,861] [__main__] [INFO] 
+Total tests to run: 13
+[2026-06-10 11:39:55,861] [test_cases] [INFO] 
+================================================================================
+[2026-06-10 11:39:55,864] [test_cases] [INFO] Starting test: test_01_login_with_valid_credentials
+[2026-06-10 11:39:55,864] [test_cases] [INFO] ================================================================================
+[2026-06-10 11:39:55,864] [driver] [INFO] Initializing Selenium WebDriver
+[2026-06-10 11:39:55,864] [driver] [INFO] Starting chrome browser
+[2026-06-10 11:39:58,041] [driver] [INFO] Chrome browser initialized
+[2026-06-10 11:39:58,043] [driver] [INFO] ✓ Browser initialized successfully
+[2026-06-10 11:39:58,043] [test_cases] [INFO] 
+[TEST] Login with valid credentials
+[2026-06-10 11:39:58,043] [pages] [INFO] [ACTION] Logging in as rathanreddy676@gmail.com
+[2026-06-10 11:39:58,043] [pages] [INFO] Navigating to login page
+[2026-06-10 11:39:58,043] [driver] [INFO] Navigating to http://localhost:3000/login
+[2026-06-10 11:39:58,843] [driver] [INFO] ✓ Navigated successfully
+[2026-06-10 11:39:59,845] [pages] [INFO] ✓ Page loaded
+[2026-06-10 11:39:59,845] [pages] [INFO] Entering email: rathanreddy676@gmail.com
+[2026-06-10 11:40:20,899] [driver] [ERROR] ✗ Element not found: ('id', 'email')
+[2026-06-10 11:40:20,899] [driver] [ERROR] ✗ Failed to send keys to ('id', 'email'): Message: Element ('id', 'email') not found after 15s
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff7cb513435+14875]
+	chromedriver!GetHandleVerifier [0x7ff7cb513490+148d0]
+	chromedriver!(No symbol) [0x7ff7cb06778d]
+	chromedriver!(No symbol) [0x7ff7cb0c195d]
+	chromedriver!(No symbol) [0x7ff7cb0c1c5c]
+	chromedriver!(No symbol) [0x7ff7cb111e37]
+	chromedriver!(No symbol) [0x7ff7cb10e9fc]
+	chromedriver!(No symbol) [0x7ff7cb0b3eb0]
+	chromedriver!(No symbol) [0x7ff7cb0b4e23]
+	chromedriver!GetHandleVerifier [0x7ff7cbaf6c91+5f80d1]
+	chromedriver!GetHandleVerifier [0x7ff7cbaf101b+5f245b]
+	chromedriver!GetHandleVerifier [0x7ff7cbb16305+617745]
+	chromedriver!GetHandleVerifier [0x7ff7cb5303ee+3182e]
+	chromedriver!GetHandleVerifier [0x7ff7cb538b0c+39f4c]
+	chromedriver!GetHandleVerifier [0x7ff7cb51cb04+1df44]
+	chromedriver!GetHandleVerifier [0x7ff7cb51cc94+1e0d4]
+	chromedriver!GetHandleVerifier [0x7ff7cb500997+1dd7]
+	KERNEL32!BaseThreadInitThunk [0x7ffba329e957+17]
+	ntdll!RtlUserThreadStart [0x7ffba448427c+2c]
+
+[2026-06-10 11:40:20,899] [test_cases] [ERROR] ✗ TEST FAILED: Message: Element ('id', 'email') not found after 15s
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff7cb513435+14875]
+	chromedriver!GetHandleVerifier [0x7ff7cb513490+148d0]
+	chromedriver!(No symbol) [0x7ff7cb06778d]
+	chromedriver!(No symbol) [0x7ff7cb0c195d]
+	chromedriver!(No symbol) [0x7ff7cb0c1c5c]
+	chromedriver!(No symbol) [0x7ff7cb111e37]
+	chromedriver!(No symbol) [0x7ff7cb10e9fc]
+	chromedriver!(No symbol) [0x7ff7cb0b3eb0]
+	chromedriver!(No symbol) [0x7ff7cb0b4e23]
+	chromedriver!GetHandleVerifier [0x7ff7cbaf6c91+5f80d1]
+	chromedriver!GetHandleVerifier [0x7ff7cbaf101b+5f245b]
+	chromedriver!GetHandleVerifier [0x7ff7cbb16305+617745]
+	chromedriver!GetHandleVerifier [0x7ff7cb5303ee+3182e]
+	chromedriver!GetHandleVerifier [0x7ff7cb538b0c+39f4c]
+	chromedriver!GetHandleVerifier [0x7ff7cb51cb04+1df44]
+	chromedriver!GetHandleVerifier [0x7ff7cb51cc94+1e0d4]
+	chromedriver!GetHandleVerifier [0x7ff7cb500997+1dd7]
+	KERNEL32!BaseThreadInitThunk [0x7ffba329e957+17]
+	ntdll!RtlUserThreadStart [0x7ffba448427c+2c]
+
+[2026-06-10 11:40:21,009] [driver] [INFO] ✓ Screenshot saved: D:\cureconnect-backend\selenium_testing\reports\screenshots\test_01_failed.png
+[2026-06-10 11:40:21,009] [test_cases] [INFO] Test Duration: 22.97s
+[2026-06-10 11:40:21,009] [test_cases] [INFO] Test Result: FAILED
+[2026-06-10 11:40:21,009] [test_cases] [INFO] ================================================================================
+
+[2026-06-10 11:40:23,245] [driver] [INFO] ✓ Browser closed successfully
+[2026-06-10 11:40:23,245] [test_cases] [INFO] 
+================================================================================
+[2026-06-10 11:40:23,247] [test_cases] [INFO] Starting test: test_02_login_with_invalid_credentials
+[2026-06-10 11:40:23,247] [test_cases] [INFO] ================================================================================
+[2026-06-10 11:40:23,247] [driver] [INFO] Initializing Selenium WebDriver
+[2026-06-10 11:40:23,247] [driver] [INFO] Starting chrome browser
+[2026-06-10 11:40:24,755] [driver] [INFO] Chrome browser initialized
+[2026-06-10 11:40:24,755] [driver] [INFO] ✓ Browser initialized successfully
+[2026-06-10 11:40:24,755] [test_cases] [INFO] 
+[TEST] Login with invalid credentials
+[2026-06-10 11:40:24,755] [pages] [INFO] [ACTION] Logging in as invalid@example.com
+[2026-06-10 11:40:24,755] [pages] [INFO] Navigating to login page
+[2026-06-10 11:40:24,755] [driver] [INFO] Navigating to http://localhost:3000/login
+[2026-06-10 11:40:25,314] [driver] [INFO] ✓ Navigated successfully
+[2026-06-10 11:40:26,317] [pages] [INFO] ✓ Page loaded
+[2026-06-10 11:40:26,317] [pages] [INFO] Entering email: invalid@example.com
+[2026-06-10 11:40:47,377] [driver] [ERROR] ✗ Element not found: ('id', 'email')
+[2026-06-10 11:40:47,377] [driver] [ERROR] ✗ Failed to send keys to ('id', 'email'): Message: Element ('id', 'email') not found after 15s
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff7cb513435+14875]
+	chromedriver!GetHandleVerifier [0x7ff7cb513490+148d0]
+	chromedriver!(No symbol) [0x7ff7cb06778d]
+	chromedriver!(No symbol) [0x7ff7cb0c195d]
+	chromedriver!(No symbol) [0x7ff7cb0c1c5c]
+	chromedriver!(No symbol) [0x7ff7cb111e37]
+	chromedriver!(No symbol) [0x7ff7cb10e9fc]
+	chromedriver!(No symbol) [0x7ff7cb0b3eb0]
+	chromedriver!(No symbol) [0x7ff7cb0b4e23]
+	chromedriver!GetHandleVerifier [0x7ff7cbaf6c91+5f80d1]
+	chromedriver!GetHandleVerifier [0x7ff7cbaf101b+5f245b]
+	chromedriver!GetHandleVerifier [0x7ff7cbb16305+617745]
+	chromedriver!GetHandleVerifier [0x7ff7cb5303ee+3182e]
+	chromedriver!GetHandleVerifier [0x7ff7cb538b0c+39f4c]
+	chromedriver!GetHandleVerifier [0x7ff7cb51cb04+1df44]
+	chromedriver!GetHandleVerifier [0x7ff7cb51cc94+1e0d4]
+	chromedriver!GetHandleVerifier [0x7ff7cb500997+1dd7]
+	KERNEL32!BaseThreadInitThunk [0x7ffba329e957+17]
+	ntdll!RtlUserThreadStart [0x7ffba448427c+2c]
+
+[2026-06-10 11:40:47,377] [test_cases] [ERROR] ✗ TEST FAILED: Message: Element ('id', 'email') not found after 15s
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff7cb513435+14875]
+	chromedriver!GetHandleVerifier [0x7ff7cb513490+148d0]
+	chromedriver!(No symbol) [0x7ff7cb06778d]
+	chromedriver!(No symbol) [0x7ff7cb0c195d]
+	chromedriver!(No symbol) [0x7ff7cb0c1c5c]
+	chromedriver!(No symbol) [0x7ff7cb111e37]
+	chromedriver!(No symbol) [0x7ff7cb10e9fc]
+	chromedriver!(No symbol) [0x7ff7cb0b3eb0]
+	chromedriver!(No symbol) [0x7ff7cb0b4e23]
+	chromedriver!GetHandleVerifier [0x7ff7cbaf6c91+5f80d1]
+	chromedriver!GetHandleVerifier [0x7ff7cbaf101b+5f245b]
+	chromedriver!GetHandleVerifier [0x7ff7cbb16305+617745]
+	chromedriver!GetHandleVerifier [0x7ff7cb5303ee+3182e]
+	chromedriver!GetHandleVerifier [0x7ff7cb538b0c+39f4c]
+	chromedriver!GetHandleVerifier [0x7ff7cb51cb04+1df44]
+	chromedriver!GetHandleVerifier [0x7ff7cb51cc94+1e0d4]
+	chromedriver!GetHandleVerifier [0x7ff7cb500997+1dd7]
+	KERNEL32!BaseThreadInitThunk [0x7ffba329e957+17]
+	ntdll!RtlUserThreadStart [0x7ffba448427c+2c]
+
+[2026-06-10 11:40:47,463] [driver] [INFO] ✓ Screenshot saved: D:\cureconnect-backend\selenium_testing\reports\screenshots\test_02_failed.png
+[2026-06-10 11:40:47,463] [test_cases] [INFO] Test Duration: 22.71s
+[2026-06-10 11:40:47,465] [test_cases] [INFO] Test Result: FAILED
+[2026-06-10 11:40:47,465] [test_cases] [INFO] ================================================================================
+
+[2026-06-10 11:40:49,718] [driver] [INFO] ✓ Browser closed successfully
+[2026-06-10 11:40:49,719] [test_cases] [INFO] 
+================================================================================
+[2026-06-10 11:40:49,719] [test_cases] [INFO] Starting test: test_03_logout_functionality
+[2026-06-10 11:40:49,719] [test_cases] [INFO] ================================================================================
+[2026-06-10 11:40:49,719] [driver] [INFO] Initializing Selenium WebDriver
+[2026-06-10 11:40:49,719] [driver] [INFO] Starting chrome browser
+[2026-06-10 11:40:51,266] [driver] [INFO] Chrome browser initialized
+[2026-06-10 11:40:51,266] [driver] [INFO] ✓ Browser initialized successfully
+[2026-06-10 11:40:51,266] [test_cases] [INFO] 
+[TEST] Logout functionality
+[2026-06-10 11:40:51,266] [pages] [INFO] [ACTION] Logging in as rathanreddy676@gmail.com
+[2026-06-10 11:40:51,266] [pages] [INFO] Navigating to login page
+[2026-06-10 11:40:51,266] [driver] [INFO] Navigating to http://localhost:3000/login
+[2026-06-10 11:40:51,834] [driver] [INFO] ✓ Navigated successfully
+[2026-06-10 11:40:52,835] [pages] [INFO] ✓ Page loaded
+[2026-06-10 11:40:52,835] [pages] [INFO] Entering email: rathanreddy676@gmail.com
+[2026-06-10 11:41:13,954] [driver] [ERROR] ✗ Element not found: ('id', 'email')
+[2026-06-10 11:41:13,954] [driver] [ERROR] ✗ Failed to send keys to ('id', 'email'): Message: Element ('id', 'email') not found after 15s
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff7cb513435+14875]
+	chromedriver!GetHandleVerifier [0x7ff7cb513490+148d0]
+	chromedriver!(No symbol) [0x7ff7cb06778d]
+	chromedriver!(No symbol) [0x7ff7cb0c195d]
+	chromedriver!(No symbol) [0x7ff7cb0c1c5c]
+	chromedriver!(No symbol) [0x7ff7cb111e37]
+	chromedriver!(No symbol) [0x7ff7cb10e9fc]
+	chromedriver!(No symbol) [0x7ff7cb0b3eb0]
+	chromedriver!(No symbol) [0x7ff7cb0b4e23]
+	chromedriver!GetHandleVerifier [0x7ff7cbaf6c91+5f80d1]
+	chromedriver!GetHandleVerifier [0x7ff7cbaf101b+5f245b]
+	chromedriver!GetHandleVerifier [0x7ff7cbb16305+617745]
+	chromedriver!GetHandleVerifier [0x7ff7cb5303ee+3182e]
+	chromedriver!GetHandleVerifier [0x7ff7cb538b0c+39f4c]
+	chromedriver!GetHandleVerifier [0x7ff7cb51cb04+1df44]
+	chromedriver!GetHandleVerifier [0x7ff7cb51cc94+1e0d4]
+	chromedriver!GetHandleVerifier [0x7ff7cb500997+1dd7]
+	KERNEL32!BaseThreadInitThunk [0x7ffba329e957+17]
+	ntdll!RtlUserThreadStart [0x7ffba448427c+2c]
+
+[2026-06-10 11:41:13,954] [test_cases] [ERROR] ✗ TEST FAILED: Message: Element ('id', 'email') not found after 15s
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff7cb513435+14875]
+	chromedriver!GetHandleVerifier [0x7ff7cb513490+148d0]
+	chromedriver!(No symbol) [0x7ff7cb06778d]
+	chromedriver!(No symbol) [0x7ff7cb0c195d]
+	chromedriver!(No symbol) [0x7ff7cb0c1c5c]
+	chromedriver!(No symbol) [0x7ff7cb111e37]
+	chromedriver!(No symbol) [0x7ff7cb10e9fc]
+	chromedriver!(No symbol) [0x7ff7cb0b3eb0]
+	chromedriver!(No symbol) [0x7ff7cb0b4e23]
+	chromedriver!GetHandleVerifier [0x7ff7cbaf6c91+5f80d1]
+	chromedriver!GetHandleVerifier [0x7ff7cbaf101b+5f245b]
+	chromedriver!GetHandleVerifier [0x7ff7cbb16305+617745]
+	chromedriver!GetHandleVerifier [0x7ff7cb5303ee+3182e]
+	chromedriver!GetHandleVerifier [0x7ff7cb538b0c+39f4c]
+	chromedriver!GetHandleVerifier [0x7ff7cb51cb04+1df44]
+	chromedriver!GetHandleVerifier [0x7ff7cb51cc94+1e0d4]
+	chromedriver!GetHandleVerifier [0x7ff7cb500997+1dd7]
+	KERNEL32!BaseThreadInitThunk [0x7ffba329e957+17]
+	ntdll!RtlUserThreadStart [0x7ffba448427c+2c]
+
+[2026-06-10 11:41:14,041] [driver] [INFO] ✓ Screenshot saved: D:\cureconnect-backend\selenium_testing\reports\screenshots\test_03_failed.png
+[2026-06-10 11:41:14,043] [test_cases] [INFO] Test Duration: 22.78s
+[2026-06-10 11:41:14,043] [test_cases] [INFO] Test Result: FAILED
+[2026-06-10 11:41:14,043] [test_cases] [INFO] ================================================================================
+
+[2026-06-10 11:41:16,236] [driver] [INFO] ✓ Browser closed successfully
+[2026-06-10 11:41:16,236] [test_cases] [INFO] 
+================================================================================
+[2026-06-10 11:41:16,236] [test_cases] [INFO] Starting test: test_04_navigate_to_doctors
+[2026-06-10 11:41:16,236] [test_cases] [INFO] ================================================================================
+[2026-06-10 11:41:16,236] [driver] [INFO] Initializing Selenium WebDriver
+[2026-06-10 11:41:16,236] [driver] [INFO] Starting chrome browser
+[2026-06-10 11:41:17,964] [driver] [INFO] Chrome browser initialized
+[2026-06-10 11:41:17,970] [driver] [INFO] ✓ Browser initialized successfully
+[2026-06-10 11:41:17,971] [pages] [INFO] [ACTION] Logging in as rathanreddy676@gmail.com
+[2026-06-10 11:41:17,971] [pages] [INFO] Navigating to login page
+[2026-06-10 11:41:17,971] [driver] [INFO] Navigating to http://localhost:3000/login
+[2026-06-10 11:41:18,565] [driver] [INFO] ✓ Navigated successfully
+[2026-06-10 11:41:19,567] [pages] [INFO] ✓ Page loaded
+[2026-06-10 11:41:19,567] [pages] [INFO] Entering email: rathanreddy676@gmail.com
+[2026-06-10 11:41:40,677] [driver] [ERROR] ✗ Element not found: ('id', 'email')
+[2026-06-10 11:41:40,677] [driver] [ERROR] ✗ Failed to send keys to ('id', 'email'): Message: Element ('id', 'email') not found after 15s
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff7cb513435+14875]
+	chromedriver!GetHandleVerifier [0x7ff7cb513490+148d0]
+	chromedriver!(No symbol) [0x7ff7cb06778d]
+	chromedriver!(No symbol) [0x7ff7cb0c195d]
+	chromedriver!(No symbol) [0x7ff7cb0c1c5c]
+	chromedriver!(No symbol) [0x7ff7cb111e37]
+	chromedriver!(No symbol) [0x7ff7cb10e9fc]
+	chromedriver!(No symbol) [0x7ff7cb0b3eb0]
+	chromedriver!(No symbol) [0x7ff7cb0b4e23]
+	chromedriver!GetHandleVerifier [0x7ff7cbaf6c91+5f80d1]
+	chromedriver!GetHandleVerifier [0x7ff7cbaf101b+5f245b]
+	chromedriver!GetHandleVerifier [0x7ff7cbb16305+617745]
+	chromedriver!GetHandleVerifier [0x7ff7cb5303ee+3182e]
+	chromedriver!GetHandleVerifier [0x7ff7cb538b0c+39f4c]
+	chromedriver!GetHandleVerifier [0x7ff7cb51cb04+1df44]
+	chromedriver!GetHandleVerifier [0x7ff7cb51cc94+1e0d4]
+	chromedriver!GetHandleVerifier [0x7ff7cb500997+1dd7]
+	KERNEL32!BaseThreadInitThunk [0x7ffba329e957+17]
+	ntdll!RtlUserThreadStart [0x7ffba448427c+2c]
+
+[2026-06-10 11:41:40,677] [test_cases] [INFO] 
+================================================================================
+[2026-06-10 11:41:40,677] [test_cases] [INFO] Starting test: test_05_navigate_to_appointments
+[2026-06-10 11:41:40,677] [test_cases] [INFO] ================================================================================
+[2026-06-10 11:41:40,677] [driver] [INFO] Initializing Selenium WebDriver
+[2026-06-10 11:41:40,677] [driver] [INFO] Starting chrome browser
+[2026-06-10 11:41:42,204] [driver] [INFO] Chrome browser initialized
+[2026-06-10 11:41:42,207] [driver] [INFO] ✓ Browser initialized successfully
+[2026-06-10 11:41:42,209] [pages] [INFO] [ACTION] Logging in as rathanreddy676@gmail.com
+[2026-06-10 11:41:42,209] [pages] [INFO] Navigating to login page
+[2026-06-10 11:41:42,209] [driver] [INFO] Navigating to http://localhost:3000/login
+[2026-06-10 11:41:42,841] [driver] [INFO] ✓ Navigated successfully
+[2026-06-10 11:41:43,844] [pages] [INFO] ✓ Page loaded
+[2026-06-10 11:41:43,844] [pages] [INFO] Entering email: rathanreddy676@gmail.com
+[2026-06-10 11:41:55,357] [__main__] [WARNING] 
+Test execution interrupted by user

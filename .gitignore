@@ -1,0 +1,17 @@
+medicheck-app/node_modules/
+medicheck-app/.expo/
+medicheck-app/dist/
+medicheck-app/web-build/
+medicheck-app/expo-env.d.ts
+medicheck-app/.env
+medicheck-app/.env*.local
+medicheck-app/android/
+medicheck-app/ios/
+
+cureconnect-backend/venv/
+cureconnect-backend/.env
+cureconnect-backend/.pytest_cache/
+cureconnect-backend/**/__pycache__/
+cureconnect-backend/**/*.pyc
+cureconnect-backend/debug.txt
+cureconnect-backend/**/*.apk

@@ -1,0 +1,118 @@
+[2026-06-10 11:27:36,628] [__main__] [INFO] TestRunner initialized
+[2026-06-10 11:27:36,628] [__main__] [INFO] Checking Python version...
+[2026-06-10 11:27:36,628] [__main__] [INFO] Checking required packages...
+[2026-06-10 11:27:36,628] [__main__] [INFO] Checking configuration...
+[2026-06-10 11:27:36,640] [__main__] [INFO] Checking directories...
+[2026-06-10 11:27:36,642] [__main__] [INFO] Test execution started at 2026-06-10 11:27:36
+[2026-06-10 11:27:36,642] [__main__] [INFO] Browser: chrome
+[2026-06-10 11:27:36,642] [__main__] [INFO] Base URL: http://localhost:3000
+[2026-06-10 11:27:36,644] [__main__] [INFO] 
+Total tests to run: 13
+[2026-06-10 11:27:36,644] [test_cases] [INFO] 
+================================================================================
+[2026-06-10 11:27:36,644] [test_cases] [INFO] Starting test: test_01_login_with_valid_credentials
+[2026-06-10 11:27:36,644] [test_cases] [INFO] ================================================================================
+[2026-06-10 11:27:36,644] [driver] [INFO] Initializing Selenium WebDriver
+[2026-06-10 11:27:36,645] [driver] [INFO] Starting chrome browser
+[2026-06-10 11:27:38,183] [driver] [INFO] Chrome browser initialized
+[2026-06-10 11:27:38,190] [test_cases] [INFO] 
+[TEST] Login with valid credentials
+[2026-06-10 11:27:38,190] [pages] [INFO] [ACTION] Logging in as rathanreddy676@gmail.com
+[2026-06-10 11:27:38,190] [pages] [INFO] Navigating to login page
+[2026-06-10 11:27:38,191] [driver] [INFO] Navigating to http://localhost:3000/login
+[2026-06-10 11:27:39,687] [pages] [INFO] Entering email: rathanreddy676@gmail.com
+[2026-06-10 11:28:00,832] [test_cases] [INFO] Test Duration: 22.64s
+[2026-06-10 11:28:00,832] [test_cases] [INFO] Test Result: FAILED
+[2026-06-10 11:28:00,832] [test_cases] [INFO] ================================================================================
+
+[2026-06-10 11:28:02,981] [test_cases] [INFO] 
+================================================================================
+[2026-06-10 11:28:02,981] [test_cases] [INFO] Starting test: test_02_login_with_invalid_credentials
+[2026-06-10 11:28:02,981] [test_cases] [INFO] ================================================================================
+[2026-06-10 11:28:02,981] [driver] [INFO] Initializing Selenium WebDriver
+[2026-06-10 11:28:02,981] [driver] [INFO] Starting chrome browser
+[2026-06-10 11:28:04,322] [driver] [INFO] Chrome browser initialized
+[2026-06-10 11:28:04,326] [test_cases] [INFO] 
+[TEST] Login with invalid credentials
+[2026-06-10 11:28:04,326] [pages] [INFO] [ACTION] Logging in as invalid@example.com
+[2026-06-10 11:28:04,326] [pages] [INFO] Navigating to login page
+[2026-06-10 11:28:04,326] [driver] [INFO] Navigating to http://localhost:3000/login
+[2026-06-10 11:28:05,862] [pages] [INFO] Entering email: invalid@example.com
+[2026-06-10 11:28:26,967] [test_cases] [INFO] Test Duration: 22.64s
+[2026-06-10 11:28:26,968] [test_cases] [INFO] Test Result: FAILED
+[2026-06-10 11:28:26,968] [test_cases] [INFO] ================================================================================
+
+[2026-06-10 11:28:29,103] [test_cases] [INFO] 
+================================================================================
+[2026-06-10 11:28:29,103] [test_cases] [INFO] Starting test: test_03_logout_functionality
+[2026-06-10 11:28:29,103] [test_cases] [INFO] ================================================================================
+[2026-06-10 11:28:29,103] [driver] [INFO] Initializing Selenium WebDriver
+[2026-06-10 11:28:29,103] [driver] [INFO] Starting chrome browser
+[2026-06-10 11:28:30,457] [driver] [INFO] Chrome browser initialized
+[2026-06-10 11:28:30,460] [test_cases] [INFO] 
+[TEST] Logout functionality
+[2026-06-10 11:28:30,460] [pages] [INFO] [ACTION] Logging in as rathanreddy676@gmail.com
+[2026-06-10 11:28:30,460] [pages] [INFO] Navigating to login page
+[2026-06-10 11:28:30,461] [driver] [INFO] Navigating to http://localhost:3000/login
+[2026-06-10 11:28:31,968] [pages] [INFO] Entering email: rathanreddy676@gmail.com
+[2026-06-10 11:28:53,060] [test_cases] [INFO] Test Duration: 22.60s
+[2026-06-10 11:28:53,060] [test_cases] [INFO] Test Result: FAILED
+[2026-06-10 11:28:53,060] [test_cases] [INFO] ================================================================================
+
+[2026-06-10 11:28:55,188] [test_cases] [INFO] 
+================================================================================
+[2026-06-10 11:28:55,188] [test_cases] [INFO] Starting test: test_04_navigate_to_doctors
+[2026-06-10 11:28:55,188] [test_cases] [INFO] ================================================================================
+[2026-06-10 11:28:55,188] [driver] [INFO] Initializing Selenium WebDriver
+[2026-06-10 11:28:55,188] [driver] [INFO] Starting chrome browser
+[2026-06-10 11:28:56,589] [driver] [INFO] Chrome browser initialized
+[2026-06-10 11:28:56,592] [pages] [INFO] [ACTION] Logging in as rathanreddy676@gmail.com
+[2026-06-10 11:28:56,592] [pages] [INFO] Navigating to login page
+[2026-06-10 11:28:56,593] [driver] [INFO] Navigating to http://localhost:3000/login
+[2026-06-10 11:28:58,143] [pages] [INFO] Entering email: rathanreddy676@gmail.com
+[2026-06-10 11:29:19,251] [test_cases] [INFO] 
+================================================================================
+[2026-06-10 11:29:19,251] [test_cases] [INFO] Starting test: test_05_navigate_to_appointments
+[2026-06-10 11:29:19,251] [test_cases] [INFO] ================================================================================
+[2026-06-10 11:29:19,251] [driver] [INFO] Initializing Selenium WebDriver
+[2026-06-10 11:29:19,251] [driver] [INFO] Starting chrome browser
+[2026-06-10 11:29:20,599] [driver] [INFO] Chrome browser initialized
+[2026-06-10 11:29:20,602] [pages] [INFO] [ACTION] Logging in as rathanreddy676@gmail.com
+[2026-06-10 11:29:20,603] [pages] [INFO] Navigating to login page
+[2026-06-10 11:29:20,603] [driver] [INFO] Navigating to http://localhost:3000/login
+[2026-06-10 11:29:22,125] [pages] [INFO] Entering email: rathanreddy676@gmail.com
+[2026-06-10 11:29:43,186] [test_cases] [INFO] 
+================================================================================
+[2026-06-10 11:29:43,186] [test_cases] [INFO] Starting test: test_06_navigate_to_medicines
+[2026-06-10 11:29:43,186] [test_cases] [INFO] ================================================================================
+[2026-06-10 11:29:43,186] [driver] [INFO] Initializing Selenium WebDriver
+[2026-06-10 11:29:43,186] [driver] [INFO] Starting chrome browser
+[2026-06-10 11:29:44,619] [driver] [INFO] Chrome browser initialized
+[2026-06-10 11:29:44,623] [pages] [INFO] [ACTION] Logging in as rathanreddy676@gmail.com
+[2026-06-10 11:29:44,623] [pages] [INFO] Navigating to login page
+[2026-06-10 11:29:44,623] [driver] [INFO] Navigating to http://localhost:3000/login
+[2026-06-10 11:29:46,171] [pages] [INFO] Entering email: rathanreddy676@gmail.com
+[2026-06-10 11:30:07,208] [test_cases] [INFO] 
+================================================================================
+[2026-06-10 11:30:07,208] [test_cases] [INFO] Starting test: test_07_navigate_to_profile
+[2026-06-10 11:30:07,208] [test_cases] [INFO] ================================================================================
+[2026-06-10 11:30:07,208] [driver] [INFO] Initializing Selenium WebDriver
+[2026-06-10 11:30:07,208] [driver] [INFO] Starting chrome browser
+[2026-06-10 11:30:08,553] [driver] [INFO] Chrome browser initialized
+[2026-06-10 11:30:08,557] [pages] [INFO] [ACTION] Logging in as rathanreddy676@gmail.com
+[2026-06-10 11:30:08,557] [pages] [INFO] Navigating to login page
+[2026-06-10 11:30:08,557] [driver] [INFO] Navigating to http://localhost:3000/login
+[2026-06-10 11:30:10,095] [pages] [INFO] Entering email: rathanreddy676@gmail.com
+[2026-06-10 11:30:31,164] [test_cases] [INFO] 
+================================================================================
+[2026-06-10 11:30:31,164] [test_cases] [INFO] Starting test: test_08_search_doctors
+[2026-06-10 11:30:31,164] [test_cases] [INFO] ================================================================================
+[2026-06-10 11:30:31,164] [driver] [INFO] Initializing Selenium WebDriver
+[2026-06-10 11:30:31,164] [driver] [INFO] Starting chrome browser
+[2026-06-10 11:30:32,568] [driver] [INFO] Chrome browser initialized
+[2026-06-10 11:30:32,571] [pages] [INFO] [ACTION] Logging in as rathanreddy676@gmail.com
+[2026-06-10 11:30:32,571] [pages] [INFO] Navigating to login page
+[2026-06-10 11:30:32,571] [driver] [INFO] Navigating to http://localhost:3000/login
+[2026-06-10 11:30:34,102] [pages] [INFO] Entering email: rathanreddy676@gmail.com
+[2026-06-10 11:30:49,046] [__main__] [WARNING] 
+Test execution interrupted by user

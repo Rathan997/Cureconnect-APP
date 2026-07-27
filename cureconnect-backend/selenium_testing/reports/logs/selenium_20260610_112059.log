@@ -1,0 +1,35 @@
+[2026-06-10 11:20:59,207] [__main__] [INFO] TestRunner initialized
+[2026-06-10 11:20:59,207] [__main__] [INFO] Checking Python version...
+[2026-06-10 11:20:59,207] [__main__] [INFO] Checking required packages...
+[2026-06-10 11:20:59,207] [__main__] [INFO] Checking configuration...
+[2026-06-10 11:20:59,213] [__main__] [INFO] Checking directories...
+[2026-06-10 11:20:59,216] [__main__] [INFO] Test execution started at 2026-06-10 11:20:59
+[2026-06-10 11:20:59,216] [__main__] [INFO] Browser: chrome
+[2026-06-10 11:20:59,216] [__main__] [INFO] Base URL: http://localhost:3000
+[2026-06-10 11:20:59,217] [__main__] [INFO] 
+Total tests to run: 13
+[2026-06-10 11:20:59,217] [test_cases] [INFO] 
+================================================================================
+[2026-06-10 11:20:59,230] [test_cases] [INFO] Starting test: test_01_login_with_valid_credentials
+[2026-06-10 11:20:59,230] [test_cases] [INFO] ================================================================================
+[2026-06-10 11:20:59,230] [driver] [INFO] Initializing Selenium WebDriver
+[2026-06-10 11:20:59,230] [driver] [INFO] Starting chrome browser
+[2026-06-10 11:21:00,736] [driver] [INFO] Chrome browser initialized
+[2026-06-10 11:21:00,741] [test_cases] [INFO] 
+[TEST] Login with valid credentials
+[2026-06-10 11:21:00,741] [pages] [INFO] [ACTION] Logging in as rathanreddy676@gmail.com
+[2026-06-10 11:21:00,741] [pages] [INFO] Navigating to login page
+[2026-06-10 11:21:00,741] [driver] [INFO] Navigating to http://localhost:3000/login
+[2026-06-10 11:21:02,295] [pages] [INFO] Entering email: rathanreddy676@gmail.com
+[2026-06-10 11:21:18,508] [test_cases] [INFO] Test Duration: 17.77s
+[2026-06-10 11:21:18,508] [test_cases] [INFO] Test Result: FAILED
+[2026-06-10 11:21:18,508] [test_cases] [INFO] ================================================================================
+
+[2026-06-10 11:21:20,536] [test_cases] [INFO] 
+================================================================================
+[2026-06-10 11:21:20,536] [test_cases] [INFO] Starting test: test_02_login_with_invalid_credentials
+[2026-06-10 11:21:20,536] [test_cases] [INFO] ================================================================================
+[2026-06-10 11:21:20,536] [driver] [INFO] Initializing Selenium WebDriver
+[2026-06-10 11:21:20,536] [driver] [INFO] Starting chrome browser
+[2026-06-10 11:21:21,411] [__main__] [WARNING] 
+Test execution interrupted by user

@@ -1,0 +1,13 @@
+[2026-06-11 08:43:57,004] [runner] [INFO] Log file: D:\cureconnect-backend\appium_testing\reports\logs\appium_run_20260611_084357.log
+[2026-06-11 08:43:57,004] [runner] [INFO] ======================================================================
+[2026-06-11 08:43:57,004] [runner] [INFO] CHECKING PREREQUISITES
+[2026-06-11 08:43:57,005] [runner] [INFO] ======================================================================
+[2026-06-11 08:43:59,068] [driver] [ERROR] Cannot reach Appium server at http://127.0.0.1:4723
+[2026-06-11 08:43:59,068] [driver] [ERROR] Start it with: appium --port 4723
+[2026-06-11 08:43:59,072] [runner] [ERROR] [FAIL] Appium server not running.
+[2026-06-11 08:43:59,072] [runner] [ERROR]     Start it:  appium --port 4723
+[2026-06-11 08:44:01,996] [driver] [ERROR] No Android devices/emulators connected via ADB
+[2026-06-11 08:44:01,996] [driver] [ERROR] Run `adb devices` to check, or start an emulator
+[2026-06-11 08:44:01,996] [runner] [ERROR] [FAIL] No Android device / emulator connected via ADB.
+[2026-06-11 08:44:01,996] [runner] [ERROR]     Run `adb devices` to verify.
+[2026-06-11 08:44:01,997] [runner] [INFO] [ OK ] APK found: D:\cureconnect-backend\appium_testing\app-release.apk
