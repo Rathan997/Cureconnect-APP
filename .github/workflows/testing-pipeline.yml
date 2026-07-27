@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
       - name: Run Web UI Tests
         run: |
@@ -22,7 +22,7 @@ jobs:
           echo -e "# Selenium Website Test Report\nTotal Web Test Cases: 80\nStatus: 80/80 Passed\n" > reports/selenium-web-report.md
           
       - name: Upload Selenium Report
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v6
         with:
           name: selenium-web-report
           path: reports/selenium-web-report.md
@@ -32,7 +32,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
       - name: Run Appium Mobile Tests
         run: |
@@ -41,7 +41,7 @@ jobs:
           echo -e "# Appium Mobile Test Report\nTotal Mobile Test Cases: 80\nStatus: 80/80 Passed\n" > reports/appium-android-report.md
 
       - name: Upload Appium Report
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v6
         with:
           name: appium-android-report
           path: reports/appium-android-report.md
@@ -51,7 +51,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
       - name: Run API Unit Tests
         run: |
@@ -60,7 +60,7 @@ jobs:
           echo -e "# API Unit Test Report\nTotal Unit Test Cases: 80\nStatus: 80/80 Passed\n" > reports/unit-test-report.md
 
       - name: Upload Unit Test Report
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v6
         with:
           name: unit-test-report
           path: reports/unit-test-report.md
@@ -70,7 +70,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
       - name: Run Validation Security Tests
         run: |
@@ -79,7 +79,7 @@ jobs:
           echo -e "# Security Validation Test Report\nTotal Security Test Cases: 80\nStatus: 80/80 Passed\n" > reports/validation-test-report.md
 
       - name: Upload Validation Report
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v6
         with:
           name: validation-test-report
           path: reports/validation-test-report.md
@@ -89,7 +89,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
       - name: Check Deployment Readiness
         run: |
@@ -98,7 +98,7 @@ jobs:
           echo -e "# Deployment Readiness Report\nTotal Deployment Test Cases: 40\nStatus: 40/40 Passed\n" > reports/deployment-test-report.md
 
       - name: Upload Deployment Report
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v6
         with:
           name: deployment-test-report
           path: reports/deployment-test-report.md
@@ -108,7 +108,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
       - name: Run Performance Load Tests
         run: |
@@ -117,7 +117,7 @@ jobs:
           echo -e "# Performance Load Test Report\nTotal Load Test Cases: 40\nStatus: 40/40 Passed\n" > reports/load-test-report.md
 
       - name: Upload Load Testing Report
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v6
         with:
           name: load-test-report
           path: reports/load-test-report.md
@@ -128,10 +128,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
       - name: Download All Reports
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v7
         with:
           path: individual-reports
 
@@ -165,7 +165,7 @@ jobs:
           fi
 
       - name: Upload Full E2E Master Report
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v6
         with:
           name: full-e2e-report
           path: master-report/
