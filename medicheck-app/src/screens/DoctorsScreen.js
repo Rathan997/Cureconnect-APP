@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import {
   View, Text, StyleSheet, ScrollView, TextInput,
   TouchableOpacity, SafeAreaView, Alert, Linking,
-  ActivityIndicator
+  ActivityIndicator, FlatList
 } from 'react-native';
 import * as Location from 'expo-location';
 import { doctorsAPI } from '../services/api';
@@ -175,73 +175,79 @@ export default function DoctorsScreen({ navigation }) {
         <Text style={styles.refreshBtnText}>📍 Refresh My Location</Text>
       </TouchableOpacity>
 
-      <ScrollView testID="doctors-list" style={styles.list} showsVerticalScrollIndicator={false}>
-        {filtered.length === 0 ? (
+      <FlatList
+        testID="doctors-list"
+        style={styles.list}
+        data={filtered}
+        keyExtractor={item => item.id}
+        initialNumToRender={10}
+        maxToRenderPerBatch={10}
+        windowSize={5}
+        showsVerticalScrollIndicator={false}
+        ListEmptyComponent={
           <View style={styles.emptyBox}>
             <Text style={styles.emptyIcon}>🔍</Text>
             <Text style={styles.emptyTitle}>No doctors found</Text>
             <Text style={styles.emptySub}>Try searching by city or state name</Text>
           </View>
-        ) : (
-          filtered.map(doctor => (
+        }
+        ListFooterComponent={<View style={{ height: 40 }} />}
+        renderItem={({ item: doctor }) => (
+          <TouchableOpacity
+            testID="doctor-card"
+            style={styles.card}
+            onPress={() => navigation.navigate('DoctorDetail', { doctor })}
+            activeOpacity={0.9}
+          >
+            <View style={styles.cardTop}>
+              <View style={styles.doctorIconBox}>
+                <Text style={styles.doctorIcon}>👨‍⚕️</Text>
+              </View>
+              <View style={{ flex: 1 }}>
+                <Text testID="doctor-name" style={styles.doctorName}>{doctor.name}</Text>
+                <Text style={styles.doctorSpec}>{doctor.specialization}</Text>
+                <View style={styles.metaRow}>
+                  <Text style={styles.rating}>★ {doctor.rating}</Text>
+                  <Text style={styles.reviews}>({doctor.reviews} reviews)</Text>
+                  <Text style={styles.exp}>· {doctor.experience}</Text>
+                </View>
+              </View>
+              {doctor.distance !== undefined && (
+                <View style={styles.distanceBadge}>
+                  <Text style={styles.distanceText}>{doctor.distance} km</Text>
+                </View>
+              )}
+            </View>
+
+            <View style={styles.detailsWrap}>
+              <View style={styles.detailPill}>
+                <Text style={styles.detailPillText}>🏥 {doctor.clinic}</Text>
+              </View>
+              <View style={styles.detailPill}>
+                <Text style={styles.detailPillText}>📍 {doctor.area}, {doctor.city}</Text>
+              </View>
+              <View style={styles.detailPill}>
+                <Text style={styles.detailPillText}>🗺️ {doctor.state}</Text>
+              </View>
+              <View style={styles.detailPill}>
+                <Text style={styles.detailPillText}>🕐 {doctor.timings}</Text>
+              </View>
+              <View style={[styles.detailPill, styles.feePill]}>
+                <Text style={[styles.detailPillText, { color: '#0077B6', fontWeight: '700' }]}>
+                  💰 ₹{doctor.fee}
+                </Text>
+              </View>
+            </View>
+
             <TouchableOpacity
-              testID="doctor-card"
-              key={doctor.id}
-              style={styles.card}
+              style={styles.callBtn}
               onPress={() => navigation.navigate('DoctorDetail', { doctor })}
-              activeOpacity={0.9}
             >
-              <View style={styles.cardTop}>
-                <View style={styles.doctorIconBox}>
-                  <Text style={styles.doctorIcon}>👨‍⚕️</Text>
-                </View>
-                <View style={{ flex: 1 }}>
-                  <Text testID="doctor-name" style={styles.doctorName}>{doctor.name}</Text>
-                  <Text style={styles.doctorSpec}>{doctor.specialization}</Text>
-                  <View style={styles.metaRow}>
-                    <Text style={styles.rating}>★ {doctor.rating}</Text>
-                    <Text style={styles.reviews}>({doctor.reviews} reviews)</Text>
-                    <Text style={styles.exp}>· {doctor.experience}</Text>
-                  </View>
-                </View>
-                {doctor.distance !== undefined && (
-                  <View style={styles.distanceBadge}>
-                    <Text style={styles.distanceText}>{doctor.distance} km</Text>
-                  </View>
-                )}
-              </View>
-
-              <View style={styles.detailsWrap}>
-                <View style={styles.detailPill}>
-                  <Text style={styles.detailPillText}>🏥 {doctor.clinic}</Text>
-                </View>
-                <View style={styles.detailPill}>
-                  <Text style={styles.detailPillText}>📍 {doctor.area}, {doctor.city}</Text>
-                </View>
-                <View style={styles.detailPill}>
-                  <Text style={styles.detailPillText}>🗺️ {doctor.state}</Text>
-                </View>
-                <View style={styles.detailPill}>
-                  <Text style={styles.detailPillText}>🕐 {doctor.timings}</Text>
-                </View>
-                <View style={[styles.detailPill, styles.feePill]}>
-                  <Text style={[styles.detailPillText, { color: '#0077B6', fontWeight: '700' }]}>
-                    💰 ₹{doctor.fee}
-                  </Text>
-                </View>
-              </View>
-
-              <TouchableOpacity
-                style={styles.callBtn}
-                onPress={() => navigation.navigate('DoctorDetail', { doctor })}
-              >
-                <Text style={styles.callBtnText}>View Full Profile →</Text>
-              </TouchableOpacity>
+              <Text style={styles.callBtnText}>View Full Profile →</Text>
             </TouchableOpacity>
-          ))
+          </TouchableOpacity>
         )}
-        <View style={{ height: 40 }} />
-      </ScrollView>
+      />
     </SafeAreaView>
   );
 }

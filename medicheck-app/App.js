@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from 'react';
 import { StatusBar } from 'expo-status-bar';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
-import { Alert, AppState, LogBox } from 'react-native';
+import { Alert, AppState, LogBox, Platform } from 'react-native';
 
 // Suppress push notification warnings that are irrelevant for local reminders in Expo Go
 LogBox.ignoreLogs([
@@ -13,7 +13,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import AppNavigator from './src/navigation/AppNavigator';
 
 const FAMILY_KEY = 'Cureconnect_family';
-const BASE_URL = 'http://10.43.151.175:8000';
+const BASE_URL = Platform.OS === 'android' ? 'http://172.23.50.218:8000' : 'http://localhost:8000';
 
 function parseTime(timeStr) {
   try {
