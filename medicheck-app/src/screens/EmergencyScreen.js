@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import {
   View, Text, StyleSheet, ScrollView, TouchableOpacity,
-  SafeAreaView, Linking, Alert
+  SafeAreaView, Linking, Alert, Platform
 } from 'react-native';
 
 const EMERGENCY_CONTACTS = [
@@ -60,10 +60,38 @@ export default function EmergencyScreen({ navigation }) {
   const [expandedTip, setExpandedTip] = useState(null);
 
   const callNumber = (number, name) => {
-    Alert.alert(`Call ${name}`, `Call ${name} on ${number}?`, [
-      { text: 'Cancel', style: 'cancel' },
-      { text: `Call ${number}`, style: 'destructive', onPress: () => Linking.openURL(`tel:${number}`) },
-    ]);
+    if (Platform.OS === 'web') {
+      Alert.alert(
+        `Emergency Contact: ${name}`,
+        `Phone Number: ${number}\n\nCalling is not supported directly on web browsers. What would you like to do?`,
+        [
+          { text: 'Cancel', style: 'cancel' },
+          { 
+            text: '📋 Copy Number', 
+            onPress: () => {
+              if (navigator.clipboard) {
+                navigator.clipboard.writeText(number);
+                Alert.alert('Copied!', `${name} number (${number}) copied to clipboard.`);
+              } else {
+                Alert.alert('Unable to Copy', `Please dial manually: ${number}`);
+              }
+            } 
+          },
+          { 
+            text: '📍 Search Near Me', 
+            onPress: () => {
+              const query = encodeURIComponent(`${name} near me`);
+              Linking.openURL(`https://www.google.com/maps/search/${query}`);
+            } 
+          },
+        ]
+      );
+    } else {
+      Alert.alert(`Call ${name}`, `Call ${name} on ${number}?`, [
+        { text: 'Cancel', style: 'cancel' },
+        { text: `Call ${number}`, style: 'destructive', onPress: () => Linking.openURL(`tel:${number}`) },
+      ]);
+    }
   };
 
   return (
@@ -81,20 +109,43 @@ export default function EmergencyScreen({ navigation }) {
           <Text style={styles.headerSub}>Quick access to emergency services</Text>
         </View>
 
-        {/* SOS Button */}
+        {/* SOS Button / Web Hospital Search */}
         <View style={styles.sosWrap}>
-          <View style={styles.sosRing}>
+          <View style={[
+            styles.sosRing, 
+            Platform.OS === 'web' && { borderRadius: 16, width: 280, height: 80, shadowColor: '#0077B6' }
+          ]}>
             <TouchableOpacity
-              style={styles.sosBtn}
-              onPress={() => callNumber('108', 'Ambulance')}
+              style={[
+                styles.sosBtn, 
+                Platform.OS === 'web' && { borderRadius: 12, width: '100%', height: '100%', flexDirection: 'row', gap: 12, backgroundColor: '#0077B6' }
+              ]}
+              onPress={() => {
+                if (Platform.OS === 'web') {
+                  Linking.openURL('https://www.google.com/maps/search/hospitals+near+me');
+                } else {
+                  callNumber('108', 'Ambulance');
+                }
+              }}
             >
-              <Text style={styles.sosBtnIcon}>🚨</Text>
-              <Text style={styles.sosBtnTitle}>SOS</Text>
-              <Text style={styles.sosBtnSub}>Tap to call 108</Text>
+              <Text style={styles.sosBtnIcon}>{Platform.OS === 'web' ? '🏥' : '🚨'}</Text>
+              <View style={Platform.OS === 'web' ? { alignItems: 'flex-start' } : { alignItems: 'center' }}>
+                <Text style={[
+                  styles.sosBtnTitle, 
+                  Platform.OS === 'web' && { fontSize: 16, letterSpacing: 0.5 }
+                ]}>
+                  {Platform.OS === 'web' ? 'Find Nearby Hospitals' : 'SOS'}
+                </Text>
+                <Text style={styles.sosBtnSub}>
+                  {Platform.OS === 'web' ? 'Open Google Maps search' : 'Tap to call 108'}
+                </Text>
+              </View>
             </TouchableOpacity>
           </View>
           <Text style={styles.sosHint}>
-            Press the button to immediately call an ambulance
+            {Platform.OS === 'web' 
+              ? 'Find and navigate to the nearest hospitals and medical centers' 
+              : 'Press the button to immediately call an ambulance'}
           </Text>
         </View>
 
