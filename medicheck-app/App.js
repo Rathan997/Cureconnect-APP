@@ -11,9 +11,9 @@ LogBox.ignoreLogs([
 ]);
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import AppNavigator from './src/navigation/AppNavigator';
+import { BASE_URL } from './src/services/api';
 
 const FAMILY_KEY = 'Cureconnect_family';
-const BASE_URL = Platform.OS === 'android' ? 'http://172.23.50.218:8000' : 'http://localhost:8000';
 
 function parseTime(timeStr) {
   try {
