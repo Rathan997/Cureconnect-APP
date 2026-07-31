@@ -193,7 +193,33 @@ export const getScheduledNotifications = async () => {
 };
 
 export const sendTestNotification = async () => {
-  if (Platform.OS === 'web') return;
+  if (Platform.OS === 'web') {
+    try {
+      if (typeof window !== 'undefined' && 'Notification' in window) {
+        if (window.Notification.permission === 'granted') {
+          new window.Notification('💊 CureConnect Medicine Reminder', {
+            body: 'Time to take your medicine! Stay healthy 🌟',
+          });
+        } else if (window.Notification.permission !== 'denied') {
+          const permission = await window.Notification.requestPermission();
+          if (permission === 'granted') {
+            new window.Notification('💊 CureConnect Medicine Reminder', {
+              body: 'Time to take your medicine! Stay healthy 🌟',
+            });
+          } else {
+            alert('🔔 CureConnect Reminder:\nTime to take your medicine! Stay healthy 🌟');
+          }
+        } else {
+          alert('🔔 CureConnect Reminder:\nTime to take your medicine! Stay healthy 🌟');
+        }
+      } else {
+        alert('🔔 CureConnect Reminder:\nTime to take your medicine! Stay healthy 🌟');
+      }
+    } catch (e) {
+      alert('🔔 CureConnect Reminder:\nTime to take your medicine! Stay healthy 🌟');
+    }
+    return;
+  }
   try {
     const granted = await requestNotificationPermission();
     if (!granted) return;
