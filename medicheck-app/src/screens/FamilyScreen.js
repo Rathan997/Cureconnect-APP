@@ -1,8 +1,9 @@
 import React, { useState, useEffect, useRef } from 'react';
 import {
   View, Text, StyleSheet, ScrollView, TextInput,
-  TouchableOpacity, SafeAreaView, Alert, ActivityIndicator, AppState
+  TouchableOpacity, SafeAreaView, Alert, ActivityIndicator, AppState, Platform
 } from 'react-native';
+import * as Notifications from 'expo-notifications';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import useUserStore from '../store/userStore';
 import { familyAPI } from '../services/api';
@@ -543,11 +544,24 @@ export default function FamilyScreen({ navigation }) {
             const parsed = parseTime(timeStr);
             if (!parsed) continue;
             if (parsed.hour === currentHour && Math.abs(parsed.minute - currentMinute) <= 2) {
-              Alert.alert(
-                `💊 Medicine Reminder`,
-                `Time for ${member.name} to take ${med.name}!\n\n${med.dosage || ''}\n${med.instructions || ''}`.trim(),
-                [{ text: 'OK ✅' }]
-              );
+              if (Platform.OS !== 'web') {
+                Notifications.scheduleNotificationAsync({
+                  content: {
+                    title: '💊 Medicine Reminder',
+                    body: `Time for ${member.name} to take ${med.name}!\n${med.dosage || ''}\n${med.instructions || ''}`.trim(),
+                    sound: true,
+                    priority: 'max',
+                    color: '#03045E',
+                  },
+                  trigger: null,
+                }).catch(err => console.warn(err));
+              } else {
+                Alert.alert(
+                  `💊 Medicine Reminder`,
+                  `Time for ${member.name} to take ${med.name}!\n\n${med.dosage || ''}\n${med.instructions || ''}`.trim(),
+                  [{ text: 'OK ✅' }]
+                );
+              }
             }
           }
         }

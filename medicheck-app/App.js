@@ -10,6 +10,7 @@ LogBox.ignoreLogs([
   '`expo-notifications` functionality is not fully supported in Expo Go',
 ]);
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import * as Notifications from 'expo-notifications';
 import AppNavigator from './src/navigation/AppNavigator';
 import { BASE_URL } from './src/services/api';
 
@@ -57,11 +58,24 @@ async function checkAllReminders() {
           const parsed = parseTime(timeStr);
           if (!parsed) continue;
           if (parsed.hour === currentHour && Math.abs(parsed.minute - currentMinute) <= 1) {
-            Alert.alert(
-              '💊 Medicine Reminder',
-              `Time to take ${med.name}!`,
-              [{ text: 'OK ✅' }]
-            );
+            if (Platform.OS !== 'web') {
+              Notifications.scheduleNotificationAsync({
+                content: {
+                  title: '💊 Medicine Reminder',
+                  body: `Time to take ${med.name}!`,
+                  sound: true,
+                  priority: 'max',
+                  color: '#03045E',
+                },
+                trigger: null,
+              }).catch(err => console.warn(err));
+            } else {
+              Alert.alert(
+                '💊 Medicine Reminder',
+                `Time to take ${med.name}!`,
+                [{ text: 'OK ✅' }]
+              );
+            }
           }
         }
       }
@@ -84,11 +98,24 @@ async function checkAllReminders() {
             const parsed = parseTime(timeStr);
             if (!parsed) continue;
             if (parsed.hour === currentHour && Math.abs(parsed.minute - currentMinute) <= 1) {
-              Alert.alert(
-                '💊 Family Medicine Reminder',
-                `Time for ${member.name} to take ${med.name}!`,
-                [{ text: 'OK ✅' }]
-              );
+              if (Platform.OS !== 'web') {
+                Notifications.scheduleNotificationAsync({
+                  content: {
+                    title: '💊 Family Medicine Reminder',
+                    body: `Time for ${member.name} to take ${med.name}!`,
+                    sound: true,
+                    priority: 'max',
+                    color: '#03045E',
+                  },
+                  trigger: null,
+                }).catch(err => console.warn(err));
+              } else {
+                Alert.alert(
+                  '💊 Family Medicine Reminder',
+                  `Time for ${member.name} to take ${med.name}!`,
+                  [{ text: 'OK ✅' }]
+                );
+              }
             }
           }
         }
