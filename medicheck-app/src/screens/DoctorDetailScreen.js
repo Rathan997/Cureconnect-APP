@@ -1,13 +1,14 @@
 import React from 'react';
 import {
   View, Text, StyleSheet, ScrollView,
-  TouchableOpacity, SafeAreaView, Linking
+  TouchableOpacity, SafeAreaView, Linking, Platform
 } from 'react-native';
 
 export default function DoctorDetailScreen({ navigation, route }) {
   const { doctor } = route.params;
 
   const callDoctor = () => {
+    if (Platform.OS === 'web') return;
     const cleaned = doctor.phone ? doctor.phone.replace(/\s+/g, '') : '';
     Linking.openURL(`tel:${cleaned}`);
   };
@@ -125,13 +126,17 @@ export default function DoctorDetailScreen({ navigation, route }) {
           </View>
 
           {/* Contact */}
-          <Text style={styles.sectionTitle}>Contact</Text>
-          <View style={styles.sectionCard}>
-            <View style={styles.timingRow}>
-              <Text style={styles.timingIcon}>📞</Text>
-              <Text style={styles.timingText}>{doctor.phone}</Text>
-            </View>
-          </View>
+          {Platform.OS !== 'web' && (
+            <>
+              <Text style={styles.sectionTitle}>Contact</Text>
+              <View style={styles.sectionCard}>
+                <View style={styles.timingRow}>
+                  <Text style={styles.timingIcon}>📞</Text>
+                  <Text style={styles.timingText}>{doctor.phone}</Text>
+                </View>
+              </View>
+            </>
+          )}
 
           {/* Distance */}
           {doctor.distance !== undefined && (
@@ -153,9 +158,11 @@ export default function DoctorDetailScreen({ navigation, route }) {
 
       {/* Bottom Buttons */}
       <View style={styles.bottomBtns}>
-        <TouchableOpacity style={styles.callBtn} onPress={callDoctor}>
-          <Text style={styles.callBtnText}>📞 Call Now</Text>
-        </TouchableOpacity>
+        {Platform.OS !== 'web' && (
+          <TouchableOpacity style={styles.callBtn} onPress={callDoctor}>
+            <Text style={styles.callBtnText}>📞 Call Now</Text>
+          </TouchableOpacity>
+        )}
         <TouchableOpacity style={styles.dirBtn} onPress={getDirections}>
           <Text style={styles.dirBtnText}>🗺️ Get Directions</Text>
         </TouchableOpacity>

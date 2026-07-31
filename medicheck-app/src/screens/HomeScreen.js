@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import {
   View, Text, StyleSheet, ScrollView,
-  TouchableOpacity, SafeAreaView, Animated, Dimensions
+  TouchableOpacity, SafeAreaView, Animated, Dimensions, Platform
 } from 'react-native';
 import useUserStore from '../store/userStore';
 
@@ -72,6 +72,7 @@ export default function HomeScreen({ navigation }) {
   const headerOpacity = useRef(new Animated.Value(0)).current;
   const [dailyTipIndex, setDailyTipIndex] = useState(0);
   const tipAnim = useRef(new Animated.Value(1)).current;
+  const [showWebNotifBanner, setShowWebNotifBanner] = useState(false);
 
   useEffect(() => {
     loadStoredSession();
@@ -83,7 +84,32 @@ export default function HomeScreen({ navigation }) {
     // Set daily tip based on day of year
     const dayOfYear = Math.floor((new Date() - new Date(new Date().getFullYear(), 0, 0)) / 86400000);
     setDailyTipIndex(dayOfYear % HEALTH_TIPS.length);
+
+    // Check if we need to request web notification permission
+    if (Platform.OS === 'web' && typeof window !== 'undefined' && 'Notification' in window) {
+      if (window.Notification.permission !== 'granted') {
+        setShowWebNotifBanner(true);
+      }
+    }
   }, []);
+
+  const enableWebNotifications = async () => {
+    try {
+      if (typeof window !== 'undefined' && 'Notification' in window) {
+        const permission = await window.Notification.requestPermission();
+        if (permission === 'granted') {
+          setShowWebNotifBanner(false);
+          new window.Notification('🔔 CureConnect Alerts Enabled!', {
+            body: 'You will now receive daily medicine reminders directly on your computer.'
+          });
+        } else {
+          alert('Notification permission was denied. Please enable it in your browser settings.');
+        }
+      }
+    } catch (e) {
+      console.warn(e);
+    }
+  };
 
   const rotateTip = () => {
     Animated.sequence([
@@ -142,6 +168,18 @@ export default function HomeScreen({ navigation }) {
             <Text style={styles.bannerEmoji}>🩺</Text>
           </TouchableOpacity>
         </Animated.View>
+
+        {/* Web Notification Banner */}
+        {showWebNotifBanner && (
+          <View style={styles.notifBanner}>
+            <Text style={styles.notifBannerText}>
+              🔔 Enable desktop alerts to get timely medication & health notifications on this computer!
+            </Text>
+            <TouchableOpacity style={styles.notifBannerBtn} onPress={enableWebNotifications}>
+              <Text style={styles.notifBannerBtnText}>Enable</Text>
+            </TouchableOpacity>
+          </View>
+        )}
 
         {/* Quick Actions */}
         <View style={styles.section}>
@@ -295,4 +333,34 @@ const styles = StyleSheet.create({
   didYouKnowText: { fontSize: 14, color: '#6B7280', lineHeight: 22 },
   tryNowBtn: { backgroundColor: '#03045E', borderRadius: 12, paddingVertical: 12, alignItems: 'center' },
   tryNowBtnText: { color: '#fff', fontWeight: '700', fontSize: 13 },
+  notifBanner: {
+    marginHorizontal: 20,
+    marginTop: 16,
+    backgroundColor: '#E8F4FD',
+    borderRadius: 16,
+    padding: 16,
+    borderLeftWidth: 4,
+    borderLeftColor: '#0077B6',
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    gap: 12,
+  },
+  notifBannerText: {
+    fontSize: 13,
+    fontWeight: '700',
+    color: '#03045E',
+    flex: 1,
+  },
+  notifBannerBtn: {
+    backgroundColor: '#0077B6',
+    borderRadius: 10,
+    paddingVertical: 8,
+    paddingHorizontal: 14,
+  },
+  notifBannerBtnText: {
+    color: '#fff',
+    fontWeight: '700',
+    fontSize: 12,
+  },
 });

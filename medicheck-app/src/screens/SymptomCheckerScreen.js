@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import {
   View, Text, StyleSheet, ScrollView, TextInput,
   TouchableOpacity, ActivityIndicator, SafeAreaView,
-  Alert, Linking
+  Alert, Linking, Platform
 } from 'react-native';
 import * as Location from 'expo-location';
 import useUserStore from '../store/userStore';
@@ -76,6 +76,7 @@ const SEVERITY_CONFIG = {
 
 function SuggestedDoctorCard({ doctor }) {
   const callDoctor = () => {
+    if (Platform.OS === 'web') return;
     const cleanedPhone = doctor.phone ? doctor.phone.replace(/\s+/g, '') : '';
     Alert.alert(
       `Call ${doctor.name}`,
@@ -85,6 +86,11 @@ function SuggestedDoctorCard({ doctor }) {
         { text: '📞 Call Now', onPress: () => Linking.openURL(`tel:${cleanedPhone}`) },
       ]
     );
+  };
+
+  const openMap = () => {
+    const address = encodeURIComponent(`${doctor.clinic || ''}, ${doctor.area || ''}, ${doctor.city || ''}`);
+    Linking.openURL(`https://www.google.com/maps/search/?api=1&query=${address}`);
   };
 
   return (
@@ -124,9 +130,15 @@ function SuggestedDoctorCard({ doctor }) {
         </View>
       </View>
 
-      <TouchableOpacity style={styles.callBtn} onPress={callDoctor}>
-        <Text style={styles.callBtnText}>📞 Call Doctor</Text>
-      </TouchableOpacity>
+      {Platform.OS === 'web' ? (
+        <TouchableOpacity style={styles.callBtn} onPress={openMap}>
+          <Text style={styles.callBtnText}>🗺️ View on Map</Text>
+        </TouchableOpacity>
+      ) : (
+        <TouchableOpacity style={styles.callBtn} onPress={callDoctor}>
+          <Text style={styles.callBtnText}>📞 Call Doctor</Text>
+        </TouchableOpacity>
+      )}
     </View>
   );
 }

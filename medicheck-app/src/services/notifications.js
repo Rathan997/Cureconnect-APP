@@ -28,7 +28,22 @@ function parseTime(timeStr) {
 }
 
 export const requestNotificationPermission = async () => {
-  if (Platform.OS === 'web') return false;
+  if (Platform.OS === 'web') {
+    try {
+      if (typeof window !== 'undefined' && 'Notification' in window) {
+        if (window.Notification.permission === 'granted') {
+          return true;
+        }
+        if (window.Notification.permission !== 'denied') {
+          const permission = await window.Notification.requestPermission();
+          return permission === 'granted';
+        }
+      }
+    } catch (e) {
+      console.warn('Web notification permission error:', e);
+    }
+    return false;
+  }
   try {
     const { status: existingStatus } = await Notifications.getPermissionsAsync();
     let finalStatus = existingStatus;
