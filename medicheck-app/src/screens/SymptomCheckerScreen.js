@@ -210,7 +210,7 @@ export default function SymptomCheckerScreen({ navigation }) {
     // Fetch nearby doctors based on GPS location
     try {
       const data = await doctorsAPI.getNearby(userLat, userLng, specialist, 50000);
-      const nearby = (data.doctors || []).slice(0, 3);
+      const nearby = (data.doctors || []).slice(0, 6);
       setSuggestedDoctors(nearby);
     } catch (e) {
       console.warn('Could not fetch nearby doctors:', e.message);
