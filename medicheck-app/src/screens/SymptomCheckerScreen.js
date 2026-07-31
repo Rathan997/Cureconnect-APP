@@ -76,12 +76,13 @@ const SEVERITY_CONFIG = {
 
 function SuggestedDoctorCard({ doctor }) {
   const callDoctor = () => {
+    const cleanedPhone = doctor.phone ? doctor.phone.replace(/\s+/g, '') : '';
     Alert.alert(
       `Call ${doctor.name}`,
       `🏥 ${doctor.clinic}, ${doctor.area}\n📍 ${doctor.city}, ${doctor.state}\n🕐 ${doctor.timings}\n💰 ₹${doctor.fee}`,
       [
         { text: 'Cancel', style: 'cancel' },
-        { text: '📞 Call Now', onPress: () => Linking.openURL(`tel:${doctor.phone}`) },
+        { text: '📞 Call Now', onPress: () => Linking.openURL(`tel:${cleanedPhone}`) },
       ]
     );
   };

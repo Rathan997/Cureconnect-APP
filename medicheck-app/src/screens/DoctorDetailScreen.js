@@ -8,7 +8,8 @@ export default function DoctorDetailScreen({ navigation, route }) {
   const { doctor } = route.params;
 
   const callDoctor = () => {
-    Linking.openURL(`tel:${doctor.phone}`);
+    const cleaned = doctor.phone ? doctor.phone.replace(/\s+/g, '') : '';
+    Linking.openURL(`tel:${cleaned}`);
   };
 
   const getDirections = () => {
