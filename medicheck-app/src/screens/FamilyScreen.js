@@ -509,13 +509,13 @@ async function showWebNotification(title, body) {
       if (permission === 'granted') {
         new window.Notification(title, { body });
       } else {
-        Alert.alert(title, body);
+        window.alert(title + '\n' + body);
       }
     } else {
-      Alert.alert(title, body);
+      window.alert(title + '\n' + body);
     }
   } else {
-    Alert.alert(title, body);
+    window.alert(title + '\n' + body);
   }
 }
 

@@ -207,16 +207,16 @@ export const sendTestNotification = async () => {
               body: 'Time to take your medicine! Stay healthy 🌟',
             });
           } else {
-            alert('🔔 CureConnect Reminder:\nTime to take your medicine! Stay healthy 🌟');
+            window.alert('🔔 CureConnect Reminder:\nTime to take your medicine! Stay healthy 🌟');
           }
         } else {
-          alert('🔔 CureConnect Reminder:\nTime to take your medicine! Stay healthy 🌟');
+          window.alert('🔔 CureConnect Reminder:\nTime to take your medicine! Stay healthy 🌟');
         }
       } else {
-        alert('🔔 CureConnect Reminder:\nTime to take your medicine! Stay healthy 🌟');
+        window.alert('🔔 CureConnect Reminder:\nTime to take your medicine! Stay healthy 🌟');
       }
     } catch (e) {
-      alert('🔔 CureConnect Reminder:\nTime to take your medicine! Stay healthy 🌟');
+      window.alert('🔔 CureConnect Reminder:\nTime to take your medicine! Stay healthy 🌟');
     }
     return;
   }
