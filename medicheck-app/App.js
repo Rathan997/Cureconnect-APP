@@ -13,6 +13,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import * as Notifications from 'expo-notifications';
 import AppNavigator from './src/navigation/AppNavigator';
 import { BASE_URL } from './src/services/api';
+import './src/services/notifications';
 
 const FAMILY_KEY = 'Cureconnect_family';
 

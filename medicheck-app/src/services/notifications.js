@@ -85,9 +85,9 @@ export const scheduleMedicineReminder = async (medicine) => {
           color: '#03045E',
         },
         trigger: {
+          type: 'daily',
           hour: parsed.hour,
           minute: parsed.minute,
-          repeats: true,
         },
       });
       scheduledIds.push(id);
@@ -145,7 +145,10 @@ export const scheduleExpiryAlert = async (medicine) => {
         sound: true,
         color: '#E63946',
       },
-      trigger: { seconds: secondsRemaining },
+      trigger: {
+        type: 'timeInterval',
+        seconds: secondsRemaining,
+      },
     });
     console.log(`Scheduled expiry alert for ${medicine.name} in ${secondsRemaining} seconds`);
     return id;
@@ -195,26 +198,30 @@ export const getScheduledNotifications = async () => {
 export const sendTestNotification = async () => {
   if (Platform.OS === 'web') {
     try {
+      let shown = false;
       if (typeof window !== 'undefined' && 'Notification' in window) {
         if (window.Notification.permission === 'granted') {
           new window.Notification('💊 CureConnect Medicine Reminder', {
             body: 'Time to take your medicine! Stay healthy 🌟',
           });
+          shown = true;
         } else if (window.Notification.permission !== 'denied') {
           const permission = await window.Notification.requestPermission();
           if (permission === 'granted') {
             new window.Notification('💊 CureConnect Medicine Reminder', {
               body: 'Time to take your medicine! Stay healthy 🌟',
             });
-          } else {
-            window.alert('🔔 CureConnect Reminder:\nTime to take your medicine! Stay healthy 🌟');
+            shown = true;
           }
-        } else {
-          window.alert('🔔 CureConnect Reminder:\nTime to take your medicine! Stay healthy 🌟');
         }
-      } else {
-        window.alert('🔔 CureConnect Reminder:\nTime to take your medicine! Stay healthy 🌟');
       }
+      
+      window.alert(
+        '🔔 Test Notification Triggered!\n\n' +
+        'If a desktop banner did not appear at the edge of your screen, check:\n' +
+        '1. Browser address bar permissions (make sure Notifications are allowed)\n' +
+        '2. Your computer system settings (make sure Focus Assist or Do Not Disturb is turned off)'
+      );
     } catch (e) {
       window.alert('🔔 CureConnect Reminder:\nTime to take your medicine! Stay healthy 🌟');
     }
