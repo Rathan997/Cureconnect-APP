@@ -134,6 +134,9 @@ export const scheduleExpiryAlert = async (medicine) => {
       body = `Your medicine "${medicine.name}" expires soon on ${medicine.expiry}!`;
     }
 
+    // Calculate relative seconds until trigger date
+    const secondsRemaining = Math.max(1, Math.round((triggerDate.getTime() - Date.now()) / 1000));
+
     const id = await Notifications.scheduleNotificationAsync({
       content: {
         title: title,
@@ -142,9 +145,9 @@ export const scheduleExpiryAlert = async (medicine) => {
         sound: true,
         color: '#E63946',
       },
-      trigger: { date: triggerDate },
+      trigger: { seconds: secondsRemaining },
     });
-    console.log(`Scheduled expiry alert for ${medicine.name} on ${triggerDate.toDateString()}`);
+    console.log(`Scheduled expiry alert for ${medicine.name} in ${secondsRemaining} seconds`);
     return id;
   } catch (e) {
     console.warn('Error scheduling expiry alert:', e);
