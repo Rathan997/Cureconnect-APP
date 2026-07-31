@@ -28,5 +28,15 @@ def verify_token(
         raise HTTPException(status_code=401, detail="Invalid token")
 
 
+from app.database import SessionLocal
+from app.models.models import User
+
 def get_current_user(token: dict = Depends(verify_token)):
-    return token
+    db = SessionLocal()
+    try:
+        user = db.query(User).filter(User.id == token.get("user_id")).first()
+        if not user:
+            raise HTTPException(status_code=401, detail="User not found")
+        return user
+    finally:
+        db.close()

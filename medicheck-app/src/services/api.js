@@ -3,7 +3,7 @@ import { Platform } from 'react-native';
 
 // Use 10.0.2.2 for Android emulators to connect to localhost. 
 // If using a physical device, change this to your computer's local IP address (e.g., http://192.168.x.x:8000)
-const BASE_URL = Platform.OS === 'android' ? 'http://172.23.50.218:8000' : 'http://localhost:8000';
+const BASE_URL = Platform.OS === 'android' ? 'http://10.147.222.175:8000' : 'http://localhost:8000';
 
 const getToken = async () => {
   try {

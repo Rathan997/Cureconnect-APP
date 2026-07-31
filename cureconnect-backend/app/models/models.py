@@ -1,4 +1,5 @@
 from sqlalchemy import Column, Integer, String, Boolean, DateTime, Float, ForeignKey, Text
+from sqlalchemy.dialects.postgresql import UUID
 from sqlalchemy.orm import relationship
 from sqlalchemy.sql import func
 from app.database import Base
@@ -6,7 +7,7 @@ from app.database import Base
 class User(Base):
     __tablename__ = "users"
 
-    id = Column(Integer, primary_key=True, index=True)
+    id = Column(UUID(as_uuid=True), primary_key=True, index=True)
     name = Column(String, nullable=False)
     email = Column(String, unique=True, index=True, nullable=False)
     password = Column(String, nullable=False)
@@ -33,7 +34,7 @@ class Appointment(Base):
     __tablename__ = "appointments"
 
     id = Column(Integer, primary_key=True, index=True)
-    user_id = Column(Integer, ForeignKey("users.id"), nullable=False)
+    user_id = Column(UUID(as_uuid=True), ForeignKey("users.id"), nullable=False)
     doctor_name = Column(String, nullable=False)
     specialization = Column(String, nullable=False)
     hospital = Column(String, nullable=False)
@@ -52,8 +53,8 @@ class Appointment(Base):
 class Medicine(Base):
     __tablename__ = "medicines"
 
-    id = Column(Integer, primary_key=True, index=True)
-    user_id = Column(Integer, ForeignKey("users.id"), nullable=False)
+    id = Column(String(36), primary_key=True, index=True)
+    user_id = Column(String(36), ForeignKey("users.id"), nullable=False)
     name = Column(String, nullable=False)
     generic = Column(String, nullable=True)
     manufacturer = Column(String, nullable=True)
@@ -71,8 +72,8 @@ class Medicine(Base):
 class FamilyMember(Base):
     __tablename__ = "family_members"
 
-    id = Column(Integer, primary_key=True, index=True)
-    user_id = Column(Integer, ForeignKey("users.id"), nullable=False)
+    id = Column(String(36), primary_key=True, index=True)
+    user_id = Column(String(36), ForeignKey("users.id"), nullable=False)
     name = Column(String, nullable=False)
     age = Column(String, nullable=True)
     relation = Column(String, nullable=False)
@@ -90,8 +91,8 @@ class FamilyMember(Base):
 class SymptomCheck(Base):
     __tablename__ = "symptom_checks"
 
-    id = Column(Integer, primary_key=True, index=True)
-    user_id = Column(Integer, ForeignKey("users.id"), nullable=False)
+    id = Column(String(36), primary_key=True, index=True)
+    user_id = Column(String(36), ForeignKey("users.id"), nullable=False)
     symptoms = Column(Text, nullable=False)
     condition = Column(String, nullable=True)
     specialist = Column(String, nullable=True)

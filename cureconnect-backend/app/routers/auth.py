@@ -331,10 +331,17 @@ async def forgot_password(body: ForgotPasswordRequest):
                 "email": body.email
             }
 
-        raise HTTPException(
-            status_code=500,
-            detail="Failed to send email"
+        # Fallback if SMTP connection fails (e.g. port blocked by ISP/firewall/VPN)
+        logger.warning(
+            f"SMTP email delivery failed for {body.email}. "
+            f"Developer fallback activated: Check terminal/logs for OTP! "
+            f"OTP is: {otp}"
         )
+        return {
+            "message": f"OTP is {otp} (logged to console due to SMTP failure) ⚠️",
+            "email": body.email,
+            "warning": "SMTP failed. Please check the backend terminal/logs to view the OTP."
+        }
 
     except HTTPException:
         raise

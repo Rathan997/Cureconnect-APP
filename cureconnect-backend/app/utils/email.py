@@ -6,15 +6,31 @@ from email.mime.text import MIMEText
 from datetime import datetime, timedelta
 import os
 import logging
+from dotenv import load_dotenv
+
+load_dotenv()
 
 logger = logging.getLogger(__name__)
 
+def get_env_clean(key: str, default: str) -> str:
+    val = os.getenv(key, default)
+    if val:
+        val = val.strip()
+        if (val.startswith('"') and val.endswith('"')) or (val.startswith("'") and val.endswith("'")):
+            val = val[1:-1]
+        val = val.strip()
+    return val
+
 # Email config
-MAIL_USERNAME = "rathanreddy676@gmail.com"
-MAIL_PASSWORD = "hyku yiui wjhs lxew"
-MAIL_FROM = "CureConnect <rathanreddy676@gmail.com>"
-MAIL_SERVER = "smtp.gmail.com"
-MAIL_PORT = 587
+MAIL_USERNAME = get_env_clean("MAIL_USERNAME", "support.cureconnect@gmail.com")
+MAIL_PASSWORD = get_env_clean("MAIL_PASSWORD", "uxdu sijc ujyr qfvk")
+MAIL_FROM = get_env_clean("MAIL_FROM", "CureConnect <support.cureconnect@gmail.com>")
+MAIL_SERVER = get_env_clean("MAIL_SERVER", "smtp.gmail.com")
+
+try:
+    MAIL_PORT = int(get_env_clean("MAIL_PORT", "587"))
+except ValueError:
+    MAIL_PORT = 587
 
 # OTP store in memory
 otp_store = {}
@@ -117,10 +133,15 @@ def send_otp_email(to_email: str, otp: str, user_name: str = "User") -> bool:
 
         msg.attach(MIMEText(html, "html"))
 
-        with smtplib.SMTP(MAIL_SERVER, MAIL_PORT) as server:
-            server.starttls()
-            server.login(MAIL_USERNAME, MAIL_PASSWORD)
-            server.sendmail(MAIL_FROM, to_email, msg.as_string())
+        if MAIL_PORT == 465:
+            with smtplib.SMTP_SSL(MAIL_SERVER, MAIL_PORT, timeout=3) as server:
+                server.login(MAIL_USERNAME, MAIL_PASSWORD)
+                server.sendmail(MAIL_FROM, to_email, msg.as_string())
+        else:
+            with smtplib.SMTP(MAIL_SERVER, MAIL_PORT, timeout=3) as server:
+                server.starttls()
+                server.login(MAIL_USERNAME, MAIL_PASSWORD)
+                server.sendmail(MAIL_FROM, to_email, msg.as_string())
 
         logger.info(f"OTP email sent to {to_email}")
         return True

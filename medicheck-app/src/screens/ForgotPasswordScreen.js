@@ -30,11 +30,11 @@ export default function ForgotPasswordScreen({ navigation }) {
     }
     setLoading(true);
     try {
-      await authAPI.forgotPassword(email);
+      const res = await authAPI.forgotPassword(email);
       setStep(STEPS.OTP);
       Alert.alert(
-        '📧 OTP Sent!',
-        `A 6-digit OTP has been sent to\n${email}\n\nPlease check your inbox!`,
+        '📧 OTP Status',
+        res.message || `A 6-digit OTP has been sent to\n${email}\n\nPlease check your inbox!`,
         [{ text: 'Got it!' }]
       );
     } catch (e) {
@@ -77,10 +77,10 @@ export default function ForgotPasswordScreen({ navigation }) {
     setOtp('');
     setLoading(true);
     try {
-      await authAPI.forgotPassword(email);
+      const res = await authAPI.forgotPassword(email);
       Alert.alert(
-        '📧 New OTP Sent!',
-        `A new OTP has been sent to ${email}. Please check your inbox!`,
+        '📧 New OTP Status',
+        res.message || `A new OTP has been sent to ${email}. Please check your inbox!`,
         [{ text: 'Got it!' }]
       );
     } catch (e) {
