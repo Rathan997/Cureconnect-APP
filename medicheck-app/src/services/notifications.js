@@ -107,31 +107,45 @@ export const scheduleExpiryAlert = async (medicine) => {
     const granted = await requestNotificationPermission();
     if (!granted) return null;
 
-    const [monthStr, yearStr] = medicine.expiry.split('/');
-    if (!monthStr || !yearStr) return null;
+    const parts = medicine.expiry.split(':');
+    if (parts.length !== 3) return null;
+    const day = parseInt(parts[0], 10);
+    const month = parseInt(parts[1], 10);
+    const year = parseInt(parts[2], 10);
 
-    const month = parseInt(monthStr, 10);
-    const year = parseInt(yearStr, 10);
-    // expiry is treated as the first day of that month
-    const expiryDate = new Date(year, month - 1, 1);
-    // Alert 7 days before the expiry date
-    const alertDate = new Date(expiryDate.getTime() - 7 * 24 * 60 * 60 * 1000);
+    if (isNaN(day) || isNaN(month) || isNaN(year)) return null;
 
-    if (alertDate > new Date()) {
-      const id = await Notifications.scheduleNotificationAsync({
-        content: {
-          title: '⚠️ Medicine Expiring Soon',
-          body: `Your medicine "${medicine.name}" will expire in 7 days (on ${medicine.expiry})!`,
-          data: { medicineId: medicine.id, type: 'expiry' },
-          sound: true,
-          color: '#E63946',
-        },
-        trigger: alertDate,
-      });
-      console.log(`Scheduled expiry alert for ${medicine.name} on ${alertDate.toDateString()}`);
-      return id;
+    const expiryDate = new Date(year, month - 1, day);
+    const now = new Date();
+
+    let triggerDate = new Date(expiryDate.getTime() - 7 * 24 * 60 * 60 * 1000);
+    let title = '⚠️ Medicine Expiring Soon';
+    let body = `Your medicine "${medicine.name}" will expire on ${medicine.expiry}!`;
+
+    if (expiryDate <= now) {
+      // Already expired! Notify immediately (5s delay)
+      triggerDate = new Date(Date.now() + 5000);
+      title = '❌ Medicine Expired';
+      body = `Your medicine "${medicine.name}" has expired (on ${medicine.expiry})!`;
+    } else if (triggerDate <= now) {
+      // Expiring in less than 7 days! Notify immediately (5s delay)
+      triggerDate = new Date(Date.now() + 5000);
+      title = '⚠️ Medicine Expiring Soon';
+      body = `Your medicine "${medicine.name}" expires soon on ${medicine.expiry}!`;
     }
-    return null;
+
+    const id = await Notifications.scheduleNotificationAsync({
+      content: {
+        title: title,
+        body: body,
+        data: { medicineId: medicine.id, type: 'expiry' },
+        sound: true,
+        color: '#E63946',
+      },
+      trigger: triggerDate,
+    });
+    console.log(`Scheduled expiry alert for ${medicine.name} on ${triggerDate.toDateString()}`);
+    return id;
   } catch (e) {
     console.warn('Error scheduling expiry alert:', e);
     return null;

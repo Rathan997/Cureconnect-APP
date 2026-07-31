@@ -27,6 +27,11 @@ function ManualAddModal({ onAdd, onClose }) {
       Alert.alert('Missing Info', 'Please enter medicine name and expiry date.');
       return;
     }
+    const expiryRegex = /^\d{2}:\d{2}:\d{4}$/;
+    if (!expiryRegex.test(expiry.trim())) {
+      Alert.alert('Invalid Format', 'Please enter expiry date in DD:MM:YYYY format (e.g. 31:12:2026).');
+      return;
+    }
     onAdd({
       name: name.trim(),
       generic: dosage.trim() || 'N/A',
@@ -46,7 +51,7 @@ function ManualAddModal({ onAdd, onClose }) {
         {[
           { label: 'MEDICINE NAME *', value: name, setter: setName, placeholder: 'e.g. Dolo 650', testID: 'medicine-name-input' },
           { label: 'DOSAGE', value: dosage, setter: setDosage, placeholder: 'e.g. Paracetamol 650mg', testID: 'medicine-dosage-input' },
-          { label: 'EXPIRY DATE *', value: expiry, setter: setExpiry, placeholder: 'e.g. 12/2026', testID: 'medicine-expiry-input' },
+          { label: 'EXPIRY DATE *', value: expiry, setter: setExpiry, placeholder: 'e.g. 31:12:2026', testID: 'medicine-expiry-input' },
           { label: 'REMINDER TIMES', value: times, setter: setTimes, placeholder: 'e.g. 8:00 AM, 2:00 PM', testID: 'medicine-times-input' },
         ].map(field => (
           <View key={field.label} style={styles.fieldWrap}>
@@ -173,16 +178,17 @@ export default function MedicineScanner({ navigation }) {
 
   const isExpired = (expiry) => {
     try {
-      const [month, year] = expiry.split('/');
-      return new Date(parseInt(year), parseInt(month) - 1) < new Date();
+      const [day, month, year] = expiry.split(':');
+      return new Date(parseInt(year), parseInt(month) - 1, parseInt(day)) < new Date();
     } catch { return false; }
   };
 
   const isExpiringSoon = (expiry) => {
     try {
-      const [month, year] = expiry.split('/');
-      const monthsLeft = (new Date(parseInt(year), parseInt(month) - 1) - new Date()) / (1000 * 60 * 60 * 24 * 30);
-      return monthsLeft <= 2 && monthsLeft > 0;
+      const [day, month, year] = expiry.split(':');
+      const expiryDate = new Date(parseInt(year), parseInt(month) - 1, parseInt(day));
+      const daysLeft = (expiryDate - new Date()) / (1000 * 60 * 60 * 24);
+      return daysLeft <= 60 && daysLeft > 0;
     } catch { return false; }
   };
 
