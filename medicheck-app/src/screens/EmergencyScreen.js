@@ -61,31 +61,20 @@ export default function EmergencyScreen({ navigation }) {
 
   const callNumber = (number, name) => {
     if (Platform.OS === 'web') {
-      Alert.alert(
-        `Emergency Contact: ${name}`,
-        `Phone Number: ${number}\n\nCalling is not supported directly on web browsers. What would you like to do?`,
-        [
-          { text: 'Cancel', style: 'cancel' },
-          { 
-            text: '📋 Copy Number', 
-            onPress: () => {
-              if (navigator.clipboard) {
-                navigator.clipboard.writeText(number);
-                Alert.alert('Copied!', `${name} number (${number}) copied to clipboard.`);
-              } else {
-                Alert.alert('Unable to Copy', `Please dial manually: ${number}`);
-              }
-            } 
-          },
-          { 
-            text: '📍 Search Near Me', 
-            onPress: () => {
-              const query = encodeURIComponent(`${name} near me`);
-              Linking.openURL(`https://www.google.com/maps/search/${query}`);
-            } 
-          },
-        ]
+      const choice = window.confirm(
+        `Emergency Contact: ${name}\nPhone Number: ${number}\n\nCalling is not supported directly on web browsers.\n\nWould you like to search for nearby "${name}" locations on Google Maps?\n(Click Cancel to copy the number to clipboard instead)`
       );
+      if (choice) {
+        const query = encodeURIComponent(`${name} near me`);
+        Linking.openURL(`https://www.google.com/maps/search/${query}`);
+      } else {
+        if (navigator.clipboard) {
+          navigator.clipboard.writeText(number);
+          alert(`${name} number (${number}) copied to clipboard.`);
+        } else {
+          alert(`Please dial manually: ${number}`);
+        }
+      }
     } else {
       Alert.alert(`Call ${name}`, `Call ${name} on ${number}?`, [
         { text: 'Cancel', style: 'cancel' },

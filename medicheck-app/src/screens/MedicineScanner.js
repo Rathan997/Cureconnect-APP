@@ -213,7 +213,7 @@ export default function MedicineScanner({ navigation }) {
           style={styles.scanNewBtn}
           onPress={() => setShowManual(true)}
         >
-          <Text style={styles.scanNewBtnText}>➕ Add Medicine Manually</Text>
+          <Text style={styles.scanNewBtnText}>➕ Add Medicine</Text>
         </TouchableOpacity>
 
         {/* Test notification button */}
@@ -235,7 +235,7 @@ export default function MedicineScanner({ navigation }) {
               <View style={styles.emptyBox}>
                 <Text style={styles.emptyIcon}>💊</Text>
                 <Text style={styles.emptyTitle}>No medicines added yet</Text>
-                <Text style={styles.emptySub}>Add medicines manually to get started</Text>
+                <Text style={styles.emptySub}>Add medicines to get started</Text>
               </View>
             ) : (
               savedMedicines.map(med => {
