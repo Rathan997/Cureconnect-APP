@@ -107,7 +107,7 @@ export const scheduleExpiryAlert = async (medicine) => {
     const granted = await requestNotificationPermission();
     if (!granted) return null;
 
-    const parts = medicine.expiry.split(':');
+    const parts = medicine.expiry.split('/');
     if (parts.length !== 3) return null;
     const day = parseInt(parts[0], 10);
     const month = parseInt(parts[1], 10);
