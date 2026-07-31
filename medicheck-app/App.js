@@ -30,6 +30,25 @@ function parseTime(timeStr) {
   } catch { return null; }
 }
 
+async function showWebNotification(title, body) {
+  if (typeof window !== 'undefined' && 'Notification' in window) {
+    if (window.Notification.permission === 'granted') {
+      new window.Notification(title, { body });
+    } else if (window.Notification.permission !== 'denied') {
+      const permission = await window.Notification.requestPermission();
+      if (permission === 'granted') {
+        new window.Notification(title, { body });
+      } else {
+        Alert.alert(title, body);
+      }
+    } else {
+      Alert.alert(title, body);
+    }
+  } else {
+    Alert.alert(title, body);
+  }
+}
+
 async function checkAllReminders() {
   const now = new Date();
   const currentHour = now.getHours();
@@ -70,10 +89,9 @@ async function checkAllReminders() {
                 trigger: null,
               }).catch(err => console.warn(err));
             } else {
-              Alert.alert(
+              showWebNotification(
                 '💊 Medicine Reminder',
-                `Time to take ${med.name}!`,
-                [{ text: 'OK ✅' }]
+                `Time to take ${med.name}!`
               );
             }
           }
@@ -110,10 +128,9 @@ async function checkAllReminders() {
                   trigger: null,
                 }).catch(err => console.warn(err));
               } else {
-                Alert.alert(
+                showWebNotification(
                   '💊 Family Medicine Reminder',
-                  `Time for ${member.name} to take ${med.name}!`,
-                  [{ text: 'OK ✅' }]
+                  `Time for ${member.name} to take ${med.name}!`
                 );
               }
             }
@@ -131,6 +148,12 @@ export default function App() {
   const timerRef = useRef(null);
 
   useEffect(() => {
+    if (Platform.OS === 'web' && typeof window !== 'undefined' && 'Notification' in window) {
+      if (window.Notification.permission !== 'granted' && window.Notification.permission !== 'denied') {
+        window.Notification.requestPermission();
+      }
+    }
+
     checkAllReminders();
     timerRef.current = setInterval(checkAllReminders, 60 * 1000);
 

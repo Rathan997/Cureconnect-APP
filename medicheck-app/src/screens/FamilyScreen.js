@@ -500,6 +500,25 @@ function MemberDetailView({ member, onBack, onUpdate }) {
   );
 }
 
+async function showWebNotification(title, body) {
+  if (typeof window !== 'undefined' && 'Notification' in window) {
+    if (window.Notification.permission === 'granted') {
+      new window.Notification(title, { body });
+    } else if (window.Notification.permission !== 'denied') {
+      const permission = await window.Notification.requestPermission();
+      if (permission === 'granted') {
+        new window.Notification(title, { body });
+      } else {
+        Alert.alert(title, body);
+      }
+    } else {
+      Alert.alert(title, body);
+    }
+  } else {
+    Alert.alert(title, body);
+  }
+}
+
 // ─── Main Screen ──────────────────────────────────────
 export default function FamilyScreen({ navigation }) {
   const [members, setMembers] = useState([]);
@@ -510,6 +529,12 @@ export default function FamilyScreen({ navigation }) {
   const appState = useRef(AppState.currentState);
 
   useEffect(() => {
+    if (Platform.OS === 'web' && typeof window !== 'undefined' && 'Notification' in window) {
+      if (window.Notification.permission !== 'granted' && window.Notification.permission !== 'denied') {
+        window.Notification.requestPermission();
+      }
+    }
+
     loadMembers();
 
     // Check medicine reminders when app comes to foreground
@@ -556,10 +581,9 @@ export default function FamilyScreen({ navigation }) {
                   trigger: null,
                 }).catch(err => console.warn(err));
               } else {
-                Alert.alert(
+                showWebNotification(
                   `💊 Medicine Reminder`,
-                  `Time for ${member.name} to take ${med.name}!\n\n${med.dosage || ''}\n${med.instructions || ''}`.trim(),
-                  [{ text: 'OK ✅' }]
+                  `Time for ${member.name} to take ${med.name}!\n${med.dosage || ''}\n${med.instructions || ''}`.trim()
                 );
               }
             }
