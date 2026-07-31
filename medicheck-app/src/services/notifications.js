@@ -142,7 +142,7 @@ export const scheduleExpiryAlert = async (medicine) => {
         sound: true,
         color: '#E63946',
       },
-      trigger: triggerDate,
+      trigger: { date: triggerDate },
     });
     console.log(`Scheduled expiry alert for ${medicine.name} on ${triggerDate.toDateString()}`);
     return id;
