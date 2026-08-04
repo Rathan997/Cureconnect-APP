@@ -10,7 +10,7 @@ import { medicineAPI, familyAPI } from '../services/api';
 
 const { width } = Dimensions.get('window');
 const MEDICINES_KEY = 'Cureconnect_medicines';
-const FAMILY_KEY = 'medicheck_family';
+const FAMILY_KEY = 'Cureconnect_family';
 const SYMPTOM_HISTORY_KEY = 'cureconnect_symptom_history';
 
 const DAYS = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
@@ -123,6 +123,7 @@ export default function DashboardScreen({ navigation }) {
       try {
         const data = await medicineAPI.getAll();
         meds = data.medicines || [];
+        await AsyncStorage.setItem(MEDICINES_KEY, JSON.stringify(meds));
       } catch {
         const stored = await AsyncStorage.getItem(MEDICINES_KEY);
         meds = stored ? JSON.parse(stored) : [];
@@ -133,6 +134,7 @@ export default function DashboardScreen({ navigation }) {
       try {
         const data = await familyAPI.getAll();
         family = data.members || [];
+        await AsyncStorage.setItem(FAMILY_KEY, JSON.stringify(family));
       } catch {
         const stored = await AsyncStorage.getItem(FAMILY_KEY);
         family = stored ? JSON.parse(stored) : [];

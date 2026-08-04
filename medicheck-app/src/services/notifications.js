@@ -7,6 +7,8 @@ Notifications.setNotificationHandler({
     shouldShowAlert: true,
     shouldPlaySound: true,
     shouldSetBadge: false,
+    shouldShowBanner: true,
+    shouldShowList: true,
   }),
 });
 
@@ -78,12 +80,12 @@ export const scheduleMedicineReminder = async (medicine) => {
     const granted = await requestNotificationPermission();
     if (!granted) return [];
 
-    const timesRaw = medicine.reminderTimes || [];
+    const timesRaw = medicine.reminderTimes || medicine.reminder_times || [];
     const times = Array.isArray(timesRaw)
       ? timesRaw
       : typeof timesRaw === 'string'
-      ? timesRaw.split(',').map(t => t.trim()).filter(Boolean)
-      : [];
+        ? timesRaw.split(',').map(t => t.trim()).filter(Boolean)
+        : [];
 
     const scheduledIds = [];
     for (const timeStr of times) {
@@ -98,6 +100,9 @@ export const scheduleMedicineReminder = async (medicine) => {
           sound: true,
           priority: 'max',
           color: '#03045E',
+          android: {
+            channelId: 'default',
+          },
         },
         trigger: {
           type: 'daily',
@@ -159,10 +164,14 @@ export const scheduleExpiryAlert = async (medicine) => {
         data: { medicineId: medicine.id, type: 'expiry' },
         sound: true,
         color: '#E63946',
+        android: {
+          channelId: 'default',
+        },
       },
       trigger: {
         type: 'timeInterval',
         seconds: secondsRemaining,
+        repeats: false,
       },
     });
     console.log(`Scheduled expiry alert for ${medicine.name} in ${secondsRemaining} seconds`);
@@ -230,7 +239,7 @@ export const sendTestNotification = async () => {
           }
         }
       }
-      
+
       window.alert(
         '🔔 Test Notification Triggered!\n\n' +
         'If a desktop banner did not appear at the edge of your screen, check:\n' +
@@ -260,3 +269,91 @@ export const sendTestNotification = async () => {
     console.warn('Test notification error:', e);
   }
 };
+
+export const syncMedicinesWithLocalNotifications = async (backendMedicines) => {
+  if (Platform.OS === 'web') return;
+  try {
+    const scheduled = await Notifications.getAllScheduledNotificationsAsync();
+    
+    // Create sets/maps of already scheduled combinations
+    // Key format: `reminder_${medicineId}_${time}` or `expiry_${medicineId}`
+    const scheduledKeys = new Set();
+    const scheduledNotificationIds = {}; // medicineId -> array of identifiers
+    
+    for (const notification of scheduled) {
+      const data = notification.content.data;
+      if (data && data.medicineId) {
+        if (!scheduledNotificationIds[data.medicineId]) {
+          scheduledNotificationIds[data.medicineId] = [];
+        }
+        scheduledNotificationIds[data.medicineId].push(notification.identifier);
+
+        if (data.type === 'reminder') {
+          const key = `reminder_${data.medicineId}_${data.time}`;
+          scheduledKeys.add(key);
+        } else if (data.type === 'expiry') {
+          const key = `expiry_${data.medicineId}`;
+          scheduledKeys.add(key);
+        }
+      }
+    }
+
+    // List of active medicine IDs on backend
+    const activeBackendIds = new Set(backendMedicines.map(m => m.id));
+
+    // 1. Cancel notifications for medicines that were deleted on backend
+    for (const medicineId in scheduledNotificationIds) {
+      if (!activeBackendIds.has(medicineId)) {
+        console.log(`Medicine ${medicineId} not in backend list, cancelling scheduled notifications...`);
+        for (const identifier of scheduledNotificationIds[medicineId]) {
+          await Notifications.cancelScheduledNotificationAsync(identifier);
+        }
+      }
+    }
+
+    // 2. Schedule reminders and expiry alerts for medicines that don't have them scheduled yet
+    for (const med of backendMedicines) {
+      // Normalize times
+      const timesRaw = med.reminder_times || med.reminderTimes || '';
+      const times = Array.isArray(timesRaw)
+        ? timesRaw
+        : typeof timesRaw === 'string'
+        ? timesRaw.split(',').map(t => t.trim()).filter(Boolean)
+        : [];
+
+      // Check if reminders are scheduled
+      let needsReminderScheduling = false;
+      for (const timeStr of times) {
+        const key = `reminder_${med.id}_${timeStr}`;
+        if (!scheduledKeys.has(key)) {
+          needsReminderScheduling = true;
+          break;
+        }
+      }
+
+      if (needsReminderScheduling && times.length > 0) {
+        // Cancel existing reminders for this medicine first to avoid duplicate schedules
+        if (scheduledNotificationIds[med.id]) {
+          for (const notification of scheduled) {
+            if (notification.content.data?.medicineId === med.id && notification.content.data?.type === 'reminder') {
+              await Notifications.cancelScheduledNotificationAsync(notification.identifier);
+            }
+          }
+        }
+        console.log(`Scheduling reminders for synced medicine: ${med.name}`);
+        await scheduleMedicineReminder(med);
+      }
+
+      // Check if expiry is scheduled
+      if (med.expiry) {
+        const expiryKey = `expiry_${med.id}`;
+        if (!scheduledKeys.has(expiryKey)) {
+          console.log(`Scheduling expiry alert for synced medicine: ${med.name}`);
+          await scheduleExpiryAlert(med);
+        }
+      }
+    }
+  } catch (e) {
+    console.warn('Error syncing medicines with local notifications:', e);
+  }
+};

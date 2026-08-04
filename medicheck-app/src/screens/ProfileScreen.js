@@ -115,7 +115,15 @@ export default function ProfileScreen({ navigation }) {
   };
 
   const doLogout = async () => {
-    await AsyncStorage.removeItem('Cureconnect_token');
+    try {
+      await AsyncStorage.removeItem('Cureconnect_token');
+      await AsyncStorage.removeItem('Cureconnect_user');
+      await AsyncStorage.removeItem('Cureconnect_medicines');
+      await AsyncStorage.removeItem('Cureconnect_family');
+      await AsyncStorage.removeItem('Cureconnect_profile');
+    } catch (e) {
+      console.warn(e);
+    }
     await logout();
     navigation.replace('Login');
   };

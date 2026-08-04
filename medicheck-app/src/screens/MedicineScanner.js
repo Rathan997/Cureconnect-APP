@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import {
   View, Text, StyleSheet, TouchableOpacity,
-  SafeAreaView, Alert, ActivityIndicator, ScrollView, TextInput
+  SafeAreaView, Alert, ActivityIndicator, ScrollView, TextInput, Platform
 } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import useUserStore from '../store/userStore';
@@ -11,7 +11,8 @@ import {
   scheduleExpiryAlert,
   cancelMedicineReminders,
   sendTestNotification,
-  requestNotificationPermission
+  requestNotificationPermission,
+  syncMedicinesWithLocalNotifications
 } from '../services/notifications';
 
 const MEDICINES_KEY = 'Cureconnect_medicines';
@@ -86,17 +87,42 @@ export default function MedicineScanner({ navigation }) {
   const [savedMedicines, setSavedMedicines] = useState([]);
   const [loadingMeds, setLoadingMeds] = useState(false);
   const { user } = useUserStore();
+  const [webPermission, setWebPermission] = useState('default');
 
   useEffect(() => {
     loadMedicines();
     requestNotificationPermission();
+    if (Platform.OS === 'web' && typeof window !== 'undefined' && 'Notification' in window) {
+      setWebPermission(window.Notification.permission);
+    }
   }, []);
+
+  const requestWebPermission = async () => {
+    if (Platform.OS === 'web' && typeof window !== 'undefined' && 'Notification' in window) {
+      try {
+        const perm = await window.Notification.requestPermission();
+        setWebPermission(perm);
+        if (perm === 'granted') {
+          window.alert('Success: Web notifications enabled successfully!');
+        } else if (perm === 'denied') {
+          window.alert('Notifications Blocked: Please click the lock/settings icon in your browser address bar to allow notifications.');
+        }
+      } catch (e) {
+        console.warn(e);
+      }
+    }
+  };
 
   const loadMedicines = async () => {
     setLoadingMeds(true);
     try {
       const data = await medicineAPI.getAll();
-      setSavedMedicines(data.medicines || []);
+      const meds = data.medicines || [];
+      setSavedMedicines(meds);
+      await AsyncStorage.setItem(MEDICINES_KEY, JSON.stringify(meds));
+      if (Platform.OS !== 'web') {
+        await syncMedicinesWithLocalNotifications(meds);
+      }
     } catch (e) {
       try {
         const stored = await AsyncStorage.getItem(MEDICINES_KEY);
@@ -222,13 +248,15 @@ export default function MedicineScanner({ navigation }) {
           <Text style={styles.scanNewBtnText}>➕ Add Medicine</Text>
         </TouchableOpacity>
 
-        {/* Test notification button */}
-        <TouchableOpacity
-          style={styles.testNotifBtn}
-          onPress={sendTestNotification}
-        >
-          <Text style={styles.testNotifBtnText}>🔔 Test Notification</Text>
-        </TouchableOpacity>
+        {/* Test notification button (only on mobile) */}
+        {Platform.OS !== 'web' && (
+          <TouchableOpacity
+            style={styles.testNotifBtn}
+            onPress={sendTestNotification}
+          >
+            <Text style={styles.testNotifBtnText}>🔔 Test Notification</Text>
+          </TouchableOpacity>
+        )}
 
         {loadingMeds ? (
           <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
@@ -404,4 +432,30 @@ const styles = StyleSheet.create({
     borderRadius: 14, paddingVertical: 14, alignItems: 'center',
   },
   modalAddText: { color: '#fff', fontWeight: '700' },
+  webPermContainer: {
+    marginHorizontal: 20,
+    marginBottom: 12,
+  },
+  webPermBadge: {
+    borderRadius: 14,
+    paddingVertical: 12,
+    alignItems: 'center',
+    borderWidth: 1.5,
+  },
+  webPermGranted: {
+    backgroundColor: '#E8FDF4',
+    borderColor: '#2DC653',
+  },
+  webPermDenied: {
+    backgroundColor: '#FDE8E8',
+    borderColor: '#E63946',
+  },
+  webPermDefault: {
+    backgroundColor: '#FFF8E7',
+    borderColor: '#F4A261',
+  },
+  webPermText: {
+    fontWeight: '700',
+    fontSize: 13,
+  },
 });

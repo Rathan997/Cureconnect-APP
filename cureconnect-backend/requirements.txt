@@ -1,0 +1,8 @@
+fastapi
+uvicorn[standard]
+sqlalchemy
+psycopg2-binary
+slowapi
+pyjwt
+groq
+python-dotenv
