@@ -105,6 +105,7 @@ export default function DashboardScreen({ navigation }) {
   const [familyMembers, setFamilyMembers] = useState([]);
   const [symptomChecks, setSymptomChecks] = useState(0);
   const [weeklyActivity, setWeeklyActivity] = useState([0, 0, 0, 0, 0, 0, 0]);
+  const [intakeHistory, setIntakeHistory] = useState([]);
   const headerAnim = useRef(new Animated.Value(-20)).current;
   const headerOpacity = useRef(new Animated.Value(0)).current;
 
@@ -144,6 +145,10 @@ export default function DashboardScreen({ navigation }) {
       const historyStr = await AsyncStorage.getItem(SYMPTOM_HISTORY_KEY);
       const history = historyStr ? JSON.parse(historyStr) : [];
       setSymptomChecks(history.length);
+
+      const intakeHistoryStr = await AsyncStorage.getItem('Cureconnect_intake_history');
+      const intake = intakeHistoryStr ? JSON.parse(intakeHistoryStr) : [];
+      setIntakeHistory(intake);
 
       const weekly = calculateWeeklyActivity(history);
       setWeeklyActivity(weekly);
@@ -355,6 +360,40 @@ export default function DashboardScreen({ navigation }) {
           </View>
         </View>
 
+        {/* Medication Intake Logs */}
+        <View style={styles.section}>
+          <Text style={styles.sectionTitle}>Medication Adherence History</Text>
+          <View style={styles.logsCard}>
+            {intakeHistory.length === 0 ? (
+              <Text style={styles.noLogsText}>No recent medication logs. Take your medicines on time to build your history! 🌟</Text>
+            ) : (
+              intakeHistory.slice(0, 5).map((log, index) => {
+                const date = new Date(log.timestamp);
+                const timeString = date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+                const dateString = date.toLocaleDateString([], { month: 'short', day: 'numeric' });
+                const isTaken = log.status === 'taken';
+
+                return (
+                  <View key={log.id || index} style={[styles.logRow, index !== Math.min(intakeHistory.length, 5) - 1 && styles.logBorder]}>
+                    <View style={styles.logLeft}>
+                      <Text style={styles.logIcon}>{isTaken ? '✅' : '❌'}</Text>
+                      <View>
+                        <Text style={styles.logMedName}>{log.medicineName}</Text>
+                        <Text style={styles.logTime}>{dateString} at {timeString}</Text>
+                      </View>
+                    </View>
+                    <View style={[styles.logStatusBadge, isTaken ? styles.logStatusTaken : styles.logStatusMissed]}>
+                      <Text style={[styles.logStatusText, isTaken ? styles.logStatusTextTaken : styles.logStatusTextMissed]}>
+                        {isTaken ? 'Taken' : 'Dismissed'}
+                      </Text>
+                    </View>
+                  </View>
+                );
+              })
+            )}
+          </View>
+        </View>
+
         {/* Quick Actions */}
         <View style={styles.section}>
           <Text style={styles.sectionTitle}>Quick Actions</Text>
@@ -370,7 +409,7 @@ export default function DashboardScreen({ navigation }) {
                 style={[styles.actionCard, { backgroundColor: action.color, borderColor: action.border }]}
                 onPress={() => goTo(action.screen)}
               >
-                <Text style={styles.actionIcon}>{action.icon}</Text>
+                <Text style={action.label === 'Emergency' ? [styles.actionIcon, { color: '#E63946' }] : styles.actionIcon}>{action.icon}</Text>
                 <Text style={styles.actionLabel}>{action.label}</Text>
               </TouchableOpacity>
             ))}
@@ -429,4 +468,70 @@ const styles = StyleSheet.create({
   actionCard: { width: '47%', borderRadius: 16, padding: 16, alignItems: 'center', gap: 8, borderWidth: 1.5, shadowColor: '#03045E', shadowOffset: { width: 0, height: 4 }, shadowOpacity: 0.06, shadowRadius: 10, elevation: 3 },
   actionIcon: { fontSize: 32 },
   actionLabel: { fontSize: 13, fontWeight: '700', color: '#03045E', textAlign: 'center' },
+  logsCard: {
+    backgroundColor: '#fff',
+    borderRadius: 20,
+    padding: 18,
+    shadowColor: '#03045E',
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.08,
+    shadowRadius: 12,
+    elevation: 4,
+  },
+  noLogsText: {
+    fontSize: 13,
+    color: '#9CA3AF',
+    textAlign: 'center',
+    paddingVertical: 12,
+    lineHeight: 20,
+  },
+  logRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    paddingVertical: 10,
+  },
+  logBorder: {
+    borderBottomWidth: 1,
+    borderBottomColor: '#F3F4F6',
+  },
+  logLeft: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 12,
+  },
+  logIcon: {
+    fontSize: 20,
+  },
+  logMedName: {
+    fontSize: 14,
+    fontWeight: '700',
+    color: '#03045E',
+  },
+  logTime: {
+    fontSize: 11,
+    color: '#9CA3AF',
+    marginTop: 2,
+  },
+  logStatusBadge: {
+    paddingHorizontal: 10,
+    paddingVertical: 4,
+    borderRadius: 10,
+  },
+  logStatusTaken: {
+    backgroundColor: '#E8FDF4',
+  },
+  logStatusMissed: {
+    backgroundColor: '#FDE8E8',
+  },
+  logStatusText: {
+    fontSize: 11,
+    fontWeight: '700',
+  },
+  logStatusTextTaken: {
+    color: '#2DC653',
+  },
+  logStatusTextMissed: {
+    color: '#E63946',
+  },
 });

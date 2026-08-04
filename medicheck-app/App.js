@@ -206,6 +206,26 @@ export default function App() {
     };
   }, []);
 
+
+  const logIntake = async (medicine, status) => {
+    try {
+      const historyKey = 'Cureconnect_intake_history';
+      const historyStr = await AsyncStorage.getItem(historyKey);
+      const history = historyStr ? JSON.parse(historyStr) : [];
+      const newLog = {
+        id: Math.random().toString(36).substring(7),
+        medicineName: medicine?.name || 'Unknown',
+        timestamp: new Date().toISOString(),
+        status, // 'taken' or 'dismissed'
+      };
+      history.unshift(newLog);
+      if (history.length > 50) history.pop();
+      await AsyncStorage.setItem(historyKey, JSON.stringify(history));
+    } catch (e) {
+      console.warn('Error saving intake history:', e);
+    }
+  };
+
   return (
     <GestureHandlerRootView style={{ flex: 1 }}>
       <SafeAreaProvider>
@@ -229,13 +249,17 @@ export default function App() {
               <View style={styles.alertButtons}>
                 <TouchableOpacity 
                   style={styles.alertBtnDismiss} 
-                  onPress={() => setActiveReminder(null)}
+                  onPress={() => {
+                    logIntake(activeReminder.medicine, 'dismissed');
+                    setActiveReminder(null);
+                  }}
                 >
                   <Text style={styles.alertBtnDismissText}>Dismiss</Text>
                 </TouchableOpacity>
                 <TouchableOpacity 
                   style={styles.alertBtnAction} 
                   onPress={() => {
+                    logIntake(activeReminder.medicine, 'taken');
                     setActiveReminder(null);
                     if (Platform.OS === 'web') {
                       window.alert("Logged: Medicine taken successfully!");

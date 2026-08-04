@@ -58,13 +58,20 @@ export const requestNotificationPermission = async () => {
       return false;
     }
 
-    // Configure channel for Android devices
+    // Configure channels for Android devices
     if (Platform.OS === 'android') {
       await Notifications.setNotificationChannelAsync('default', {
         name: 'default',
         importance: Notifications.AndroidImportance.MAX,
         vibrationPattern: [0, 250, 250, 250],
         lightColor: '#FF231F7A',
+      });
+      await Notifications.setNotificationChannelAsync('medication-reminders', {
+        name: 'Medication Reminders',
+        importance: Notifications.AndroidImportance.MAX,
+        vibrationPattern: [0, 500, 200, 500, 200, 500], // distinct triple pulse pattern
+        lightColor: '#03045E',
+        sound: 'default',
       });
     }
     return true;
@@ -101,7 +108,7 @@ export const scheduleMedicineReminder = async (medicine) => {
           priority: 'max',
           color: '#03045E',
           android: {
-            channelId: 'default',
+            channelId: 'medication-reminders',
           },
         },
         trigger: {
@@ -165,7 +172,7 @@ export const scheduleExpiryAlert = async (medicine) => {
         sound: true,
         color: '#E63946',
         android: {
-          channelId: 'default',
+          channelId: 'medication-reminders',
         },
       },
       trigger: {
