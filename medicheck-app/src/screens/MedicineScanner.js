@@ -113,6 +113,14 @@ export default function MedicineScanner({ navigation }) {
     }
   };
 
+  const handleBadgePress = async () => {
+    if (webPermission === 'granted') {
+      sendTestNotification();
+    } else {
+      await requestWebPermission();
+    }
+  };
+
   const loadMedicines = async () => {
     setLoadingMeds(true);
     try {
@@ -247,6 +255,29 @@ export default function MedicineScanner({ navigation }) {
         >
           <Text style={styles.scanNewBtnText}>➕ Add Medicine</Text>
         </TouchableOpacity>
+
+        {/* Web Permission / Test Badge (only on web) */}
+        {Platform.OS === 'web' && (
+          <TouchableOpacity
+            style={styles.webPermContainer}
+            onPress={handleBadgePress}
+          >
+            <View style={[
+              styles.webPermBadge,
+              webPermission === 'granted' ? styles.webPermGranted :
+              webPermission === 'denied' ? styles.webPermDenied : styles.webPermDefault
+            ]}>
+              <Text style={[
+                styles.webPermText,
+                { color: webPermission === 'granted' ? '#2DC653' :
+                         webPermission === 'denied' ? '#E63946' : '#F4A261' }
+              ]}>
+                {webPermission === 'granted' ? '🔔 Test Web Notification' :
+                 webPermission === 'denied' ? '🔕 Web Notifications: Blocked' : '🔔 Enable Web Notifications'}
+              </Text>
+            </View>
+          </TouchableOpacity>
+        )}
 
         {/* Test notification button (only on mobile) */}
         {Platform.OS !== 'web' && (
