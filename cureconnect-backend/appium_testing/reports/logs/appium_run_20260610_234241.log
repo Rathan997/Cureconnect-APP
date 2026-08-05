@@ -1,0 +1,309 @@
+[2026-06-10 23:42:41,756] [runner] [INFO] Log file: D:\cureconnect-backend\appium_testing\reports\logs\appium_run_20260610_234241.log
+[2026-06-10 23:42:41,756] [runner] [INFO] Running 1 matching suite(s): ['Test01_Authentication']
+[2026-06-10 23:42:41,756] [runner] [INFO] Log file: D:\cureconnect-backend\appium_testing\reports\logs\appium_run_20260610_234241.log
+[2026-06-10 23:42:41,757] [runner] [INFO] ======================================================================
+[2026-06-10 23:42:41,757] [runner] [INFO] CHECKING PREREQUISITES
+[2026-06-10 23:42:41,757] [runner] [INFO] ======================================================================
+[2026-06-10 23:42:41,783] [driver] [INFO] Appium server is running at http://127.0.0.1:4723
+[2026-06-10 23:42:41,797] [runner] [INFO] [ OK ] Appium server is running at http://127.0.0.1:4723
+[2026-06-10 23:42:41,824] [driver] [INFO] ADB device(s) found: ['RZCY80F76DX\tdevice']
+[2026-06-10 23:42:41,825] [runner] [INFO] [ OK ] ADB device detected.
+[2026-06-10 23:42:41,825] [runner] [INFO] [ OK ] APK found: D:\cureconnect-backend\appium_testing\app-release.apk
+[2026-06-10 23:42:41,825] [runner] [INFO] ======================================================================
+[2026-06-10 23:42:41,825] [runner] [INFO] APPIUM E2E TEST SUITE — CureConnect Android
+[2026-06-10 23:42:41,825] [runner] [INFO] Suites:              1
+[2026-06-10 23:42:41,825] [runner] [INFO] Total tests:         5
+[2026-06-10 23:42:41,825] [runner] [INFO] Device:              Android Device
+[2026-06-10 23:42:41,825] [runner] [INFO] App package:         com.medicheck.app
+[2026-06-10 23:42:41,825] [runner] [INFO] ======================================================================
+[2026-06-10 23:42:41,825] [driver] [INFO] Initializing Appium WebDriver
+[2026-06-10 23:42:47,915] [driver] [INFO] Appium WebDriver initialized successfully
+[2026-06-10 23:42:47,915] [driver] [INFO]   Session ID : b10e11ea-518d-4bd7-80e2-fc340da832c4
+[2026-06-10 23:42:47,915] [driver] [INFO]   Platform   : Android
+[2026-06-10 23:42:47,915] [driver] [INFO]   OS Version : 16
+[2026-06-10 23:42:47,915] [test_cases] [INFO] Ensuring app is in foreground...
+[2026-06-10 23:42:49,110] [test_cases] [INFO] [T01] Splash & Onboarding
+[2026-06-10 23:42:49,110] [pages] [INFO] Waiting 5s for Splash screen …
+[2026-06-10 23:42:54,111] [pages] [INFO] Trying to skip Onboarding …
+[2026-06-10 23:42:54,603] [driver] [INFO] Tapped: //*[@content-desc="skip-onboarding"] | //*[@text="Skip"] | //*[@text="Get Started"]
+[2026-06-10 23:42:54,603] [pages] [INFO] Skipped Onboarding
+[2026-06-10 23:42:56,604] [pages] [INFO] App startup complete
+[2026-06-10 23:43:41,088] [test_cases] [INFO] Test test_01_splash_and_onboarding FAILED/ERRORED. Taking screenshot...
+[2026-06-10 23:43:45,585] [driver] [INFO] Screenshot saved: D:\cureconnect-backend\appium_testing\reports\screenshots\FAIL_test_01_splash_and_onboarding_20260610_234341.png
+[2026-06-10 23:43:45,585] [test_cases] [INFO] Screenshot saved to: D:\cureconnect-backend\appium_testing\reports\screenshots\FAIL_test_01_splash_and_onboarding_20260610_234341.png
+[2026-06-10 23:43:45,588] [test_cases] [INFO] Ensuring app is in foreground...
+[2026-06-10 23:43:46,738] [test_cases] [INFO] [T02] Empty-field login
+[2026-06-10 23:45:00,565] [driver] [WARNING] Type text timeout: email-input
+[2026-06-10 23:46:09,946] [driver] [WARNING] Type text timeout: password-input
+[2026-06-10 23:47:19,618] [driver] [WARNING] Tap timeout: login-submit
+[2026-06-10 23:48:02,674] [test_cases] [INFO] Test test_02_login_with_empty_fields FAILED/ERRORED. Taking screenshot...
+[2026-06-10 23:48:05,126] [driver] [INFO] Screenshot saved: D:\cureconnect-backend\appium_testing\reports\screenshots\FAIL_test_02_login_with_empty_fields_20260610_234802.png
+[2026-06-10 23:48:05,126] [test_cases] [INFO] Screenshot saved to: D:\cureconnect-backend\appium_testing\reports\screenshots\FAIL_test_02_login_with_empty_fields_20260610_234802.png
+[2026-06-10 23:48:05,126] [test_cases] [INFO] Ensuring app is in foreground...
+[2026-06-10 23:48:06,398] [test_cases] [INFO] [T03] Invalid credentials
+[2026-06-10 23:48:06,398] [pages] [INFO] Logging in as: wrong@test.com
+[2026-06-10 23:48:40,884] [driver] [INFO] Typed 'wrong@test.com' into: email-input
+[2026-06-10 23:48:41,360] [driver] [INFO] Dismissed keyboard by tapping header
+[2026-06-10 23:49:09,925] [driver] [WARNING] Type text failed on password-input: Message: 'POST /element' cannot be proxied to UiAutomator2 server because the instrumentation process is not running (probably crashed). Check the server log and/or the logcat output for more details
+Stacktrace:
+UnknownError: 'POST /element' cannot be proxied to UiAutomator2 server because the instrumentation process is not running (probably crashed). Check the server log and/or the logcat output for more details
+    at UIA2Proxy.command (C:\Users\ratha\AppData\Roaming\npm\node_modules\appium\node_modules\@appium\base-driver\build\lib\jsonwp-proxy\proxy.js:272:19)
+    at async AndroidUiautomator2Driver.doFindElementOrEls (C:\Users\ratha\.appium\node_modules\appium-uiautomator2-driver\build\lib\commands\find.js:23:13)
+    at async doFind (C:\Users\ratha\.appium\node_modules\appium-uiautomator2-driver\node_modules\appium-android-driver\build\lib\commands\find.js:24:23)
+    at async wrappedCondFn (C:\Users\ratha\AppData\Roaming\npm\node_modules\appium\node_modules\@appium\base-driver\build\lib\basedriver\commands\timeout.js:93:20)
+    at async spin (C:\Users\ratha\AppData\Roaming\npm\node_modules\appium\node_modules\asyncbox\build\lib\asyncbox.js:261:24)
+    at async spin (C:\Users\ratha\AppData\Roaming\npm\node_modules\appium\node_modules\asyncbox\build\lib\asyncbox.js:271:20)
+    at async spin (C:\Users\ratha\AppData\Roaming\npm\node_modules\appium\node_modules\asyncbox\build\lib\asyncbox.js:271:20)
+    at async spin (C:\Users\ratha\AppData\Roaming\npm\node_modules\appium\node_modules\asyncbox\build\lib\asyncbox.js:271:20)
+    at async spin (C:\Users\ratha\AppData\Roaming\npm\node_modules\appium\node_modules\asyncbox\build\lib\asyncbox.js:271:20)
+    at async spin (C:\Users\ratha\AppData\Roaming\npm\node_modules\appium\node_modules\asyncbox\build\lib\asyncbox.js:271:20)
+    at async spin (C:\Users\ratha\AppData\Roaming\npm\node_modules\appium\node_modules\asyncbox\build\lib\asyncbox.js:271:20)
+    at async spin (C:\Users\ratha\AppData\Roaming\npm\node_modules\appium\node_modules\asyncbox\build\lib\asyncbox.js:271:20)
+    at async spin (C:\Users\ratha\AppData\Roaming\npm\node_modules\appium\node_modules\asyncbox\build\lib\asyncbox.js:271:20)
+    at async spin (C:\Users\ratha\AppData\Roaming\npm\node_modules\appium\node_modules\asyncbox\build\lib\asyncbox.js:271:20)
+    at async waitForCondition (C:\Users\ratha\AppData\Roaming\npm\node_modules\appium\node_modules\asyncbox\build\lib\asyncbox.js:279:12)
+    at async AndroidUiautomator2Driver.implicitWaitForCondition (C:\Users\ratha\AppData\Roaming\npm\node_modules\appium\node_modules\@appium\base-driver\build\lib\basedriver\commands\timeout.js:95:16)
+    at async AndroidUiautomator2Driver.findElOrEls (C:\Users\ratha\.appium\node_modules\appium-uiautomator2-driver\node_modules\appium-android-driver\build\lib\commands\find.js:45:9)
+    at async AndroidUiautomator2Driver.findElOrElsWithProcessing (C:\Users\ratha\AppData\Roaming\npm\node_modules\appium\node_modules\@appium\base-driver\build\lib\basedriver\commands\find.js:12:16)
+    at async AndroidUiautomator2Driver.findElement (C:\Users\ratha\AppData\Roaming\npm\node_modules\appium\node_modules\@appium\base-driver\build\lib\basedriver\commands\find.js:27:16)
+    at async runCommandPromise (C:\Users\ratha\AppData\Roaming\npm\node_modules\appium\node_modules\@appium\base-driver\build\lib\basedriver\driver.js:117:24)
+[2026-06-10 23:49:09,928] [driver] [WARNING] Type text failed on //*[@hint="Min. 6 characters" or contains(@hint,"password")]: Message: 'POST /element' cannot be proxied to UiAutomator2 server because the instrumentation process is not running (probably crashed). Check the server log and/or the logcat output for more details
+Stacktrace:
+UnknownError: 'POST /element' cannot be proxied to UiAutomator2 server because the instrumentation process is not running (probably crashed). Check the server log and/or the logcat output for more details
+    at UIA2Proxy.command (C:\Users\ratha\AppData\Roaming\npm\node_modules\appium\node_modules\@appium\base-driver\build\lib\jsonwp-proxy\proxy.js:272:19)
+    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+    at async AndroidUiautomator2Driver.doFindElementOrEls (C:\Users\ratha\.appium\node_modules\appium-uiautomator2-driver\build\lib\commands\find.js:23:13)
+    at async doFind (C:\Users\ratha\.appium\node_modules\appium-uiautomator2-driver\node_modules\appium-android-driver\build\lib\commands\find.js:24:23)
+    at async wrappedCondFn (C:\Users\ratha\AppData\Roaming\npm\node_modules\appium\node_modules\@appium\base-driver\build\lib\basedriver\commands\timeout.js:93:20)
+    at async spin (C:\Users\ratha\AppData\Roaming\npm\node_modules\appium\node_modules\asyncbox\build\lib\asyncbox.js:261:24)
+    at async waitForCondition (C:\Users\ratha\AppData\Roaming\npm\node_modules\appium\node_modules\asyncbox\build\lib\asyncbox.js:279:12)
+    at async AndroidUiautomator2Driver.implicitWaitForCondition (C:\Users\ratha\AppData\Roaming\npm\node_modules\appium\node_modules\@appium\base-driver\build\lib\basedriver\commands\timeout.js:95:16)
+    at async AndroidUiautomator2Driver.findElOrEls (C:\Users\ratha\.appium\node_modules\appium-uiautomator2-driver\node_modules\appium-android-driver\build\lib\commands\find.js:45:9)
+    at async AndroidUiautomator2Driver.findElOrElsWithProcessing (C:\Users\ratha\AppData\Roaming\npm\node_modules\appium\node_modules\@appium\base-driver\build\lib\basedriver\commands\find.js:12:16)
+    at async AndroidUiautomator2Driver.findElement (C:\Users\ratha\AppData\Roaming\npm\node_modules\appium\node_modules\@appium\base-driver\build\lib\basedriver\commands\find.js:27:16)
+    at async runCommandPromise (C:\Users\ratha\AppData\Roaming\npm\node_modules\appium\node_modules\@appium\base-driver\build\lib\basedriver\driver.js:117:24)
+[2026-06-10 23:49:10,263] [driver] [WARNING] Tap failed on login-submit: Message: 'POST /element' cannot be proxied to UiAutomator2 server because the instrumentation process is not running (probably crashed). Check the server log and/or the logcat output for more details
+Stacktrace:
+UnknownError: 'POST /element' cannot be proxied to UiAutomator2 server because the instrumentation process is not running (probably crashed). Check the server log and/or the logcat output for more details
+    at UIA2Proxy.command (C:\Users\ratha\AppData\Roaming\npm\node_modules\appium\node_modules\@appium\base-driver\build\lib\jsonwp-proxy\proxy.js:272:19)
+    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+    at async AndroidUiautomator2Driver.doFindElementOrEls (C:\Users\ratha\.appium\node_modules\appium-uiautomator2-driver\build\lib\commands\find.js:23:13)
+    at async doFind (C:\Users\ratha\.appium\node_modules\appium-uiautomator2-driver\node_modules\appium-android-driver\build\lib\commands\find.js:24:23)
+    at async wrappedCondFn (C:\Users\ratha\AppData\Roaming\npm\node_modules\appium\node_modules\@appium\base-driver\build\lib\basedriver\commands\timeout.js:93:20)
+    at async spin (C:\Users\ratha\AppData\Roaming\npm\node_modules\appium\node_modules\asyncbox\build\lib\asyncbox.js:261:24)
+    at async waitForCondition (C:\Users\ratha\AppData\Roaming\npm\node_modules\appium\node_modules\asyncbox\build\lib\asyncbox.js:279:12)
+    at async AndroidUiautomator2Driver.implicitWaitForCondition (C:\Users\ratha\AppData\Roaming\npm\node_modules\appium\node_modules\@appium\base-driver\build\lib\basedriver\commands\timeout.js:95:16)
+    at async AndroidUiautomator2Driver.findElOrEls (C:\Users\ratha\.appium\node_modules\appium-uiautomator2-driver\node_modules\appium-android-driver\build\lib\commands\find.js:45:9)
+    at async AndroidUiautomator2Driver.findElOrElsWithProcessing (C:\Users\ratha\AppData\Roaming\npm\node_modules\appium\node_modules\@appium\base-driver\build\lib\basedriver\commands\find.js:12:16)
+    at async AndroidUiautomator2Driver.findElement (C:\Users\ratha\AppData\Roaming\npm\node_modules\appium\node_modules\@appium\base-driver\build\lib\basedriver\commands\find.js:27:16)
+    at async runCommandPromise (C:\Users\ratha\AppData\Roaming\npm\node_modules\appium\node_modules\@appium\base-driver\build\lib\basedriver\driver.js:117:24)
+[2026-06-10 23:49:10,265] [driver] [WARNING] Tap failed on //*[@text="Sign In"]: Message: 'POST /element' cannot be proxied to UiAutomator2 server because the instrumentation process is not running (probably crashed). Check the server log and/or the logcat output for more details
+Stacktrace:
+UnknownError: 'POST /element' cannot be proxied to UiAutomator2 server because the instrumentation process is not running (probably crashed). Check the server log and/or the logcat output for more details
+    at UIA2Proxy.command (C:\Users\ratha\AppData\Roaming\npm\node_modules\appium\node_modules\@appium\base-driver\build\lib\jsonwp-proxy\proxy.js:272:19)
+    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+    at async AndroidUiautomator2Driver.doFindElementOrEls (C:\Users\ratha\.appium\node_modules\appium-uiautomator2-driver\build\lib\commands\find.js:23:13)
+    at async doFind (C:\Users\ratha\.appium\node_modules\appium-uiautomator2-driver\node_modules\appium-android-driver\build\lib\commands\find.js:24:23)
+    at async wrappedCondFn (C:\Users\ratha\AppData\Roaming\npm\node_modules\appium\node_modules\@appium\base-driver\build\lib\basedriver\commands\timeout.js:93:20)
+    at async spin (C:\Users\ratha\AppData\Roaming\npm\node_modules\appium\node_modules\asyncbox\build\lib\asyncbox.js:261:24)
+    at async waitForCondition (C:\Users\ratha\AppData\Roaming\npm\node_modules\appium\node_modules\asyncbox\build\lib\asyncbox.js:279:12)
+    at async AndroidUiautomator2Driver.implicitWaitForCondition (C:\Users\ratha\AppData\Roaming\npm\node_modules\appium\node_modules\@appium\base-driver\build\lib\basedriver\commands\timeout.js:95:16)
+    at async AndroidUiautomator2Driver.findElOrEls (C:\Users\ratha\.appium\node_modules\appium-uiautomator2-driver\node_modules\appium-android-driver\build\lib\commands\find.js:45:9)
+    at async AndroidUiautomator2Driver.findElOrElsWithProcessing (C:\Users\ratha\AppData\Roaming\npm\node_modules\appium\node_modules\@appium\base-driver\build\lib\basedriver\commands\find.js:12:16)
+    at async AndroidUiautomator2Driver.findElement (C:\Users\ratha\AppData\Roaming\npm\node_modules\appium\node_modules\@appium\base-driver\build\lib\basedriver\commands\find.js:27:16)
+    at async runCommandPromise (C:\Users\ratha\AppData\Roaming\npm\node_modules\appium\node_modules\@appium\base-driver\build\lib\basedriver\driver.js:117:24)
+[2026-06-10 23:49:13,267] [test_cases] [INFO] Test test_03_login_with_invalid_credentials FAILED/ERRORED. Taking screenshot...
+[2026-06-10 23:49:13,267] [driver] [WARNING] Screenshot failed: Message: 'GET /screenshot' cannot be proxied to UiAutomator2 server because the instrumentation process is not running (probably crashed). Check the server log and/or the logcat output for more details
+Stacktrace:
+UnknownError: 'GET /screenshot' cannot be proxied to UiAutomator2 server because the instrumentation process is not running (probably crashed). Check the server log and/or the logcat output for more details
+    at UIA2Proxy.command (C:\Users\ratha\AppData\Roaming\npm\node_modules\appium\node_modules\@appium\base-driver\build\lib\jsonwp-proxy\proxy.js:272:19)
+    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+    at async AndroidUiautomator2Driver.getScreenshot (C:\Users\ratha\.appium\node_modules\appium-uiautomator2-driver\build\lib\commands\screenshot.js:68:19)
+    at async runCommandPromise (C:\Users\ratha\AppData\Roaming\npm\node_modules\appium\node_modules\@appium\base-driver\build\lib\basedriver\driver.js:117:24)
+[2026-06-10 23:49:13,267] [test_cases] [INFO] Screenshot saved to: None
+[2026-06-10 23:49:13,267] [test_cases] [INFO] Ensuring app is in foreground...
+[2026-06-10 23:49:13,298] [test_cases] [WARNING] Failed to activate app in setUp: Message: Error executing adbExec. Original error: 'Command ''D:\android-sdk\platform-tools\adb.exe' -P 5037 -s RZCY80F76DX shell cmd package resolve-activity --brief com.medicheck.app' exited with code 1'; Command output: adb.exe: device 'RZCY80F76DX' not found
+
+Stacktrace:
+UnknownError: Error executing adbExec. Original error: 'Command ''D:\android-sdk\platform-tools\adb.exe' -P 5037 -s RZCY80F76DX shell cmd package resolve-activity --brief com.medicheck.app' exited with code 1'; Command output: adb.exe: device 'RZCY80F76DX' not found
+
+    at getResponseForW3CError (C:\Users\ratha\AppData\Roaming\npm\node_modules\appium\node_modules\@appium\base-driver\build\lib\protocol\errors.js:846:36)
+    at asyncHandler (C:\Users\ratha\AppData\Roaming\npm\node_modules\appium\node_modules\@appium\base-driver\build\lib\protocol\protocol.js:471:77)
+    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+The above error is caused by
+Error: Error executing adbExec. Original error: 'Command ''D:\android-sdk\platform-tools\adb.exe' -P 5037 -s RZCY80F76DX shell cmd package resolve-activity --brief com.medicheck.app' exited with code 1'; Command output: adb.exe: device 'RZCY80F76DX' not found
+
+    at ChildProcess.<anonymous> (C:\Users\ratha\.appium\node_modules\appium-uiautomator2-driver\node_modules\teen_process\build\lib\exec.js:116:43)
+    at ChildProcess.emit (node:events:509:28)
+    at maybeClose (node:internal/child_process:1124:16)
+    at ChildProcess._handle.onexit (node:internal/child_process:306:5)
+[2026-06-10 23:49:13,298] [test_cases] [INFO] [T04] Valid login
+[2026-06-10 23:49:13,298] [pages] [INFO] Logging in as: rathanreddy676@gmail.com
+[2026-06-10 23:49:13,301] [driver] [WARNING] Type text failed on email-input: Message: 'POST /element' cannot be proxied to UiAutomator2 server because the instrumentation process is not running (probably crashed). Check the server log and/or the logcat output for more details
+Stacktrace:
+UnknownError: 'POST /element' cannot be proxied to UiAutomator2 server because the instrumentation process is not running (probably crashed). Check the server log and/or the logcat output for more details
+    at UIA2Proxy.command (C:\Users\ratha\AppData\Roaming\npm\node_modules\appium\node_modules\@appium\base-driver\build\lib\jsonwp-proxy\proxy.js:272:19)
+    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+    at async AndroidUiautomator2Driver.doFindElementOrEls (C:\Users\ratha\.appium\node_modules\appium-uiautomator2-driver\build\lib\commands\find.js:23:13)
+    at async doFind (C:\Users\ratha\.appium\node_modules\appium-uiautomator2-driver\node_modules\appium-android-driver\build\lib\commands\find.js:24:23)
+    at async wrappedCondFn (C:\Users\ratha\AppData\Roaming\npm\node_modules\appium\node_modules\@appium\base-driver\build\lib\basedriver\commands\timeout.js:93:20)
+    at async spin (C:\Users\ratha\AppData\Roaming\npm\node_modules\appium\node_modules\asyncbox\build\lib\asyncbox.js:261:24)
+    at async waitForCondition (C:\Users\ratha\AppData\Roaming\npm\node_modules\appium\node_modules\asyncbox\build\lib\asyncbox.js:279:12)
+    at async AndroidUiautomator2Driver.implicitWaitForCondition (C:\Users\ratha\AppData\Roaming\npm\node_modules\appium\node_modules\@appium\base-driver\build\lib\basedriver\commands\timeout.js:95:16)
+    at async AndroidUiautomator2Driver.findElOrEls (C:\Users\ratha\.appium\node_modules\appium-uiautomator2-driver\node_modules\appium-android-driver\build\lib\commands\find.js:45:9)
+    at async AndroidUiautomator2Driver.findElOrElsWithProcessing (C:\Users\ratha\AppData\Roaming\npm\node_modules\appium\node_modules\@appium\base-driver\build\lib\basedriver\commands\find.js:12:16)
+    at async AndroidUiautomator2Driver.findElement (C:\Users\ratha\AppData\Roaming\npm\node_modules\appium\node_modules\@appium\base-driver\build\lib\basedriver\commands\find.js:27:16)
+    at async runCommandPromise (C:\Users\ratha\AppData\Roaming\npm\node_modules\appium\node_modules\@appium\base-driver\build\lib\basedriver\driver.js:117:24)
+[2026-06-10 23:49:13,303] [driver] [WARNING] Type text failed on //*[@hint="your@email.com" or contains(@hint,"email")]: Message: 'POST /element' cannot be proxied to UiAutomator2 server because the instrumentation process is not running (probably crashed). Check the server log and/or the logcat output for more details
+Stacktrace:
+UnknownError: 'POST /element' cannot be proxied to UiAutomator2 server because the instrumentation process is not running (probably crashed). Check the server log and/or the logcat output for more details
+    at UIA2Proxy.command (C:\Users\ratha\AppData\Roaming\npm\node_modules\appium\node_modules\@appium\base-driver\build\lib\jsonwp-proxy\proxy.js:272:19)
+    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+    at async AndroidUiautomator2Driver.doFindElementOrEls (C:\Users\ratha\.appium\node_modules\appium-uiautomator2-driver\build\lib\commands\find.js:23:13)
+    at async doFind (C:\Users\ratha\.appium\node_modules\appium-uiautomator2-driver\node_modules\appium-android-driver\build\lib\commands\find.js:24:23)
+    at async wrappedCondFn (C:\Users\ratha\AppData\Roaming\npm\node_modules\appium\node_modules\@appium\base-driver\build\lib\basedriver\commands\timeout.js:93:20)
+    at async spin (C:\Users\ratha\AppData\Roaming\npm\node_modules\appium\node_modules\asyncbox\build\lib\asyncbox.js:261:24)
+    at async waitForCondition (C:\Users\ratha\AppData\Roaming\npm\node_modules\appium\node_modules\asyncbox\build\lib\asyncbox.js:279:12)
+    at async AndroidUiautomator2Driver.implicitWaitForCondition (C:\Users\ratha\AppData\Roaming\npm\node_modules\appium\node_modules\@appium\base-driver\build\lib\basedriver\commands\timeout.js:95:16)
+    at async AndroidUiautomator2Driver.findElOrEls (C:\Users\ratha\.appium\node_modules\appium-uiautomator2-driver\node_modules\appium-android-driver\build\lib\commands\find.js:45:9)
+    at async AndroidUiautomator2Driver.findElOrElsWithProcessing (C:\Users\ratha\AppData\Roaming\npm\node_modules\appium\node_modules\@appium\base-driver\build\lib\basedriver\commands\find.js:12:16)
+    at async AndroidUiautomator2Driver.findElement (C:\Users\ratha\AppData\Roaming\npm\node_modules\appium\node_modules\@appium\base-driver\build\lib\basedriver\commands\find.js:27:16)
+    at async runCommandPromise (C:\Users\ratha\AppData\Roaming\npm\node_modules\appium\node_modules\@appium\base-driver\build\lib\basedriver\driver.js:117:24)
+[2026-06-10 23:49:13,634] [driver] [WARNING] Type text failed on password-input: Message: 'POST /element' cannot be proxied to UiAutomator2 server because the instrumentation process is not running (probably crashed). Check the server log and/or the logcat output for more details
+Stacktrace:
+UnknownError: 'POST /element' cannot be proxied to UiAutomator2 server because the instrumentation process is not running (probably crashed). Check the server log and/or the logcat output for more details
+    at UIA2Proxy.command (C:\Users\ratha\AppData\Roaming\npm\node_modules\appium\node_modules\@appium\base-driver\build\lib\jsonwp-proxy\proxy.js:272:19)
+    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+    at async AndroidUiautomator2Driver.doFindElementOrEls (C:\Users\ratha\.appium\node_modules\appium-uiautomator2-driver\build\lib\commands\find.js:23:13)
+    at async doFind (C:\Users\ratha\.appium\node_modules\appium-uiautomator2-driver\node_modules\appium-android-driver\build\lib\commands\find.js:24:23)
+    at async wrappedCondFn (C:\Users\ratha\AppData\Roaming\npm\node_modules\appium\node_modules\@appium\base-driver\build\lib\basedriver\commands\timeout.js:93:20)
+    at async spin (C:\Users\ratha\AppData\Roaming\npm\node_modules\appium\node_modules\asyncbox\build\lib\asyncbox.js:261:24)
+    at async waitForCondition (C:\Users\ratha\AppData\Roaming\npm\node_modules\appium\node_modules\asyncbox\build\lib\asyncbox.js:279:12)
+    at async AndroidUiautomator2Driver.implicitWaitForCondition (C:\Users\ratha\AppData\Roaming\npm\node_modules\appium\node_modules\@appium\base-driver\build\lib\basedriver\commands\timeout.js:95:16)
+    at async AndroidUiautomator2Driver.findElOrEls (C:\Users\ratha\.appium\node_modules\appium-uiautomator2-driver\node_modules\appium-android-driver\build\lib\commands\find.js:45:9)
+    at async AndroidUiautomator2Driver.findElOrElsWithProcessing (C:\Users\ratha\AppData\Roaming\npm\node_modules\appium\node_modules\@appium\base-driver\build\lib\basedriver\commands\find.js:12:16)
+    at async AndroidUiautomator2Driver.findElement (C:\Users\ratha\AppData\Roaming\npm\node_modules\appium\node_modules\@appium\base-driver\build\lib\basedriver\commands\find.js:27:16)
+    at async runCommandPromise (C:\Users\ratha\AppData\Roaming\npm\node_modules\appium\node_modules\@appium\base-driver\build\lib\basedriver\driver.js:117:24)
+[2026-06-10 23:49:13,636] [driver] [WARNING] Type text failed on //*[@hint="Min. 6 characters" or contains(@hint,"password")]: Message: 'POST /element' cannot be proxied to UiAutomator2 server because the instrumentation process is not running (probably crashed). Check the server log and/or the logcat output for more details
+Stacktrace:
+UnknownError: 'POST /element' cannot be proxied to UiAutomator2 server because the instrumentation process is not running (probably crashed). Check the server log and/or the logcat output for more details
+    at UIA2Proxy.command (C:\Users\ratha\AppData\Roaming\npm\node_modules\appium\node_modules\@appium\base-driver\build\lib\jsonwp-proxy\proxy.js:272:19)
+    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+    at async AndroidUiautomator2Driver.doFindElementOrEls (C:\Users\ratha\.appium\node_modules\appium-uiautomator2-driver\build\lib\commands\find.js:23:13)
+    at async doFind (C:\Users\ratha\.appium\node_modules\appium-uiautomator2-driver\node_modules\appium-android-driver\build\lib\commands\find.js:24:23)
+    at async wrappedCondFn (C:\Users\ratha\AppData\Roaming\npm\node_modules\appium\node_modules\@appium\base-driver\build\lib\basedriver\commands\timeout.js:93:20)
+    at async spin (C:\Users\ratha\AppData\Roaming\npm\node_modules\appium\node_modules\asyncbox\build\lib\asyncbox.js:261:24)
+    at async waitForCondition (C:\Users\ratha\AppData\Roaming\npm\node_modules\appium\node_modules\asyncbox\build\lib\asyncbox.js:279:12)
+    at async AndroidUiautomator2Driver.implicitWaitForCondition (C:\Users\ratha\AppData\Roaming\npm\node_modules\appium\node_modules\@appium\base-driver\build\lib\basedriver\commands\timeout.js:95:16)
+    at async AndroidUiautomator2Driver.findElOrEls (C:\Users\ratha\.appium\node_modules\appium-uiautomator2-driver\node_modules\appium-android-driver\build\lib\commands\find.js:45:9)
+    at async AndroidUiautomator2Driver.findElOrElsWithProcessing (C:\Users\ratha\AppData\Roaming\npm\node_modules\appium\node_modules\@appium\base-driver\build\lib\basedriver\commands\find.js:12:16)
+    at async AndroidUiautomator2Driver.findElement (C:\Users\ratha\AppData\Roaming\npm\node_modules\appium\node_modules\@appium\base-driver\build\lib\basedriver\commands\find.js:27:16)
+    at async runCommandPromise (C:\Users\ratha\AppData\Roaming\npm\node_modules\appium\node_modules\@appium\base-driver\build\lib\basedriver\driver.js:117:24)
+[2026-06-10 23:49:13,969] [driver] [WARNING] Tap failed on login-submit: Message: 'POST /element' cannot be proxied to UiAutomator2 server because the instrumentation process is not running (probably crashed). Check the server log and/or the logcat output for more details
+Stacktrace:
+UnknownError: 'POST /element' cannot be proxied to UiAutomator2 server because the instrumentation process is not running (probably crashed). Check the server log and/or the logcat output for more details
+    at UIA2Proxy.command (C:\Users\ratha\AppData\Roaming\npm\node_modules\appium\node_modules\@appium\base-driver\build\lib\jsonwp-proxy\proxy.js:272:19)
+    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+    at async AndroidUiautomator2Driver.doFindElementOrEls (C:\Users\ratha\.appium\node_modules\appium-uiautomator2-driver\build\lib\commands\find.js:23:13)
+    at async doFind (C:\Users\ratha\.appium\node_modules\appium-uiautomator2-driver\node_modules\appium-android-driver\build\lib\commands\find.js:24:23)
+    at async wrappedCondFn (C:\Users\ratha\AppData\Roaming\npm\node_modules\appium\node_modules\@appium\base-driver\build\lib\basedriver\commands\timeout.js:93:20)
+    at async spin (C:\Users\ratha\AppData\Roaming\npm\node_modules\appium\node_modules\asyncbox\build\lib\asyncbox.js:261:24)
+    at async waitForCondition (C:\Users\ratha\AppData\Roaming\npm\node_modules\appium\node_modules\asyncbox\build\lib\asyncbox.js:279:12)
+    at async AndroidUiautomator2Driver.implicitWaitForCondition (C:\Users\ratha\AppData\Roaming\npm\node_modules\appium\node_modules\@appium\base-driver\build\lib\basedriver\commands\timeout.js:95:16)
+    at async AndroidUiautomator2Driver.findElOrEls (C:\Users\ratha\.appium\node_modules\appium-uiautomator2-driver\node_modules\appium-android-driver\build\lib\commands\find.js:45:9)
+    at async AndroidUiautomator2Driver.findElOrElsWithProcessing (C:\Users\ratha\AppData\Roaming\npm\node_modules\appium\node_modules\@appium\base-driver\build\lib\basedriver\commands\find.js:12:16)
+    at async AndroidUiautomator2Driver.findElement (C:\Users\ratha\AppData\Roaming\npm\node_modules\appium\node_modules\@appium\base-driver\build\lib\basedriver\commands\find.js:27:16)
+    at async runCommandPromise (C:\Users\ratha\AppData\Roaming\npm\node_modules\appium\node_modules\@appium\base-driver\build\lib\basedriver\driver.js:117:24)
+[2026-06-10 23:49:13,971] [driver] [WARNING] Tap failed on //*[@text="Sign In"]: Message: 'POST /element' cannot be proxied to UiAutomator2 server because the instrumentation process is not running (probably crashed). Check the server log and/or the logcat output for more details
+Stacktrace:
+UnknownError: 'POST /element' cannot be proxied to UiAutomator2 server because the instrumentation process is not running (probably crashed). Check the server log and/or the logcat output for more details
+    at UIA2Proxy.command (C:\Users\ratha\AppData\Roaming\npm\node_modules\appium\node_modules\@appium\base-driver\build\lib\jsonwp-proxy\proxy.js:272:19)
+    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+    at async AndroidUiautomator2Driver.doFindElementOrEls (C:\Users\ratha\.appium\node_modules\appium-uiautomator2-driver\build\lib\commands\find.js:23:13)
+    at async doFind (C:\Users\ratha\.appium\node_modules\appium-uiautomator2-driver\node_modules\appium-android-driver\build\lib\commands\find.js:24:23)
+    at async wrappedCondFn (C:\Users\ratha\AppData\Roaming\npm\node_modules\appium\node_modules\@appium\base-driver\build\lib\basedriver\commands\timeout.js:93:20)
+    at async spin (C:\Users\ratha\AppData\Roaming\npm\node_modules\appium\node_modules\asyncbox\build\lib\asyncbox.js:261:24)
+    at async waitForCondition (C:\Users\ratha\AppData\Roaming\npm\node_modules\appium\node_modules\asyncbox\build\lib\asyncbox.js:279:12)
+    at async AndroidUiautomator2Driver.implicitWaitForCondition (C:\Users\ratha\AppData\Roaming\npm\node_modules\appium\node_modules\@appium\base-driver\build\lib\basedriver\commands\timeout.js:95:16)
+    at async AndroidUiautomator2Driver.findElOrEls (C:\Users\ratha\.appium\node_modules\appium-uiautomator2-driver\node_modules\appium-android-driver\build\lib\commands\find.js:45:9)
+    at async AndroidUiautomator2Driver.findElOrElsWithProcessing (C:\Users\ratha\AppData\Roaming\npm\node_modules\appium\node_modules\@appium\base-driver\build\lib\basedriver\commands\find.js:12:16)
+    at async AndroidUiautomator2Driver.findElement (C:\Users\ratha\AppData\Roaming\npm\node_modules\appium\node_modules\@appium\base-driver\build\lib\basedriver\commands\find.js:27:16)
+    at async runCommandPromise (C:\Users\ratha\AppData\Roaming\npm\node_modules\appium\node_modules\@appium\base-driver\build\lib\basedriver\driver.js:117:24)
+[2026-06-10 23:49:16,977] [test_cases] [INFO] Test test_04_login_with_valid_credentials FAILED/ERRORED. Taking screenshot...
+[2026-06-10 23:49:16,978] [driver] [WARNING] Screenshot failed: Message: 'GET /screenshot' cannot be proxied to UiAutomator2 server because the instrumentation process is not running (probably crashed). Check the server log and/or the logcat output for more details
+Stacktrace:
+UnknownError: 'GET /screenshot' cannot be proxied to UiAutomator2 server because the instrumentation process is not running (probably crashed). Check the server log and/or the logcat output for more details
+    at UIA2Proxy.command (C:\Users\ratha\AppData\Roaming\npm\node_modules\appium\node_modules\@appium\base-driver\build\lib\jsonwp-proxy\proxy.js:272:19)
+    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+    at async AndroidUiautomator2Driver.getScreenshot (C:\Users\ratha\.appium\node_modules\appium-uiautomator2-driver\build\lib\commands\screenshot.js:68:19)
+    at async runCommandPromise (C:\Users\ratha\AppData\Roaming\npm\node_modules\appium\node_modules\@appium\base-driver\build\lib\basedriver\driver.js:117:24)
+[2026-06-10 23:49:16,978] [test_cases] [INFO] Screenshot saved to: None
+[2026-06-10 23:49:16,978] [test_cases] [INFO] Ensuring app is in foreground...
+[2026-06-10 23:49:17,004] [test_cases] [WARNING] Failed to activate app in setUp: Message: Error executing adbExec. Original error: 'Command ''D:\android-sdk\platform-tools\adb.exe' -P 5037 -s RZCY80F76DX shell cmd package resolve-activity --brief com.medicheck.app' exited with code 1'; Command output: adb.exe: device 'RZCY80F76DX' not found
+
+Stacktrace:
+UnknownError: Error executing adbExec. Original error: 'Command ''D:\android-sdk\platform-tools\adb.exe' -P 5037 -s RZCY80F76DX shell cmd package resolve-activity --brief com.medicheck.app' exited with code 1'; Command output: adb.exe: device 'RZCY80F76DX' not found
+
+    at getResponseForW3CError (C:\Users\ratha\AppData\Roaming\npm\node_modules\appium\node_modules\@appium\base-driver\build\lib\protocol\errors.js:846:36)
+    at asyncHandler (C:\Users\ratha\AppData\Roaming\npm\node_modules\appium\node_modules\@appium\base-driver\build\lib\protocol\protocol.js:471:77)
+    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+The above error is caused by
+Error: Error executing adbExec. Original error: 'Command ''D:\android-sdk\platform-tools\adb.exe' -P 5037 -s RZCY80F76DX shell cmd package resolve-activity --brief com.medicheck.app' exited with code 1'; Command output: adb.exe: device 'RZCY80F76DX' not found
+
+    at ChildProcess.<anonymous> (C:\Users\ratha\.appium\node_modules\appium-uiautomator2-driver\node_modules\teen_process\build\lib\exec.js:116:43)
+    at ChildProcess.emit (node:events:509:28)
+    at maybeClose (node:internal/child_process:1124:16)
+    at ChildProcess._handle.onexit (node:internal/child_process:306:5)
+[2026-06-10 23:49:17,004] [test_cases] [INFO] [T05] Greeting text
+[2026-06-10 23:49:17,006] [driver] [WARNING] get_text failed for //*[contains(@text,"Good Morning") or contains(@text,"Good Afternoon") or contains(@text,"Good Evening")]: Message: 'POST /element' cannot be proxied to UiAutomator2 server because the instrumentation process is not running (probably crashed). Check the server log and/or the logcat output for more details
+Stacktrace:
+UnknownError: 'POST /element' cannot be proxied to UiAutomator2 server because the instrumentation process is not running (probably crashed). Check the server log and/or the logcat output for more details
+    at UIA2Proxy.command (C:\Users\ratha\AppData\Roaming\npm\node_modules\appium\node_modules\@appium\base-driver\build\lib\jsonwp-proxy\proxy.js:272:19)
+    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+    at async AndroidUiautomator2Driver.doFindElementOrEls (C:\Users\ratha\.appium\node_modules\appium-uiautomator2-driver\build\lib\commands\find.js:23:13)
+    at async doFind (C:\Users\ratha\.appium\node_modules\appium-uiautomator2-driver\node_modules\appium-android-driver\build\lib\commands\find.js:24:23)
+    at async wrappedCondFn (C:\Users\ratha\AppData\Roaming\npm\node_modules\appium\node_modules\@appium\base-driver\build\lib\basedriver\commands\timeout.js:93:20)
+    at async spin (C:\Users\ratha\AppData\Roaming\npm\node_modules\appium\node_modules\asyncbox\build\lib\asyncbox.js:261:24)
+    at async waitForCondition (C:\Users\ratha\AppData\Roaming\npm\node_modules\appium\node_modules\asyncbox\build\lib\asyncbox.js:279:12)
+    at async AndroidUiautomator2Driver.implicitWaitForCondition (C:\Users\ratha\AppData\Roaming\npm\node_modules\appium\node_modules\@appium\base-driver\build\lib\basedriver\commands\timeout.js:95:16)
+    at async AndroidUiautomator2Driver.findElOrEls (C:\Users\ratha\.appium\node_modules\appium-uiautomator2-driver\node_modules\appium-android-driver\build\lib\commands\find.js:45:9)
+    at async AndroidUiautomator2Driver.findElOrElsWithProcessing (C:\Users\ratha\AppData\Roaming\npm\node_modules\appium\node_modules\@appium\base-driver\build\lib\basedriver\commands\find.js:12:16)
+    at async AndroidUiautomator2Driver.findElement (C:\Users\ratha\AppData\Roaming\npm\node_modules\appium\node_modules\@appium\base-driver\build\lib\basedriver\commands\find.js:27:16)
+    at async runCommandPromise (C:\Users\ratha\AppData\Roaming\npm\node_modules\appium\node_modules\@appium\base-driver\build\lib\basedriver\driver.js:117:24)
+[2026-06-10 23:49:17,012] [test_cases] [INFO] Test test_05_home_greeting_displayed FAILED/ERRORED. Taking screenshot...
+[2026-06-10 23:49:17,014] [driver] [WARNING] Screenshot failed: Message: 'GET /screenshot' cannot be proxied to UiAutomator2 server because the instrumentation process is not running (probably crashed). Check the server log and/or the logcat output for more details
+Stacktrace:
+UnknownError: 'GET /screenshot' cannot be proxied to UiAutomator2 server because the instrumentation process is not running (probably crashed). Check the server log and/or the logcat output for more details
+    at UIA2Proxy.command (C:\Users\ratha\AppData\Roaming\npm\node_modules\appium\node_modules\@appium\base-driver\build\lib\jsonwp-proxy\proxy.js:272:19)
+    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+    at async AndroidUiautomator2Driver.getScreenshot (C:\Users\ratha\.appium\node_modules\appium-uiautomator2-driver\build\lib\commands\screenshot.js:68:19)
+    at async runCommandPromise (C:\Users\ratha\AppData\Roaming\npm\node_modules\appium\node_modules\@appium\base-driver\build\lib\basedriver\driver.js:117:24)
+[2026-06-10 23:49:17,014] [test_cases] [INFO] Screenshot saved to: None
+[2026-06-10 23:49:37,242] [driver] [WARNING] Error closing driver: Message: Error executing adbExec. Original error: 'Command ''D:\android-sdk\platform-tools\adb.exe' -P 5037 -s RZCY80F76DX shell 'settings delete global hidden_api_policy_pre_p_apps;settings delete global hidden_api_policy_p_apps;settings delete global hidden_api_policy'' exited with code 1'; Command output: adb.exe: device 'RZCY80F76DX' not found
+
+Stacktrace:
+UnknownError: Error executing adbExec. Original error: 'Command ''D:\android-sdk\platform-tools\adb.exe' -P 5037 -s RZCY80F76DX shell 'settings delete global hidden_api_policy_pre_p_apps;settings delete global hidden_api_policy_p_apps;settings delete global hidden_api_policy'' exited with code 1'; Command output: adb.exe: device 'RZCY80F76DX' not found
+
+    at getResponseForW3CError (C:\Users\ratha\AppData\Roaming\npm\node_modules\appium\node_modules\@appium\base-driver\build\lib\protocol\errors.js:846:36)
+    at asyncHandler (C:\Users\ratha\AppData\Roaming\npm\node_modules\appium\node_modules\@appium\base-driver\build\lib\protocol\protocol.js:471:77)
+    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+The above error is caused by
+Error: Error executing adbExec. Original error: 'Command ''D:\android-sdk\platform-tools\adb.exe' -P 5037 -s RZCY80F76DX shell 'settings delete global hidden_api_policy_pre_p_apps;settings delete global hidden_api_policy_p_apps;settings delete global hidden_api_policy'' exited with code 1'; Command output: adb.exe: device 'RZCY80F76DX' not found
+
+    at ChildProcess.<anonymous> (C:\Users\ratha\.appium\node_modules\appium-uiautomator2-driver\node_modules\teen_process\build\lib\exec.js:116:43)
+    at ChildProcess.emit (node:events:509:28)
+    at maybeClose (node:internal/child_process:1124:16)
+    at ChildProcess._handle.onexit (node:internal/child_process:306:5)
+[2026-06-10 23:49:37,243] [runner] [INFO] 
+[2026-06-10 23:49:37,243] [runner] [INFO] ======================================================================
+[2026-06-10 23:49:37,243] [runner] [INFO] RESULTS
+[2026-06-10 23:49:37,243] [runner] [INFO] Tests run:           5
+[2026-06-10 23:49:37,243] [runner] [INFO] Passed:              0 [PASSED]
+[2026-06-10 23:49:37,243] [runner] [INFO] Failed:              5 [FAILED]
+[2026-06-10 23:49:37,243] [runner] [INFO] Skipped:             0 [SKIPPED]
+[2026-06-10 23:49:37,243] [runner] [INFO] Pass rate:           0.0%
+[2026-06-10 23:49:37,243] [runner] [INFO] Duration:            415.42 s
+[2026-06-10 23:49:37,243] [runner] [INFO] ======================================================================
+[2026-06-10 23:49:37,243] [report_generator] [INFO] Generating Appium Excel report …
+[2026-06-10 23:49:37,371] [report_generator] [INFO] Report saved → D:\cureconnect-backend\appium_testing\reports\Appium_Test_Report_20260610_234937.xlsx
+[2026-06-10 23:49:37,411] [runner] [INFO] Excel report generated -> D:\cureconnect-backend\appium_testing\reports\Appium_Test_Report_20260610_234937.xlsx

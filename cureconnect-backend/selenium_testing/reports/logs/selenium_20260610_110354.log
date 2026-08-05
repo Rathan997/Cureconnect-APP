@@ -1,0 +1,16 @@
+[2026-06-10 11:03:54,335] [__main__] [INFO] TestRunner initialized
+[2026-06-10 11:03:54,335] [__main__] [INFO] Checking Python version...
+[2026-06-10 11:03:54,373] [__main__] [INFO] Checking required packages...
+[2026-06-10 11:03:54,373] [__main__] [INFO] Checking configuration...
+[2026-06-10 11:03:54,379] [__main__] [INFO] Checking directories...
+[2026-06-10 11:03:54,381] [__main__] [INFO] Test execution started at 2026-06-10 11:03:54
+[2026-06-10 11:03:54,381] [__main__] [INFO] Browser: chrome
+[2026-06-10 11:03:54,381] [__main__] [INFO] Base URL: http://localhost:3000
+[2026-06-10 11:03:54,381] [__main__] [INFO] 
+Total tests to run: 13
+[2026-06-10 11:03:54,381] [test_cases] [INFO] 
+================================================================================
+[2026-06-10 11:03:54,381] [test_cases] [INFO] Starting test: test_01_login_with_valid_credentials
+[2026-06-10 11:03:54,381] [test_cases] [INFO] ================================================================================
+[2026-06-10 11:03:54,381] [driver] [INFO] Initializing Selenium WebDriver
+[2026-06-10 11:03:54,381] [driver] [INFO] Starting chrome browser

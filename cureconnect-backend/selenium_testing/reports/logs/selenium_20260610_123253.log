@@ -1,0 +1,569 @@
+[2026-06-10 12:32:53,160] [__main__] [INFO] TestRunner initialized
+[2026-06-10 12:32:53,160] [__main__] [INFO] Checking Python version...
+[2026-06-10 12:32:53,171] [__main__] [INFO] ✓ Python 3.12
+[2026-06-10 12:32:53,172] [__main__] [INFO] Checking required packages...
+[2026-06-10 12:32:53,172] [__main__] [INFO] ✓ selenium is installed
+[2026-06-10 12:32:53,172] [__main__] [INFO] ✓ openpyxl is installed
+[2026-06-10 12:32:53,172] [__main__] [INFO] Checking configuration...
+[2026-06-10 12:32:53,172] [__main__] [INFO] ✓ Base URL: http://localhost:3000
+[2026-06-10 12:32:53,173] [__main__] [INFO] Checking directories...
+[2026-06-10 12:32:53,173] [__main__] [INFO] ✓ Directory ready: D:\cureconnect-backend\selenium_testing\reports
+[2026-06-10 12:32:53,173] [__main__] [INFO] ✓ Directory ready: D:\cureconnect-backend\selenium_testing\reports\logs
+[2026-06-10 12:32:53,174] [__main__] [INFO] ✓ All prerequisites met
+[2026-06-10 12:32:53,174] [__main__] [INFO] Test execution started at 2026-06-10 12:32:53
+[2026-06-10 12:32:53,174] [__main__] [INFO] Browser: chrome
+[2026-06-10 12:32:53,174] [__main__] [INFO] Base URL: http://localhost:3000
+[2026-06-10 12:32:53,175] [__main__] [INFO] 
+Total tests to run: 14
+[2026-06-10 12:32:53,175] [test_cases] [INFO] 
+======================================================================
+[2026-06-10 12:32:53,175] [test_cases] [INFO] [TEST] test_01_login_with_valid_credentials
+[2026-06-10 12:32:53,175] [test_cases] [INFO] ======================================================================
+[2026-06-10 12:32:53,175] [driver] [INFO] Initializing Selenium WebDriver
+[2026-06-10 12:32:53,175] [driver] [INFO] Starting chrome browser
+[2026-06-10 12:32:55,392] [driver] [INFO] Chrome browser initialized
+[2026-06-10 12:32:55,401] [driver] [INFO] ✓ Browser initialized successfully
+[2026-06-10 12:32:55,401] [test_cases] [INFO] 
+[TEST] Login with valid credentials
+[2026-06-10 12:32:55,401] [pages] [INFO] [ACTION] Logging in as rathanreddy676@gmail.com
+[2026-06-10 12:32:55,401] [pages] [INFO] Navigating to login page (via root)
+[2026-06-10 12:32:55,401] [pages] [INFO] Navigating to app root URL
+[2026-06-10 12:32:55,401] [driver] [INFO] Navigating to http://localhost:3000
+[2026-06-10 12:32:56,106] [driver] [INFO] ✓ Navigated successfully
+[2026-06-10 12:32:57,108] [pages] [INFO] Waiting through Splash screen (3+ seconds)...
+[2026-06-10 12:33:00,822] [pages] [INFO] ✓ Clicked: ('xpath', "//*[@data-testid='skip-onboarding'] | //*[contains(text(),'Skip') or contains(text(),'Get Started')]")
+[2026-06-10 12:33:00,822] [pages] [INFO] ✓ Clicked Skip/Get Started on Onboarding
+[2026-06-10 12:33:01,824] [pages] [INFO] ✓ Should now be on Login screen
+[2026-06-10 12:33:02,824] [pages] [INFO] ✓ Login page ready
+[2026-06-10 12:33:02,824] [pages] [INFO] Entering email: rathanreddy676@gmail.com
+[2026-06-10 12:33:03,251] [pages] [INFO] ✓ Typed 'rathanreddy676@gmail' into: ('xpath', "//*[@data-testid='email-input']")
+[2026-06-10 12:33:03,253] [pages] [INFO] Entering password
+[2026-06-10 12:33:03,484] [pages] [INFO] ✓ Typed '9652090259' into: ('xpath', "//*[@data-testid='password-input']")
+[2026-06-10 12:33:03,484] [pages] [INFO] Clicking login button
+[2026-06-10 12:33:03,540] [pages] [INFO] ✓ Clicked: ('xpath', "//*[@data-testid='login-submit']")
+[2026-06-10 12:33:06,542] [pages] [INFO] ✓ Login process completed
+[2026-06-10 12:33:06,542] [pages] [INFO] Checking if Home screen is displayed
+[2026-06-10 12:33:06,572] [test_cases] [INFO] ✓ TEST PASSED
+[2026-06-10 12:33:06,585] [test_cases] [INFO] Duration: 11.2s  |  Result: PASSED
+[2026-06-10 12:33:06,585] [test_cases] [INFO] ======================================================================
+
+[2026-06-10 12:33:08,776] [driver] [INFO] ✓ Browser closed successfully
+[2026-06-10 12:33:12,852] [test_cases] [INFO] 
+======================================================================
+[2026-06-10 12:33:12,853] [test_cases] [INFO] [TEST] test_02_login_with_invalid_credentials
+[2026-06-10 12:33:12,853] [test_cases] [INFO] ======================================================================
+[2026-06-10 12:33:12,853] [driver] [INFO] Initializing Selenium WebDriver
+[2026-06-10 12:33:12,854] [driver] [INFO] Starting chrome browser
+[2026-06-10 12:33:14,451] [driver] [INFO] Chrome browser initialized
+[2026-06-10 12:33:14,454] [driver] [INFO] ✓ Browser initialized successfully
+[2026-06-10 12:33:14,454] [test_cases] [INFO] 
+[TEST] Login with invalid credentials
+[2026-06-10 12:33:14,454] [pages] [INFO] Navigating to login page (via root)
+[2026-06-10 12:33:14,454] [pages] [INFO] Navigating to app root URL
+[2026-06-10 12:33:14,455] [driver] [INFO] Navigating to http://localhost:3000
+[2026-06-10 12:33:15,069] [driver] [INFO] ✓ Navigated successfully
+[2026-06-10 12:33:16,071] [pages] [INFO] Waiting through Splash screen (3+ seconds)...
+[2026-06-10 12:33:19,659] [pages] [INFO] ✓ Clicked: ('xpath', "//*[@data-testid='skip-onboarding'] | //*[contains(text(),'Skip') or contains(text(),'Get Started')]")
+[2026-06-10 12:33:19,659] [pages] [INFO] ✓ Clicked Skip/Get Started on Onboarding
+[2026-06-10 12:33:20,661] [pages] [INFO] ✓ Should now be on Login screen
+[2026-06-10 12:33:21,661] [pages] [INFO] ✓ Login page ready
+[2026-06-10 12:33:21,661] [pages] [INFO] Entering email: wrong@example.com
+[2026-06-10 12:33:22,016] [pages] [INFO] ✓ Typed 'wrong@example.com' into: ('xpath', "//*[@data-testid='email-input']")
+[2026-06-10 12:33:22,016] [pages] [INFO] Entering password
+[2026-06-10 12:33:22,244] [pages] [INFO] ✓ Typed 'wrongpass123' into: ('xpath', "//*[@data-testid='password-input']")
+[2026-06-10 12:33:22,244] [pages] [INFO] Clicking login button
+[2026-06-10 12:33:22,292] [pages] [INFO] ✓ Clicked: ('xpath', "//*[@data-testid='login-submit']")
+[2026-06-10 12:33:30,627] [pages] [WARNING] handle_rn_confirmation_dialog: 'OK' not found after 5s
+[2026-06-10 12:33:33,674] [test_cases] [INFO] Confirmed: invalid login did NOT navigate away from login screen
+[2026-06-10 12:33:33,674] [test_cases] [INFO] TEST PASSED
+[2026-06-10 12:33:33,676] [test_cases] [INFO] Duration: 19.2s  |  Result: PASSED
+[2026-06-10 12:33:33,676] [test_cases] [INFO] ======================================================================
+
+[2026-06-10 12:33:36,031] [driver] [INFO] ✓ Browser closed successfully
+[2026-06-10 12:33:40,097] [test_cases] [INFO] 
+======================================================================
+[2026-06-10 12:33:40,097] [test_cases] [INFO] [TEST] test_03_logout_functionality
+[2026-06-10 12:33:40,097] [test_cases] [INFO] ======================================================================
+[2026-06-10 12:33:40,098] [driver] [INFO] Initializing Selenium WebDriver
+[2026-06-10 12:33:40,098] [driver] [INFO] Starting chrome browser
+[2026-06-10 12:33:41,807] [driver] [INFO] Chrome browser initialized
+[2026-06-10 12:33:41,811] [driver] [INFO] ✓ Browser initialized successfully
+[2026-06-10 12:33:41,811] [test_cases] [INFO] 
+[TEST] Logout functionality
+[2026-06-10 12:33:41,811] [pages] [INFO] [ACTION] Logging in as rathanreddy676@gmail.com
+[2026-06-10 12:33:41,811] [pages] [INFO] Navigating to login page (via root)
+[2026-06-10 12:33:41,812] [pages] [INFO] Navigating to app root URL
+[2026-06-10 12:33:41,812] [driver] [INFO] Navigating to http://localhost:3000
+[2026-06-10 12:33:42,589] [driver] [INFO] ✓ Navigated successfully
+[2026-06-10 12:33:43,590] [pages] [INFO] Waiting through Splash screen (3+ seconds)...
+[2026-06-10 12:33:47,224] [pages] [INFO] ✓ Clicked: ('xpath', "//*[@data-testid='skip-onboarding'] | //*[contains(text(),'Skip') or contains(text(),'Get Started')]")
+[2026-06-10 12:33:47,224] [pages] [INFO] ✓ Clicked Skip/Get Started on Onboarding
+[2026-06-10 12:33:48,227] [pages] [INFO] ✓ Should now be on Login screen
+[2026-06-10 12:33:49,228] [pages] [INFO] ✓ Login page ready
+[2026-06-10 12:33:49,228] [pages] [INFO] Entering email: rathanreddy676@gmail.com
+[2026-06-10 12:33:49,610] [pages] [INFO] ✓ Typed 'rathanreddy676@gmail' into: ('xpath', "//*[@data-testid='email-input']")
+[2026-06-10 12:33:49,610] [pages] [INFO] Entering password
+[2026-06-10 12:33:49,832] [pages] [INFO] ✓ Typed '9652090259' into: ('xpath', "//*[@data-testid='password-input']")
+[2026-06-10 12:33:49,832] [pages] [INFO] Clicking login button
+[2026-06-10 12:33:49,887] [pages] [INFO] ✓ Clicked: ('xpath', "//*[@data-testid='login-submit']")
+[2026-06-10 12:33:52,888] [pages] [INFO] ✓ Login process completed
+[2026-06-10 12:33:52,888] [pages] [INFO] Checking if Home screen is displayed
+[2026-06-10 12:33:52,937] [pages] [INFO] [ACTION] Logging out
+[2026-06-10 12:33:52,937] [pages] [INFO] Clicking profile avatar
+[2026-06-10 12:33:53,019] [pages] [INFO] ✓ Clicked: ('xpath', "//*[@data-testid='profile-avatar']")
+[2026-06-10 12:33:56,020] [pages] [INFO] Clicking Log Out button
+[2026-06-10 12:33:56,062] [pages] [INFO] ✓ Clicked: ('xpath', "//*[@data-testid='logout-btn']")
+[2026-06-10 12:34:05,052] [pages] [WARNING] handle_rn_confirmation_dialog: 'Log Out' not found after 8s
+[2026-06-10 12:34:05,052] [pages] [WARNING] RN dialog not found — trying native browser dialog fallback
+[2026-06-10 12:34:09,564] [pages] [INFO] ✓ Logout completed
+[2026-06-10 12:34:32,155] [test_cases] [ERROR] TEST FAILED: False is not true : Should be back on Login screen after logout
+[2026-06-10 12:34:32,245] [driver] [INFO] ✓ Screenshot saved: D:\cureconnect-backend\selenium_testing\reports\screenshots\test_03_failed.png
+[2026-06-10 12:34:32,247] [test_cases] [INFO] Duration: 50.4s  |  Result: FAILED
+[2026-06-10 12:34:32,247] [test_cases] [INFO] ======================================================================
+
+[2026-06-10 12:34:34,443] [driver] [INFO] ✓ Browser closed successfully
+[2026-06-10 12:34:34,443] [test_cases] [INFO] 
+======================================================================
+[2026-06-10 12:34:34,444] [test_cases] [INFO] [TEST] test_04_home_screen_displays_correctly
+[2026-06-10 12:34:34,444] [test_cases] [INFO] ======================================================================
+[2026-06-10 12:34:34,444] [driver] [INFO] Initializing Selenium WebDriver
+[2026-06-10 12:34:34,444] [driver] [INFO] Starting chrome browser
+[2026-06-10 12:34:36,040] [driver] [INFO] Chrome browser initialized
+[2026-06-10 12:34:36,045] [driver] [INFO] ✓ Browser initialized successfully
+[2026-06-10 12:34:36,046] [pages] [INFO] [ACTION] Logging in as rathanreddy676@gmail.com
+[2026-06-10 12:34:36,046] [pages] [INFO] Navigating to login page (via root)
+[2026-06-10 12:34:36,046] [pages] [INFO] Navigating to app root URL
+[2026-06-10 12:34:36,046] [driver] [INFO] Navigating to http://localhost:3000
+[2026-06-10 12:34:36,714] [driver] [INFO] ✓ Navigated successfully
+[2026-06-10 12:34:37,717] [pages] [INFO] Waiting through Splash screen (3+ seconds)...
+[2026-06-10 12:34:41,326] [pages] [INFO] ✓ Clicked: ('xpath', "//*[@data-testid='skip-onboarding'] | //*[contains(text(),'Skip') or contains(text(),'Get Started')]")
+[2026-06-10 12:34:41,326] [pages] [INFO] ✓ Clicked Skip/Get Started on Onboarding
+[2026-06-10 12:34:42,327] [pages] [INFO] ✓ Should now be on Login screen
+[2026-06-10 12:34:43,327] [pages] [INFO] ✓ Login page ready
+[2026-06-10 12:34:43,327] [pages] [INFO] Entering email: rathanreddy676@gmail.com
+[2026-06-10 12:34:43,668] [pages] [INFO] ✓ Typed 'rathanreddy676@gmail' into: ('xpath', "//*[@data-testid='email-input']")
+[2026-06-10 12:34:43,668] [pages] [INFO] Entering password
+[2026-06-10 12:34:43,835] [pages] [INFO] ✓ Typed '9652090259' into: ('xpath', "//*[@data-testid='password-input']")
+[2026-06-10 12:34:43,835] [pages] [INFO] Clicking login button
+[2026-06-10 12:34:43,874] [pages] [INFO] ✓ Clicked: ('xpath', "//*[@data-testid='login-submit']")
+[2026-06-10 12:34:46,878] [pages] [INFO] ✓ Login process completed
+[2026-06-10 12:34:46,878] [pages] [INFO] Checking if Home screen is displayed
+[2026-06-10 12:34:46,895] [test_cases] [INFO] 
+[TEST] Home screen elements
+[2026-06-10 12:34:46,895] [pages] [INFO] Checking if Home screen is displayed
+[2026-06-10 12:34:46,945] [test_cases] [INFO] ✓ TEST PASSED
+[2026-06-10 12:34:46,945] [test_cases] [INFO] Duration: 10.9s  |  Result: PASSED
+[2026-06-10 12:34:46,947] [test_cases] [INFO] ======================================================================
+
+[2026-06-10 12:34:49,259] [driver] [INFO] ✓ Browser closed successfully
+[2026-06-10 12:34:53,312] [test_cases] [INFO] 
+======================================================================
+[2026-06-10 12:34:53,312] [test_cases] [INFO] [TEST] test_05_navigate_to_doctors
+[2026-06-10 12:34:53,312] [test_cases] [INFO] ======================================================================
+[2026-06-10 12:34:53,313] [driver] [INFO] Initializing Selenium WebDriver
+[2026-06-10 12:34:53,313] [driver] [INFO] Starting chrome browser
+[2026-06-10 12:34:54,889] [driver] [INFO] Chrome browser initialized
+[2026-06-10 12:34:54,892] [driver] [INFO] ✓ Browser initialized successfully
+[2026-06-10 12:34:54,892] [pages] [INFO] [ACTION] Logging in as rathanreddy676@gmail.com
+[2026-06-10 12:34:54,892] [pages] [INFO] Navigating to login page (via root)
+[2026-06-10 12:34:54,892] [pages] [INFO] Navigating to app root URL
+[2026-06-10 12:34:54,892] [driver] [INFO] Navigating to http://localhost:3000
+[2026-06-10 12:34:55,548] [driver] [INFO] ✓ Navigated successfully
+[2026-06-10 12:34:56,554] [pages] [INFO] Waiting through Splash screen (3+ seconds)...
+[2026-06-10 12:35:00,174] [pages] [INFO] ✓ Clicked: ('xpath', "//*[@data-testid='skip-onboarding'] | //*[contains(text(),'Skip') or contains(text(),'Get Started')]")
+[2026-06-10 12:35:00,174] [pages] [INFO] ✓ Clicked Skip/Get Started on Onboarding
+[2026-06-10 12:35:01,176] [pages] [INFO] ✓ Should now be on Login screen
+[2026-06-10 12:35:02,176] [pages] [INFO] ✓ Login page ready
+[2026-06-10 12:35:02,176] [pages] [INFO] Entering email: rathanreddy676@gmail.com
+[2026-06-10 12:35:02,555] [pages] [INFO] ✓ Typed 'rathanreddy676@gmail' into: ('xpath', "//*[@data-testid='email-input']")
+[2026-06-10 12:35:02,555] [pages] [INFO] Entering password
+[2026-06-10 12:35:02,786] [pages] [INFO] ✓ Typed '9652090259' into: ('xpath', "//*[@data-testid='password-input']")
+[2026-06-10 12:35:02,786] [pages] [INFO] Clicking login button
+[2026-06-10 12:35:02,840] [pages] [INFO] ✓ Clicked: ('xpath', "//*[@data-testid='login-submit']")
+[2026-06-10 12:35:05,842] [pages] [INFO] ✓ Login process completed
+[2026-06-10 12:35:05,842] [pages] [INFO] Checking if Home screen is displayed
+[2026-06-10 12:35:05,895] [test_cases] [INFO] 
+[TEST] Navigate to Doctors screen
+[2026-06-10 12:35:05,895] [pages] [INFO] Navigating to Doctors screen
+[2026-06-10 12:35:06,003] [pages] [INFO] ✓ Clicked: ('xpath', "//*[@data-testid='action-doctors']")
+[2026-06-10 12:35:12,042] [pages] [INFO] Checking if doctors list is displayed
+[2026-06-10 12:35:15,089] [test_cases] [INFO] ✓ TEST PASSED
+[2026-06-10 12:35:15,089] [test_cases] [INFO] Duration: 20.2s  |  Result: PASSED
+[2026-06-10 12:35:15,090] [test_cases] [INFO] ======================================================================
+
+[2026-06-10 12:35:17,355] [driver] [INFO] ✓ Browser closed successfully
+[2026-06-10 12:35:21,418] [test_cases] [INFO] 
+======================================================================
+[2026-06-10 12:35:21,418] [test_cases] [INFO] [TEST] test_06_navigate_to_appointments
+[2026-06-10 12:35:21,418] [test_cases] [INFO] ======================================================================
+[2026-06-10 12:35:21,418] [driver] [INFO] Initializing Selenium WebDriver
+[2026-06-10 12:35:21,420] [driver] [INFO] Starting chrome browser
+[2026-06-10 12:35:23,126] [driver] [INFO] Chrome browser initialized
+[2026-06-10 12:35:23,128] [driver] [INFO] ✓ Browser initialized successfully
+[2026-06-10 12:35:23,128] [pages] [INFO] [ACTION] Logging in as rathanreddy676@gmail.com
+[2026-06-10 12:35:23,128] [pages] [INFO] Navigating to login page (via root)
+[2026-06-10 12:35:23,129] [pages] [INFO] Navigating to app root URL
+[2026-06-10 12:35:23,129] [driver] [INFO] Navigating to http://localhost:3000
+[2026-06-10 12:35:23,880] [driver] [INFO] ✓ Navigated successfully
+[2026-06-10 12:35:24,881] [pages] [INFO] Waiting through Splash screen (3+ seconds)...
+[2026-06-10 12:35:28,498] [pages] [INFO] ✓ Clicked: ('xpath', "//*[@data-testid='skip-onboarding'] | //*[contains(text(),'Skip') or contains(text(),'Get Started')]")
+[2026-06-10 12:35:28,498] [pages] [INFO] ✓ Clicked Skip/Get Started on Onboarding
+[2026-06-10 12:35:29,499] [pages] [INFO] ✓ Should now be on Login screen
+[2026-06-10 12:35:30,499] [pages] [INFO] ✓ Login page ready
+[2026-06-10 12:35:30,499] [pages] [INFO] Entering email: rathanreddy676@gmail.com
+[2026-06-10 12:35:30,897] [pages] [INFO] ✓ Typed 'rathanreddy676@gmail' into: ('xpath', "//*[@data-testid='email-input']")
+[2026-06-10 12:35:30,897] [pages] [INFO] Entering password
+[2026-06-10 12:35:31,140] [pages] [INFO] ✓ Typed '9652090259' into: ('xpath', "//*[@data-testid='password-input']")
+[2026-06-10 12:35:31,140] [pages] [INFO] Clicking login button
+[2026-06-10 12:35:31,192] [pages] [INFO] ✓ Clicked: ('xpath', "//*[@data-testid='login-submit']")
+[2026-06-10 12:35:34,193] [pages] [INFO] ✓ Login process completed
+[2026-06-10 12:35:34,193] [pages] [INFO] Checking if Home screen is displayed
+[2026-06-10 12:35:34,217] [test_cases] [INFO] 
+[TEST] Navigate to Appointments tab
+[2026-06-10 12:35:34,222] [pages] [INFO] Navigating to Appointments screen
+[2026-06-10 12:35:34,358] [pages] [INFO] ✓ Clicked: ('xpath', "//*[@data-testid='tab-appointments']")
+[2026-06-10 12:35:35,860] [pages] [INFO] Checking if appointments screen is displayed
+[2026-06-10 12:35:44,254] [test_cases] [INFO] ✓ TEST PASSED
+[2026-06-10 12:35:44,254] [test_cases] [INFO] Duration: 21.1s  |  Result: PASSED
+[2026-06-10 12:35:44,254] [test_cases] [INFO] ======================================================================
+
+[2026-06-10 12:35:46,533] [driver] [INFO] ✓ Browser closed successfully
+[2026-06-10 12:35:50,598] [test_cases] [INFO] 
+======================================================================
+[2026-06-10 12:35:50,598] [test_cases] [INFO] [TEST] test_07_navigate_to_profile
+[2026-06-10 12:35:50,598] [test_cases] [INFO] ======================================================================
+[2026-06-10 12:35:50,598] [driver] [INFO] Initializing Selenium WebDriver
+[2026-06-10 12:35:50,598] [driver] [INFO] Starting chrome browser
+[2026-06-10 12:35:52,500] [driver] [INFO] Chrome browser initialized
+[2026-06-10 12:35:52,503] [driver] [INFO] ✓ Browser initialized successfully
+[2026-06-10 12:35:52,503] [pages] [INFO] [ACTION] Logging in as rathanreddy676@gmail.com
+[2026-06-10 12:35:52,503] [pages] [INFO] Navigating to login page (via root)
+[2026-06-10 12:35:52,503] [pages] [INFO] Navigating to app root URL
+[2026-06-10 12:35:52,503] [driver] [INFO] Navigating to http://localhost:3000
+[2026-06-10 12:35:53,269] [driver] [INFO] ✓ Navigated successfully
+[2026-06-10 12:35:54,271] [pages] [INFO] Waiting through Splash screen (3+ seconds)...
+[2026-06-10 12:35:57,893] [pages] [INFO] ✓ Clicked: ('xpath', "//*[@data-testid='skip-onboarding'] | //*[contains(text(),'Skip') or contains(text(),'Get Started')]")
+[2026-06-10 12:35:57,893] [pages] [INFO] ✓ Clicked Skip/Get Started on Onboarding
+[2026-06-10 12:35:58,894] [pages] [INFO] ✓ Should now be on Login screen
+[2026-06-10 12:35:59,894] [pages] [INFO] ✓ Login page ready
+[2026-06-10 12:35:59,894] [pages] [INFO] Entering email: rathanreddy676@gmail.com
+[2026-06-10 12:36:00,386] [pages] [INFO] ✓ Typed 'rathanreddy676@gmail' into: ('xpath', "//*[@data-testid='email-input']")
+[2026-06-10 12:36:00,386] [pages] [INFO] Entering password
+[2026-06-10 12:36:00,639] [pages] [INFO] ✓ Typed '9652090259' into: ('xpath', "//*[@data-testid='password-input']")
+[2026-06-10 12:36:00,639] [pages] [INFO] Clicking login button
+[2026-06-10 12:36:00,711] [pages] [INFO] ✓ Clicked: ('xpath', "//*[@data-testid='login-submit']")
+[2026-06-10 12:36:03,713] [pages] [INFO] ✓ Login process completed
+[2026-06-10 12:36:03,713] [pages] [INFO] Checking if Home screen is displayed
+[2026-06-10 12:36:03,734] [test_cases] [INFO] 
+[TEST] Navigate to Profile screen
+[2026-06-10 12:36:03,734] [pages] [INFO] Navigating to Profile screen
+[2026-06-10 12:36:03,734] [pages] [INFO] Clicking profile avatar
+[2026-06-10 12:36:03,795] [pages] [INFO] ✓ Clicked: ('xpath', "//*[@data-testid='profile-avatar']")
+[2026-06-10 12:36:06,824] [pages] [INFO] Getting profile email
+[2026-06-10 12:36:06,879] [test_cases] [INFO] Profile email visible: 'rathanreddy676@gmail.com'
+[2026-06-10 12:36:06,879] [test_cases] [INFO] ✓ TEST PASSED
+[2026-06-10 12:36:06,879] [test_cases] [INFO] Duration: 14.4s  |  Result: PASSED
+[2026-06-10 12:36:06,880] [test_cases] [INFO] ======================================================================
+
+[2026-06-10 12:36:09,054] [driver] [INFO] ✓ Browser closed successfully
+[2026-06-10 12:36:13,132] [test_cases] [INFO] 
+======================================================================
+[2026-06-10 12:36:13,134] [test_cases] [INFO] [TEST] test_08_doctors_list_loads
+[2026-06-10 12:36:13,134] [test_cases] [INFO] ======================================================================
+[2026-06-10 12:36:13,134] [driver] [INFO] Initializing Selenium WebDriver
+[2026-06-10 12:36:13,134] [driver] [INFO] Starting chrome browser
+[2026-06-10 12:36:14,811] [driver] [INFO] Chrome browser initialized
+[2026-06-10 12:36:14,820] [driver] [INFO] ✓ Browser initialized successfully
+[2026-06-10 12:36:14,821] [pages] [INFO] [ACTION] Logging in as rathanreddy676@gmail.com
+[2026-06-10 12:36:14,821] [pages] [INFO] Navigating to login page (via root)
+[2026-06-10 12:36:14,821] [pages] [INFO] Navigating to app root URL
+[2026-06-10 12:36:14,821] [driver] [INFO] Navigating to http://localhost:3000
+[2026-06-10 12:36:15,492] [driver] [INFO] ✓ Navigated successfully
+[2026-06-10 12:36:16,496] [pages] [INFO] Waiting through Splash screen (3+ seconds)...
+[2026-06-10 12:36:20,091] [pages] [INFO] ✓ Clicked: ('xpath', "//*[@data-testid='skip-onboarding'] | //*[contains(text(),'Skip') or contains(text(),'Get Started')]")
+[2026-06-10 12:36:20,091] [pages] [INFO] ✓ Clicked Skip/Get Started on Onboarding
+[2026-06-10 12:36:21,093] [pages] [INFO] ✓ Should now be on Login screen
+[2026-06-10 12:36:22,094] [pages] [INFO] ✓ Login page ready
+[2026-06-10 12:36:22,094] [pages] [INFO] Entering email: rathanreddy676@gmail.com
+[2026-06-10 12:36:22,493] [pages] [INFO] ✓ Typed 'rathanreddy676@gmail' into: ('xpath', "//*[@data-testid='email-input']")
+[2026-06-10 12:36:22,493] [pages] [INFO] Entering password
+[2026-06-10 12:36:22,719] [pages] [INFO] ✓ Typed '9652090259' into: ('xpath', "//*[@data-testid='password-input']")
+[2026-06-10 12:36:22,719] [pages] [INFO] Clicking login button
+[2026-06-10 12:36:22,769] [pages] [INFO] ✓ Clicked: ('xpath', "//*[@data-testid='login-submit']")
+[2026-06-10 12:36:25,775] [pages] [INFO] ✓ Login process completed
+[2026-06-10 12:36:25,775] [pages] [INFO] Checking if Home screen is displayed
+[2026-06-10 12:36:25,799] [pages] [INFO] Navigating to Doctors screen
+[2026-06-10 12:36:25,885] [pages] [INFO] ✓ Clicked: ('xpath', "//*[@data-testid='action-doctors']")
+[2026-06-10 12:36:32,205] [test_cases] [INFO] 
+[TEST] Doctors list loads
+[2026-06-10 12:36:32,205] [pages] [INFO] Checking if doctors list is displayed
+[2026-06-10 12:36:35,287] [pages] [INFO] Found 61 doctor cards
+[2026-06-10 12:36:35,289] [test_cases] [INFO] Doctors loaded: 61
+[2026-06-10 12:36:35,289] [test_cases] [INFO] ✓ TEST PASSED
+[2026-06-10 12:36:35,289] [test_cases] [INFO] Duration: 20.5s  |  Result: PASSED
+[2026-06-10 12:36:35,289] [test_cases] [INFO] ======================================================================
+
+[2026-06-10 12:36:37,592] [driver] [INFO] ✓ Browser closed successfully
+[2026-06-10 12:36:41,649] [test_cases] [INFO] 
+======================================================================
+[2026-06-10 12:36:41,650] [test_cases] [INFO] [TEST] test_09_search_doctors
+[2026-06-10 12:36:41,650] [test_cases] [INFO] ======================================================================
+[2026-06-10 12:36:41,650] [driver] [INFO] Initializing Selenium WebDriver
+[2026-06-10 12:36:41,650] [driver] [INFO] Starting chrome browser
+[2026-06-10 12:36:43,355] [driver] [INFO] Chrome browser initialized
+[2026-06-10 12:36:43,359] [driver] [INFO] ✓ Browser initialized successfully
+[2026-06-10 12:36:43,359] [pages] [INFO] [ACTION] Logging in as rathanreddy676@gmail.com
+[2026-06-10 12:36:43,359] [pages] [INFO] Navigating to login page (via root)
+[2026-06-10 12:36:43,359] [pages] [INFO] Navigating to app root URL
+[2026-06-10 12:36:43,359] [driver] [INFO] Navigating to http://localhost:3000
+[2026-06-10 12:36:44,043] [driver] [INFO] ✓ Navigated successfully
+[2026-06-10 12:36:45,044] [pages] [INFO] Waiting through Splash screen (3+ seconds)...
+[2026-06-10 12:36:48,640] [pages] [INFO] ✓ Clicked: ('xpath', "//*[@data-testid='skip-onboarding'] | //*[contains(text(),'Skip') or contains(text(),'Get Started')]")
+[2026-06-10 12:36:48,640] [pages] [INFO] ✓ Clicked Skip/Get Started on Onboarding
+[2026-06-10 12:36:49,642] [pages] [INFO] ✓ Should now be on Login screen
+[2026-06-10 12:36:50,643] [pages] [INFO] ✓ Login page ready
+[2026-06-10 12:36:50,643] [pages] [INFO] Entering email: rathanreddy676@gmail.com
+[2026-06-10 12:36:51,019] [pages] [INFO] ✓ Typed 'rathanreddy676@gmail' into: ('xpath', "//*[@data-testid='email-input']")
+[2026-06-10 12:36:51,019] [pages] [INFO] Entering password
+[2026-06-10 12:36:51,241] [pages] [INFO] ✓ Typed '9652090259' into: ('xpath', "//*[@data-testid='password-input']")
+[2026-06-10 12:36:51,241] [pages] [INFO] Clicking login button
+[2026-06-10 12:36:51,292] [pages] [INFO] ✓ Clicked: ('xpath', "//*[@data-testid='login-submit']")
+[2026-06-10 12:36:54,294] [pages] [INFO] ✓ Login process completed
+[2026-06-10 12:36:54,294] [pages] [INFO] Checking if Home screen is displayed
+[2026-06-10 12:36:54,319] [pages] [INFO] Navigating to Doctors screen
+[2026-06-10 12:36:54,385] [pages] [INFO] ✓ Clicked: ('xpath', "//*[@data-testid='action-doctors']")
+[2026-06-10 12:37:00,453] [test_cases] [INFO] 
+[TEST] Search doctors by name/specialization
+[2026-06-10 12:37:00,473] [pages] [INFO] Found 61 doctor cards
+[2026-06-10 12:37:00,473] [test_cases] [INFO] Doctors before search: 61
+[2026-06-10 12:37:00,476] [pages] [INFO] Searching for: Cardiologist
+[2026-06-10 12:37:01,316] [pages] [INFO] ✓ Typed 'Cardiologist' into: ('xpath', "//*[@data-testid='search-doctors']")
+[2026-06-10 12:37:02,843] [pages] [INFO] Found 12 doctor cards
+[2026-06-10 12:37:02,843] [test_cases] [INFO] Doctors after search 'Cardiologist': 12
+[2026-06-10 12:37:02,843] [test_cases] [INFO] ✓ TEST PASSED
+[2026-06-10 12:37:02,847] [test_cases] [INFO] Duration: 19.5s  |  Result: PASSED
+[2026-06-10 12:37:02,847] [test_cases] [INFO] ======================================================================
+
+[2026-06-10 12:37:05,085] [driver] [INFO] ✓ Browser closed successfully
+[2026-06-10 12:37:09,151] [test_cases] [INFO] 
+======================================================================
+[2026-06-10 12:37:09,151] [test_cases] [INFO] [TEST] test_10_get_first_doctor_name
+[2026-06-10 12:37:09,151] [test_cases] [INFO] ======================================================================
+[2026-06-10 12:37:09,151] [driver] [INFO] Initializing Selenium WebDriver
+[2026-06-10 12:37:09,151] [driver] [INFO] Starting chrome browser
+[2026-06-10 12:37:10,909] [driver] [INFO] Chrome browser initialized
+[2026-06-10 12:37:10,912] [driver] [INFO] ✓ Browser initialized successfully
+[2026-06-10 12:37:10,912] [pages] [INFO] [ACTION] Logging in as rathanreddy676@gmail.com
+[2026-06-10 12:37:10,912] [pages] [INFO] Navigating to login page (via root)
+[2026-06-10 12:37:10,913] [pages] [INFO] Navigating to app root URL
+[2026-06-10 12:37:10,913] [driver] [INFO] Navigating to http://localhost:3000
+[2026-06-10 12:37:11,689] [driver] [INFO] ✓ Navigated successfully
+[2026-06-10 12:37:12,691] [pages] [INFO] Waiting through Splash screen (3+ seconds)...
+[2026-06-10 12:37:16,308] [pages] [INFO] ✓ Clicked: ('xpath', "//*[@data-testid='skip-onboarding'] | //*[contains(text(),'Skip') or contains(text(),'Get Started')]")
+[2026-06-10 12:37:16,308] [pages] [INFO] ✓ Clicked Skip/Get Started on Onboarding
+[2026-06-10 12:37:17,310] [pages] [INFO] ✓ Should now be on Login screen
+[2026-06-10 12:37:18,310] [pages] [INFO] ✓ Login page ready
+[2026-06-10 12:37:18,310] [pages] [INFO] Entering email: rathanreddy676@gmail.com
+[2026-06-10 12:37:18,694] [pages] [INFO] ✓ Typed 'rathanreddy676@gmail' into: ('xpath', "//*[@data-testid='email-input']")
+[2026-06-10 12:37:18,694] [pages] [INFO] Entering password
+[2026-06-10 12:37:18,912] [pages] [INFO] ✓ Typed '9652090259' into: ('xpath', "//*[@data-testid='password-input']")
+[2026-06-10 12:37:18,912] [pages] [INFO] Clicking login button
+[2026-06-10 12:37:18,964] [pages] [INFO] ✓ Clicked: ('xpath', "//*[@data-testid='login-submit']")
+[2026-06-10 12:37:21,965] [pages] [INFO] ✓ Login process completed
+[2026-06-10 12:37:21,965] [pages] [INFO] Checking if Home screen is displayed
+[2026-06-10 12:37:21,983] [pages] [INFO] Navigating to Doctors screen
+[2026-06-10 12:37:22,048] [pages] [INFO] ✓ Clicked: ('xpath', "//*[@data-testid='action-doctors']")
+[2026-06-10 12:37:28,309] [test_cases] [INFO] 
+[TEST] Doctor cards display names
+[2026-06-10 12:37:28,334] [pages] [INFO] Found 61 doctor cards
+[2026-06-10 12:37:28,371] [pages] [INFO] First doctor: Dr. Priya Ramesh
+[2026-06-10 12:37:28,371] [test_cases] [INFO] First doctor name: 'Dr. Priya Ramesh'
+[2026-06-10 12:37:28,371] [test_cases] [INFO] ✓ TEST PASSED
+[2026-06-10 12:37:28,372] [test_cases] [INFO] Duration: 17.5s  |  Result: PASSED
+[2026-06-10 12:37:28,372] [test_cases] [INFO] ======================================================================
+
+[2026-06-10 12:37:30,669] [driver] [INFO] ✓ Browser closed successfully
+[2026-06-10 12:37:34,744] [test_cases] [INFO] 
+======================================================================
+[2026-06-10 12:37:34,744] [test_cases] [INFO] [TEST] test_11_appointments_list_loads
+[2026-06-10 12:37:34,744] [test_cases] [INFO] ======================================================================
+[2026-06-10 12:37:34,744] [driver] [INFO] Initializing Selenium WebDriver
+[2026-06-10 12:37:34,744] [driver] [INFO] Starting chrome browser
+[2026-06-10 12:37:36,472] [driver] [INFO] Chrome browser initialized
+[2026-06-10 12:37:36,475] [driver] [INFO] ✓ Browser initialized successfully
+[2026-06-10 12:37:36,475] [pages] [INFO] [ACTION] Logging in as rathanreddy676@gmail.com
+[2026-06-10 12:37:36,476] [pages] [INFO] Navigating to login page (via root)
+[2026-06-10 12:37:36,476] [pages] [INFO] Navigating to app root URL
+[2026-06-10 12:37:36,476] [driver] [INFO] Navigating to http://localhost:3000
+[2026-06-10 12:37:37,090] [driver] [INFO] ✓ Navigated successfully
+[2026-06-10 12:37:38,092] [pages] [INFO] Waiting through Splash screen (3+ seconds)...
+[2026-06-10 12:37:41,720] [pages] [INFO] ✓ Clicked: ('xpath', "//*[@data-testid='skip-onboarding'] | //*[contains(text(),'Skip') or contains(text(),'Get Started')]")
+[2026-06-10 12:37:41,720] [pages] [INFO] ✓ Clicked Skip/Get Started on Onboarding
+[2026-06-10 12:37:42,722] [pages] [INFO] ✓ Should now be on Login screen
+[2026-06-10 12:37:43,723] [pages] [INFO] ✓ Login page ready
+[2026-06-10 12:37:43,723] [pages] [INFO] Entering email: rathanreddy676@gmail.com
+[2026-06-10 12:37:44,087] [pages] [INFO] ✓ Typed 'rathanreddy676@gmail' into: ('xpath', "//*[@data-testid='email-input']")
+[2026-06-10 12:37:44,087] [pages] [INFO] Entering password
+[2026-06-10 12:37:44,256] [pages] [INFO] ✓ Typed '9652090259' into: ('xpath', "//*[@data-testid='password-input']")
+[2026-06-10 12:37:44,256] [pages] [INFO] Clicking login button
+[2026-06-10 12:37:44,294] [pages] [INFO] ✓ Clicked: ('xpath', "//*[@data-testid='login-submit']")
+[2026-06-10 12:37:47,299] [pages] [INFO] ✓ Login process completed
+[2026-06-10 12:37:47,299] [pages] [INFO] Checking if Home screen is displayed
+[2026-06-10 12:37:47,318] [test_cases] [INFO] 
+[TEST] Appointments list loads
+[2026-06-10 12:37:47,318] [pages] [INFO] Navigating to Appointments screen
+[2026-06-10 12:37:47,466] [pages] [INFO] ✓ Clicked: ('xpath', "//*[@data-testid='tab-appointments']")
+[2026-06-10 12:37:48,967] [pages] [INFO] Checking if appointments screen is displayed
+[2026-06-10 12:37:57,371] [pages] [INFO] Found 6 appointments
+[2026-06-10 12:37:57,371] [test_cases] [INFO] Appointments found: 6
+[2026-06-10 12:37:57,375] [test_cases] [INFO] ✓ TEST PASSED
+[2026-06-10 12:37:57,375] [test_cases] [INFO] Duration: 20.9s  |  Result: PASSED
+[2026-06-10 12:37:57,375] [test_cases] [INFO] ======================================================================
+
+[2026-06-10 12:37:59,636] [driver] [INFO] ✓ Browser closed successfully
+[2026-06-10 12:38:03,711] [test_cases] [INFO] 
+======================================================================
+[2026-06-10 12:38:03,711] [test_cases] [INFO] [TEST] test_12_profile_shows_user_email
+[2026-06-10 12:38:03,712] [test_cases] [INFO] ======================================================================
+[2026-06-10 12:38:03,712] [driver] [INFO] Initializing Selenium WebDriver
+[2026-06-10 12:38:03,712] [driver] [INFO] Starting chrome browser
+[2026-06-10 12:38:05,417] [driver] [INFO] Chrome browser initialized
+[2026-06-10 12:38:05,419] [driver] [INFO] ✓ Browser initialized successfully
+[2026-06-10 12:38:05,420] [pages] [INFO] [ACTION] Logging in as rathanreddy676@gmail.com
+[2026-06-10 12:38:05,420] [pages] [INFO] Navigating to login page (via root)
+[2026-06-10 12:38:05,421] [pages] [INFO] Navigating to app root URL
+[2026-06-10 12:38:05,421] [driver] [INFO] Navigating to http://localhost:3000
+[2026-06-10 12:38:06,211] [driver] [INFO] ✓ Navigated successfully
+[2026-06-10 12:38:07,212] [pages] [INFO] Waiting through Splash screen (3+ seconds)...
+[2026-06-10 12:38:10,822] [pages] [INFO] ✓ Clicked: ('xpath', "//*[@data-testid='skip-onboarding'] | //*[contains(text(),'Skip') or contains(text(),'Get Started')]")
+[2026-06-10 12:38:10,822] [pages] [INFO] ✓ Clicked Skip/Get Started on Onboarding
+[2026-06-10 12:38:11,824] [pages] [INFO] ✓ Should now be on Login screen
+[2026-06-10 12:38:12,824] [pages] [INFO] ✓ Login page ready
+[2026-06-10 12:38:12,824] [pages] [INFO] Entering email: rathanreddy676@gmail.com
+[2026-06-10 12:38:13,202] [pages] [INFO] ✓ Typed 'rathanreddy676@gmail' into: ('xpath', "//*[@data-testid='email-input']")
+[2026-06-10 12:38:13,202] [pages] [INFO] Entering password
+[2026-06-10 12:38:13,429] [pages] [INFO] ✓ Typed '9652090259' into: ('xpath', "//*[@data-testid='password-input']")
+[2026-06-10 12:38:13,429] [pages] [INFO] Clicking login button
+[2026-06-10 12:38:13,480] [pages] [INFO] ✓ Clicked: ('xpath', "//*[@data-testid='login-submit']")
+[2026-06-10 12:38:16,484] [pages] [INFO] ✓ Login process completed
+[2026-06-10 12:38:16,484] [pages] [INFO] Checking if Home screen is displayed
+[2026-06-10 12:38:16,521] [test_cases] [INFO] 
+[TEST] Profile shows user email
+[2026-06-10 12:38:16,521] [pages] [INFO] Navigating to Profile screen
+[2026-06-10 12:38:16,526] [pages] [INFO] Clicking profile avatar
+[2026-06-10 12:38:16,599] [pages] [INFO] ✓ Clicked: ('xpath', "//*[@data-testid='profile-avatar']")
+[2026-06-10 12:38:19,621] [pages] [INFO] Getting profile email
+[2026-06-10 12:38:19,655] [test_cases] [INFO] Profile email: 'rathanreddy676@gmail.com'
+[2026-06-10 12:38:19,655] [test_cases] [INFO] ✓ TEST PASSED
+[2026-06-10 12:38:19,655] [test_cases] [INFO] Duration: 14.2s  |  Result: PASSED
+[2026-06-10 12:38:19,655] [test_cases] [INFO] ======================================================================
+
+[2026-06-10 12:38:23,449] [driver] [INFO] ✓ Browser closed successfully
+[2026-06-10 12:38:27,518] [test_cases] [INFO] 
+======================================================================
+[2026-06-10 12:38:27,518] [test_cases] [INFO] [TEST] test_13_profile_edit_button_visible
+[2026-06-10 12:38:27,518] [test_cases] [INFO] ======================================================================
+[2026-06-10 12:38:27,518] [driver] [INFO] Initializing Selenium WebDriver
+[2026-06-10 12:38:27,518] [driver] [INFO] Starting chrome browser
+[2026-06-10 12:38:29,272] [driver] [INFO] Chrome browser initialized
+[2026-06-10 12:38:29,274] [driver] [INFO] ✓ Browser initialized successfully
+[2026-06-10 12:38:29,274] [pages] [INFO] [ACTION] Logging in as rathanreddy676@gmail.com
+[2026-06-10 12:38:29,275] [pages] [INFO] Navigating to login page (via root)
+[2026-06-10 12:38:29,275] [pages] [INFO] Navigating to app root URL
+[2026-06-10 12:38:29,275] [driver] [INFO] Navigating to http://localhost:3000
+[2026-06-10 12:38:30,027] [driver] [INFO] ✓ Navigated successfully
+[2026-06-10 12:38:31,028] [pages] [INFO] Waiting through Splash screen (3+ seconds)...
+[2026-06-10 12:38:34,666] [pages] [INFO] ✓ Clicked: ('xpath', "//*[@data-testid='skip-onboarding'] | //*[contains(text(),'Skip') or contains(text(),'Get Started')]")
+[2026-06-10 12:38:34,666] [pages] [INFO] ✓ Clicked Skip/Get Started on Onboarding
+[2026-06-10 12:38:35,667] [pages] [INFO] ✓ Should now be on Login screen
+[2026-06-10 12:38:36,668] [pages] [INFO] ✓ Login page ready
+[2026-06-10 12:38:36,668] [pages] [INFO] Entering email: rathanreddy676@gmail.com
+[2026-06-10 12:38:37,064] [pages] [INFO] ✓ Typed 'rathanreddy676@gmail' into: ('xpath', "//*[@data-testid='email-input']")
+[2026-06-10 12:38:37,064] [pages] [INFO] Entering password
+[2026-06-10 12:38:37,286] [pages] [INFO] ✓ Typed '9652090259' into: ('xpath', "//*[@data-testid='password-input']")
+[2026-06-10 12:38:37,286] [pages] [INFO] Clicking login button
+[2026-06-10 12:38:37,337] [pages] [INFO] ✓ Clicked: ('xpath', "//*[@data-testid='login-submit']")
+[2026-06-10 12:38:40,341] [pages] [INFO] ✓ Login process completed
+[2026-06-10 12:38:40,341] [pages] [INFO] Checking if Home screen is displayed
+[2026-06-10 12:38:40,391] [test_cases] [INFO] 
+[TEST] Edit Profile button visible
+[2026-06-10 12:38:40,391] [pages] [INFO] Navigating to Profile screen
+[2026-06-10 12:38:40,392] [pages] [INFO] Clicking profile avatar
+[2026-06-10 12:38:40,479] [pages] [INFO] ✓ Clicked: ('xpath', "//*[@data-testid='profile-avatar']")
+[2026-06-10 12:38:43,507] [test_cases] [INFO] ✓ TEST PASSED
+[2026-06-10 12:38:43,507] [test_cases] [INFO] Duration: 14.2s  |  Result: PASSED
+[2026-06-10 12:38:43,507] [test_cases] [INFO] ======================================================================
+
+[2026-06-10 12:38:45,818] [driver] [INFO] ✓ Browser closed successfully
+[2026-06-10 12:38:49,890] [test_cases] [INFO] 
+======================================================================
+[2026-06-10 12:38:49,890] [test_cases] [INFO] [TEST] test_14_complete_user_journey
+[2026-06-10 12:38:49,890] [test_cases] [INFO] ======================================================================
+[2026-06-10 12:38:49,890] [driver] [INFO] Initializing Selenium WebDriver
+[2026-06-10 12:38:49,890] [driver] [INFO] Starting chrome browser
+[2026-06-10 12:38:51,617] [driver] [INFO] Chrome browser initialized
+[2026-06-10 12:38:51,622] [driver] [INFO] ✓ Browser initialized successfully
+[2026-06-10 12:38:51,622] [test_cases] [INFO] 
+[TEST] Complete end-to-end user journey
+[2026-06-10 12:38:51,622] [test_cases] [INFO] Step 1: Login
+[2026-06-10 12:38:51,623] [pages] [INFO] [ACTION] Logging in as rathanreddy676@gmail.com
+[2026-06-10 12:38:51,623] [pages] [INFO] Navigating to login page (via root)
+[2026-06-10 12:38:51,623] [pages] [INFO] Navigating to app root URL
+[2026-06-10 12:38:51,623] [driver] [INFO] Navigating to http://localhost:3000
+[2026-06-10 12:38:52,375] [driver] [INFO] ✓ Navigated successfully
+[2026-06-10 12:38:53,375] [pages] [INFO] Waiting through Splash screen (3+ seconds)...
+[2026-06-10 12:38:56,988] [pages] [INFO] ✓ Clicked: ('xpath', "//*[@data-testid='skip-onboarding'] | //*[contains(text(),'Skip') or contains(text(),'Get Started')]")
+[2026-06-10 12:38:56,992] [pages] [INFO] ✓ Clicked Skip/Get Started on Onboarding
+[2026-06-10 12:38:57,993] [pages] [INFO] ✓ Should now be on Login screen
+[2026-06-10 12:38:58,994] [pages] [INFO] ✓ Login page ready
+[2026-06-10 12:38:58,994] [pages] [INFO] Entering email: rathanreddy676@gmail.com
+[2026-06-10 12:38:59,402] [pages] [INFO] ✓ Typed 'rathanreddy676@gmail' into: ('xpath', "//*[@data-testid='email-input']")
+[2026-06-10 12:38:59,402] [pages] [INFO] Entering password
+[2026-06-10 12:38:59,621] [pages] [INFO] ✓ Typed '9652090259' into: ('xpath', "//*[@data-testid='password-input']")
+[2026-06-10 12:38:59,621] [pages] [INFO] Clicking login button
+[2026-06-10 12:38:59,674] [pages] [INFO] ✓ Clicked: ('xpath', "//*[@data-testid='login-submit']")
+[2026-06-10 12:39:02,675] [pages] [INFO] ✓ Login process completed
+[2026-06-10 12:39:02,675] [pages] [INFO] Checking if Home screen is displayed
+[2026-06-10 12:39:02,702] [test_cases] [INFO]   ✓ Logged in successfully
+[2026-06-10 12:39:02,707] [test_cases] [INFO] Step 2: Navigate to Doctors
+[2026-06-10 12:39:02,707] [pages] [INFO] Navigating to Doctors screen
+[2026-06-10 12:39:02,787] [pages] [INFO] ✓ Clicked: ('xpath', "//*[@data-testid='action-doctors']")
+[2026-06-10 12:39:09,046] [pages] [INFO] Checking if doctors list is displayed
+[2026-06-10 12:39:12,088] [test_cases] [INFO]   ✓ Doctors screen loaded
+[2026-06-10 12:39:12,088] [test_cases] [INFO] Step 3: Return to Home via back button
+[2026-06-10 12:39:12,195] [pages] [INFO] ✓ Clicked: ('xpath', "//*[contains(text(),'← Back') or contains(text(),'Back')]")
+[2026-06-10 12:39:13,698] [test_cases] [INFO] Step 4: Navigate to Appointments tab
+[2026-06-10 12:39:13,698] [pages] [INFO] Navigating to Appointments screen
+[2026-06-10 12:39:13,848] [pages] [INFO] ✓ Clicked: ('xpath', "//*[@data-testid='tab-appointments']")
+[2026-06-10 12:39:15,350] [pages] [INFO] Checking if appointments screen is displayed
+[2026-06-10 12:39:23,751] [test_cases] [INFO]   ✓ Appointments screen loaded
+[2026-06-10 12:39:23,752] [test_cases] [INFO] Step 5: Navigate to Profile
+[2026-06-10 12:39:23,834] [pages] [INFO] ✓ Clicked: ('xpath', "//*[@data-testid='tab-home']")
+[2026-06-10 12:39:24,835] [pages] [INFO] Navigating to Profile screen
+[2026-06-10 12:39:24,835] [pages] [INFO] Clicking profile avatar
+[2026-06-10 12:39:24,926] [pages] [INFO] ✓ Clicked: ('xpath', "//*[@data-testid='profile-avatar']")
+[2026-06-10 12:39:27,955] [pages] [INFO] Getting profile email
+[2026-06-10 12:39:27,982] [test_cases] [INFO]   ✓ Profile visible, email: 'rathanreddy676@gmail.com'
+[2026-06-10 12:39:27,982] [test_cases] [INFO] Step 6: Logout
+[2026-06-10 12:39:27,982] [pages] [INFO] Clicking Log Out button
+[2026-06-10 12:39:28,038] [pages] [INFO] ✓ Clicked: ('xpath', "//*[@data-testid='logout-btn']")
+[2026-06-10 12:39:37,019] [pages] [WARNING] handle_rn_confirmation_dialog: 'Log Out' not found after 8s
+[2026-06-10 12:40:02,658] [test_cases] [ERROR] ✗ TEST FAILED: False is not true : Step 6 FAILED: Not on Login screen after logout
+[2026-06-10 12:40:02,734] [driver] [INFO] ✓ Screenshot saved: D:\cureconnect-backend\selenium_testing\reports\screenshots\test_14_failed.png
+[2026-06-10 12:40:02,735] [test_cases] [INFO] Duration: 71.1s  |  Result: FAILED
+[2026-06-10 12:40:02,735] [test_cases] [INFO] ======================================================================
+
+[2026-06-10 12:40:05,046] [driver] [INFO] ✓ Browser closed successfully
+[2026-06-10 12:40:05,047] [__main__] [INFO] 
+================================================================================
+[2026-06-10 12:40:05,047] [__main__] [INFO] TEST EXECUTION COMPLETED
+[2026-06-10 12:40:05,047] [__main__] [INFO] ================================================================================
+[2026-06-10 12:40:05,047] [__main__] [INFO] Duration: 431.87s
+[2026-06-10 12:40:05,047] [__main__] [INFO] Tests run: 14
+[2026-06-10 12:40:05,047] [__main__] [INFO] Failures: 2
+[2026-06-10 12:40:05,047] [__main__] [INFO] Errors: 0
+[2026-06-10 12:40:05,047] [__main__] [INFO] Skipped: 0
+[2026-06-10 12:40:05,050] [report_generator] [INFO] Excel Report Generator initialized
+[2026-06-10 12:40:05,051] [report_generator] [INFO] Generating Excel report...
+[2026-06-10 12:40:05,169] [report_generator] [INFO] ✓ Report generated: D:\cureconnect-backend\selenium_testing\reports\Selenium_Test_Report_20260610_124005.xlsx
+[2026-06-10 12:40:05,169] [__main__] [INFO] ✓ Excel report generated: D:\cureconnect-backend\selenium_testing\reports\Selenium_Test_Report_20260610_124005.xlsx

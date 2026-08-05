@@ -1,0 +1,43 @@
+[2026-06-10 22:55:25,684] [runner] [INFO] Log file: D:\cureconnect-backend\appium_testing\reports\logs\appium_run_20260610_225525.log
+[2026-06-10 22:55:25,685] [runner] [INFO] Running 1 matching suite(s): ['Test01_Authentication']
+[2026-06-10 22:55:25,686] [runner] [INFO] Log file: D:\cureconnect-backend\appium_testing\reports\logs\appium_run_20260610_225525.log
+[2026-06-10 22:55:25,688] [runner] [INFO] ======================================================================
+[2026-06-10 22:55:25,689] [runner] [INFO] CHECKING PREREQUISITES
+[2026-06-10 22:55:25,689] [runner] [INFO] ======================================================================
+[2026-06-10 22:55:25,696] [driver] [INFO] Appium server is running at http://127.0.0.1:4723
+[2026-06-10 22:55:25,696] [runner] [INFO] [ OK ] Appium server is running at http://127.0.0.1:4723
+[2026-06-10 22:55:25,740] [driver] [INFO] ADB device(s) found: ['RZCY80F76DX\tdevice']
+[2026-06-10 22:55:25,740] [runner] [INFO] [ OK ] ADB device detected.
+[2026-06-10 22:55:25,740] [runner] [INFO] [ OK ] APK found: D:\cureconnect-backend\appium_testing\app-release.apk
+[2026-06-10 22:55:25,740] [runner] [INFO] ======================================================================
+[2026-06-10 22:55:25,742] [runner] [INFO] APPIUM E2E TEST SUITE — CureConnect Android
+[2026-06-10 22:55:25,742] [runner] [INFO] Suites:              1
+[2026-06-10 22:55:25,742] [runner] [INFO] Total tests:         5
+[2026-06-10 22:55:25,742] [runner] [INFO] Device:              Android Device
+[2026-06-10 22:55:25,742] [runner] [INFO] App package:         com.medicheck.app
+[2026-06-10 22:55:25,742] [runner] [INFO] ======================================================================
+[2026-06-10 22:55:25,743] [driver] [INFO] Initializing Appium WebDriver
+[2026-06-10 22:55:39,297] [driver] [INFO] Appium WebDriver initialized successfully
+[2026-06-10 22:55:39,297] [driver] [INFO]   Session ID : c265acb3-0d94-405d-b288-96551850184c
+[2026-06-10 22:55:39,297] [driver] [INFO]   Platform   : Android
+[2026-06-10 22:55:39,297] [driver] [INFO]   OS Version : 16
+[2026-06-10 22:55:39,297] [test_cases] [INFO] [T01] Splash & Onboarding
+[2026-06-10 22:55:39,297] [pages] [INFO] Waiting 5s for Splash screen …
+[2026-06-10 22:55:44,299] [pages] [INFO] Trying to skip Onboarding …
+[2026-06-10 22:55:44,628] [driver] [INFO] Tapped: //*[@content-desc="skip-onboarding"] | //*[@text="Skip"] | //*[@text="Get Started"]
+[2026-06-10 22:55:44,628] [pages] [INFO] Skipped Onboarding
+[2026-06-10 22:55:46,630] [pages] [INFO] App startup complete
+[2026-06-10 22:56:10,649] [test_cases] [INFO] [T02] Empty-field login
+[2026-06-10 22:56:41,952] [driver] [WARNING] Type text timeout: email-input
+[2026-06-10 22:57:13,118] [driver] [WARNING] Type text timeout: password-input
+[2026-06-10 22:57:44,335] [driver] [WARNING] Tap timeout: login-submit
+[2026-06-10 22:58:06,888] [test_cases] [INFO] [T03] Invalid credentials
+[2026-06-10 22:58:06,889] [pages] [INFO] Logging in as: wrong@test.com
+[2026-06-10 22:58:40,828] [driver] [WARNING] Type text timeout: email-input
+[2026-06-10 22:59:12,254] [driver] [WARNING] Type text timeout: //*[@hint="your@email.com" or contains(@hint,"email")]
+[2026-06-10 22:59:44,530] [driver] [WARNING] Type text timeout: password-input
+[2026-06-10 23:00:17,760] [driver] [WARNING] Type text timeout: //*[@hint="Min. 6 characters" or contains(@hint,"password")]
+[2026-06-10 23:00:28,929] [driver] [WARNING] Tap timeout: login-submit
+[2026-06-10 23:00:39,064] [driver] [WARNING] Tap timeout: //*[@text="Sign In"]
+[2026-06-10 23:01:03,055] [test_cases] [INFO] [T04] Valid login
+[2026-06-10 23:01:03,055] [pages] [INFO] Logging in as: rathanreddy676@gmail.com

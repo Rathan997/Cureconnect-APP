@@ -1,0 +1,632 @@
+[2026-06-10 11:46:53,932] [__main__] [INFO] TestRunner initialized
+[2026-06-10 11:46:53,932] [__main__] [INFO] Checking Python version...
+[2026-06-10 11:46:53,933] [__main__] [INFO] ✓ Python 3.12
+[2026-06-10 11:46:53,946] [__main__] [INFO] Checking required packages...
+[2026-06-10 11:46:53,947] [__main__] [INFO] ✓ selenium is installed
+[2026-06-10 11:46:53,947] [__main__] [INFO] ✓ openpyxl is installed
+[2026-06-10 11:46:53,947] [__main__] [INFO] Checking configuration...
+[2026-06-10 11:46:53,947] [__main__] [INFO] ✓ Base URL: http://localhost:3000
+[2026-06-10 11:46:53,947] [__main__] [INFO] Checking directories...
+[2026-06-10 11:46:53,947] [__main__] [INFO] ✓ Directory ready: D:\cureconnect-backend\selenium_testing\reports
+[2026-06-10 11:46:53,948] [__main__] [INFO] ✓ Directory ready: D:\cureconnect-backend\selenium_testing\reports\logs
+[2026-06-10 11:46:53,948] [__main__] [INFO] ✓ All prerequisites met
+[2026-06-10 11:46:53,948] [__main__] [INFO] Test execution started at 2026-06-10 11:46:53
+[2026-06-10 11:46:53,948] [__main__] [INFO] Browser: chrome
+[2026-06-10 11:46:53,948] [__main__] [INFO] Base URL: http://localhost:3000
+[2026-06-10 11:46:53,948] [__main__] [INFO] 
+Total tests to run: 13
+[2026-06-10 11:46:53,949] [test_cases] [INFO] 
+================================================================================
+[2026-06-10 11:46:53,949] [test_cases] [INFO] Starting test: test_01_login_with_valid_credentials
+[2026-06-10 11:46:53,949] [test_cases] [INFO] ================================================================================
+[2026-06-10 11:46:53,949] [driver] [INFO] Initializing Selenium WebDriver
+[2026-06-10 11:46:53,949] [driver] [INFO] Starting chrome browser
+[2026-06-10 11:46:56,556] [driver] [INFO] Chrome browser initialized
+[2026-06-10 11:46:56,560] [driver] [INFO] ✓ Browser initialized successfully
+[2026-06-10 11:46:56,560] [test_cases] [INFO] 
+[TEST] Login with valid credentials
+[2026-06-10 11:46:56,560] [pages] [INFO] [ACTION] Logging in as rathanreddy676@gmail.com
+[2026-06-10 11:46:56,561] [pages] [INFO] Navigating to login page
+[2026-06-10 11:46:56,561] [driver] [INFO] Navigating to http://localhost:3000/login
+[2026-06-10 11:46:57,211] [driver] [INFO] ✓ Navigated successfully
+[2026-06-10 11:46:58,213] [pages] [INFO] ✓ Page loaded
+[2026-06-10 11:46:58,213] [pages] [INFO] Entering email: rathanreddy676@gmail.com
+[2026-06-10 11:47:19,296] [driver] [ERROR] ✗ Element not found: ('id', 'email')
+[2026-06-10 11:47:19,296] [driver] [ERROR] ✗ Failed to send keys to ('id', 'email'): Message: Element ('id', 'email') not found after 15s
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff604c13435+14875]
+	chromedriver!GetHandleVerifier [0x7ff604c13490+148d0]
+	chromedriver!(No symbol) [0x7ff60476778d]
+	chromedriver!(No symbol) [0x7ff6047c195d]
+	chromedriver!(No symbol) [0x7ff6047c1c5c]
+	chromedriver!(No symbol) [0x7ff604811e37]
+	chromedriver!(No symbol) [0x7ff60480e9fc]
+	chromedriver!(No symbol) [0x7ff6047b3eb0]
+	chromedriver!(No symbol) [0x7ff6047b4e23]
+	chromedriver!GetHandleVerifier [0x7ff6051f6c91+5f80d1]
+	chromedriver!GetHandleVerifier [0x7ff6051f101b+5f245b]
+	chromedriver!GetHandleVerifier [0x7ff605216305+617745]
+	chromedriver!GetHandleVerifier [0x7ff604c303ee+3182e]
+	chromedriver!GetHandleVerifier [0x7ff604c38b0c+39f4c]
+	chromedriver!GetHandleVerifier [0x7ff604c1cb04+1df44]
+	chromedriver!GetHandleVerifier [0x7ff604c1cc94+1e0d4]
+	chromedriver!GetHandleVerifier [0x7ff604c00997+1dd7]
+	KERNEL32!BaseThreadInitThunk [0x7ffba329e957+17]
+	ntdll!RtlUserThreadStart [0x7ffba448427c+2c]
+
+[2026-06-10 11:47:19,297] [test_cases] [ERROR] ✗ TEST FAILED: Message: Element ('id', 'email') not found after 15s
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff604c13435+14875]
+	chromedriver!GetHandleVerifier [0x7ff604c13490+148d0]
+	chromedriver!(No symbol) [0x7ff60476778d]
+	chromedriver!(No symbol) [0x7ff6047c195d]
+	chromedriver!(No symbol) [0x7ff6047c1c5c]
+	chromedriver!(No symbol) [0x7ff604811e37]
+	chromedriver!(No symbol) [0x7ff60480e9fc]
+	chromedriver!(No symbol) [0x7ff6047b3eb0]
+	chromedriver!(No symbol) [0x7ff6047b4e23]
+	chromedriver!GetHandleVerifier [0x7ff6051f6c91+5f80d1]
+	chromedriver!GetHandleVerifier [0x7ff6051f101b+5f245b]
+	chromedriver!GetHandleVerifier [0x7ff605216305+617745]
+	chromedriver!GetHandleVerifier [0x7ff604c303ee+3182e]
+	chromedriver!GetHandleVerifier [0x7ff604c38b0c+39f4c]
+	chromedriver!GetHandleVerifier [0x7ff604c1cb04+1df44]
+	chromedriver!GetHandleVerifier [0x7ff604c1cc94+1e0d4]
+	chromedriver!GetHandleVerifier [0x7ff604c00997+1dd7]
+	KERNEL32!BaseThreadInitThunk [0x7ffba329e957+17]
+	ntdll!RtlUserThreadStart [0x7ffba448427c+2c]
+
+[2026-06-10 11:47:19,383] [driver] [INFO] ✓ Screenshot saved: D:\cureconnect-backend\selenium_testing\reports\screenshots\test_01_failed.png
+[2026-06-10 11:47:19,388] [test_cases] [INFO] Test Duration: 22.83s
+[2026-06-10 11:47:19,388] [test_cases] [INFO] Test Result: FAILED
+[2026-06-10 11:47:19,388] [test_cases] [INFO] ================================================================================
+
+[2026-06-10 11:47:21,638] [driver] [INFO] ✓ Browser closed successfully
+[2026-06-10 11:47:21,638] [test_cases] [INFO] 
+================================================================================
+[2026-06-10 11:47:21,638] [test_cases] [INFO] Starting test: test_02_login_with_invalid_credentials
+[2026-06-10 11:47:21,638] [test_cases] [INFO] ================================================================================
+[2026-06-10 11:47:21,638] [driver] [INFO] Initializing Selenium WebDriver
+[2026-06-10 11:47:21,638] [driver] [INFO] Starting chrome browser
+[2026-06-10 11:47:23,186] [driver] [INFO] Chrome browser initialized
+[2026-06-10 11:47:23,188] [driver] [INFO] ✓ Browser initialized successfully
+[2026-06-10 11:47:23,188] [test_cases] [INFO] 
+[TEST] Login with invalid credentials
+[2026-06-10 11:47:23,188] [pages] [INFO] [ACTION] Logging in as invalid@example.com
+[2026-06-10 11:47:23,188] [pages] [INFO] Navigating to login page
+[2026-06-10 11:47:23,188] [driver] [INFO] Navigating to http://localhost:3000/login
+[2026-06-10 11:47:23,816] [driver] [INFO] ✓ Navigated successfully
+[2026-06-10 11:47:24,819] [pages] [INFO] ✓ Page loaded
+[2026-06-10 11:47:24,819] [pages] [INFO] Entering email: invalid@example.com
+[2026-06-10 11:47:45,930] [driver] [ERROR] ✗ Element not found: ('id', 'email')
+[2026-06-10 11:47:45,930] [driver] [ERROR] ✗ Failed to send keys to ('id', 'email'): Message: Element ('id', 'email') not found after 15s
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff604c13435+14875]
+	chromedriver!GetHandleVerifier [0x7ff604c13490+148d0]
+	chromedriver!(No symbol) [0x7ff60476778d]
+	chromedriver!(No symbol) [0x7ff6047c195d]
+	chromedriver!(No symbol) [0x7ff6047c1c5c]
+	chromedriver!(No symbol) [0x7ff604811e37]
+	chromedriver!(No symbol) [0x7ff60480e9fc]
+	chromedriver!(No symbol) [0x7ff6047b3eb0]
+	chromedriver!(No symbol) [0x7ff6047b4e23]
+	chromedriver!GetHandleVerifier [0x7ff6051f6c91+5f80d1]
+	chromedriver!GetHandleVerifier [0x7ff6051f101b+5f245b]
+	chromedriver!GetHandleVerifier [0x7ff605216305+617745]
+	chromedriver!GetHandleVerifier [0x7ff604c303ee+3182e]
+	chromedriver!GetHandleVerifier [0x7ff604c38b0c+39f4c]
+	chromedriver!GetHandleVerifier [0x7ff604c1cb04+1df44]
+	chromedriver!GetHandleVerifier [0x7ff604c1cc94+1e0d4]
+	chromedriver!GetHandleVerifier [0x7ff604c00997+1dd7]
+	KERNEL32!BaseThreadInitThunk [0x7ffba329e957+17]
+	ntdll!RtlUserThreadStart [0x7ffba448427c+2c]
+
+[2026-06-10 11:47:45,930] [test_cases] [ERROR] ✗ TEST FAILED: Message: Element ('id', 'email') not found after 15s
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff604c13435+14875]
+	chromedriver!GetHandleVerifier [0x7ff604c13490+148d0]
+	chromedriver!(No symbol) [0x7ff60476778d]
+	chromedriver!(No symbol) [0x7ff6047c195d]
+	chromedriver!(No symbol) [0x7ff6047c1c5c]
+	chromedriver!(No symbol) [0x7ff604811e37]
+	chromedriver!(No symbol) [0x7ff60480e9fc]
+	chromedriver!(No symbol) [0x7ff6047b3eb0]
+	chromedriver!(No symbol) [0x7ff6047b4e23]
+	chromedriver!GetHandleVerifier [0x7ff6051f6c91+5f80d1]
+	chromedriver!GetHandleVerifier [0x7ff6051f101b+5f245b]
+	chromedriver!GetHandleVerifier [0x7ff605216305+617745]
+	chromedriver!GetHandleVerifier [0x7ff604c303ee+3182e]
+	chromedriver!GetHandleVerifier [0x7ff604c38b0c+39f4c]
+	chromedriver!GetHandleVerifier [0x7ff604c1cb04+1df44]
+	chromedriver!GetHandleVerifier [0x7ff604c1cc94+1e0d4]
+	chromedriver!GetHandleVerifier [0x7ff604c00997+1dd7]
+	KERNEL32!BaseThreadInitThunk [0x7ffba329e957+17]
+	ntdll!RtlUserThreadStart [0x7ffba448427c+2c]
+
+[2026-06-10 11:47:46,005] [driver] [INFO] ✓ Screenshot saved: D:\cureconnect-backend\selenium_testing\reports\screenshots\test_02_failed.png
+[2026-06-10 11:47:46,005] [test_cases] [INFO] Test Duration: 22.82s
+[2026-06-10 11:47:46,005] [test_cases] [INFO] Test Result: FAILED
+[2026-06-10 11:47:46,005] [test_cases] [INFO] ================================================================================
+
+[2026-06-10 11:47:48,195] [driver] [INFO] ✓ Browser closed successfully
+[2026-06-10 11:47:48,196] [test_cases] [INFO] 
+================================================================================
+[2026-06-10 11:47:48,197] [test_cases] [INFO] Starting test: test_03_logout_functionality
+[2026-06-10 11:47:48,197] [test_cases] [INFO] ================================================================================
+[2026-06-10 11:47:48,197] [driver] [INFO] Initializing Selenium WebDriver
+[2026-06-10 11:47:48,197] [driver] [INFO] Starting chrome browser
+[2026-06-10 11:47:49,763] [driver] [INFO] Chrome browser initialized
+[2026-06-10 11:47:49,766] [driver] [INFO] ✓ Browser initialized successfully
+[2026-06-10 11:47:49,766] [test_cases] [INFO] 
+[TEST] Logout functionality
+[2026-06-10 11:47:49,767] [pages] [INFO] [ACTION] Logging in as rathanreddy676@gmail.com
+[2026-06-10 11:47:49,767] [pages] [INFO] Navigating to login page
+[2026-06-10 11:47:49,767] [driver] [INFO] Navigating to http://localhost:3000/login
+[2026-06-10 11:47:50,360] [driver] [INFO] ✓ Navigated successfully
+[2026-06-10 11:47:51,361] [pages] [INFO] ✓ Page loaded
+[2026-06-10 11:47:51,361] [pages] [INFO] Entering email: rathanreddy676@gmail.com
+[2026-06-10 11:48:12,398] [driver] [ERROR] ✗ Element not found: ('id', 'email')
+[2026-06-10 11:48:12,398] [driver] [ERROR] ✗ Failed to send keys to ('id', 'email'): Message: Element ('id', 'email') not found after 15s
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff604c13435+14875]
+	chromedriver!GetHandleVerifier [0x7ff604c13490+148d0]
+	chromedriver!(No symbol) [0x7ff60476778d]
+	chromedriver!(No symbol) [0x7ff6047c195d]
+	chromedriver!(No symbol) [0x7ff6047c1c5c]
+	chromedriver!(No symbol) [0x7ff604811e37]
+	chromedriver!(No symbol) [0x7ff60480e9fc]
+	chromedriver!(No symbol) [0x7ff6047b3eb0]
+	chromedriver!(No symbol) [0x7ff6047b4e23]
+	chromedriver!GetHandleVerifier [0x7ff6051f6c91+5f80d1]
+	chromedriver!GetHandleVerifier [0x7ff6051f101b+5f245b]
+	chromedriver!GetHandleVerifier [0x7ff605216305+617745]
+	chromedriver!GetHandleVerifier [0x7ff604c303ee+3182e]
+	chromedriver!GetHandleVerifier [0x7ff604c38b0c+39f4c]
+	chromedriver!GetHandleVerifier [0x7ff604c1cb04+1df44]
+	chromedriver!GetHandleVerifier [0x7ff604c1cc94+1e0d4]
+	chromedriver!GetHandleVerifier [0x7ff604c00997+1dd7]
+	KERNEL32!BaseThreadInitThunk [0x7ffba329e957+17]
+	ntdll!RtlUserThreadStart [0x7ffba448427c+2c]
+
+[2026-06-10 11:48:12,399] [test_cases] [ERROR] ✗ TEST FAILED: Message: Element ('id', 'email') not found after 15s
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff604c13435+14875]
+	chromedriver!GetHandleVerifier [0x7ff604c13490+148d0]
+	chromedriver!(No symbol) [0x7ff60476778d]
+	chromedriver!(No symbol) [0x7ff6047c195d]
+	chromedriver!(No symbol) [0x7ff6047c1c5c]
+	chromedriver!(No symbol) [0x7ff604811e37]
+	chromedriver!(No symbol) [0x7ff60480e9fc]
+	chromedriver!(No symbol) [0x7ff6047b3eb0]
+	chromedriver!(No symbol) [0x7ff6047b4e23]
+	chromedriver!GetHandleVerifier [0x7ff6051f6c91+5f80d1]
+	chromedriver!GetHandleVerifier [0x7ff6051f101b+5f245b]
+	chromedriver!GetHandleVerifier [0x7ff605216305+617745]
+	chromedriver!GetHandleVerifier [0x7ff604c303ee+3182e]
+	chromedriver!GetHandleVerifier [0x7ff604c38b0c+39f4c]
+	chromedriver!GetHandleVerifier [0x7ff604c1cb04+1df44]
+	chromedriver!GetHandleVerifier [0x7ff604c1cc94+1e0d4]
+	chromedriver!GetHandleVerifier [0x7ff604c00997+1dd7]
+	KERNEL32!BaseThreadInitThunk [0x7ffba329e957+17]
+	ntdll!RtlUserThreadStart [0x7ffba448427c+2c]
+
+[2026-06-10 11:48:12,502] [driver] [INFO] ✓ Screenshot saved: D:\cureconnect-backend\selenium_testing\reports\screenshots\test_03_failed.png
+[2026-06-10 11:48:12,504] [test_cases] [INFO] Test Duration: 22.74s
+[2026-06-10 11:48:12,504] [test_cases] [INFO] Test Result: FAILED
+[2026-06-10 11:48:12,504] [test_cases] [INFO] ================================================================================
+
+[2026-06-10 11:48:14,706] [driver] [INFO] ✓ Browser closed successfully
+[2026-06-10 11:48:14,706] [test_cases] [INFO] 
+================================================================================
+[2026-06-10 11:48:14,706] [test_cases] [INFO] Starting test: test_04_navigate_to_doctors
+[2026-06-10 11:48:14,706] [test_cases] [INFO] ================================================================================
+[2026-06-10 11:48:14,706] [driver] [INFO] Initializing Selenium WebDriver
+[2026-06-10 11:48:14,706] [driver] [INFO] Starting chrome browser
+[2026-06-10 11:48:16,223] [driver] [INFO] Chrome browser initialized
+[2026-06-10 11:48:16,231] [driver] [INFO] ✓ Browser initialized successfully
+[2026-06-10 11:48:16,231] [pages] [INFO] [ACTION] Logging in as rathanreddy676@gmail.com
+[2026-06-10 11:48:16,231] [pages] [INFO] Navigating to login page
+[2026-06-10 11:48:16,232] [driver] [INFO] Navigating to http://localhost:3000/login
+[2026-06-10 11:48:22,847] [driver] [ERROR] ✗ Failed to navigate to http://localhost:3000/login: Message: unknown error: net::ERR_CONNECTION_REFUSED
+  (Session info: chrome=149.0.7827.53)
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff604c13435+14875]
+	chromedriver!GetHandleVerifier [0x7ff604c13490+148d0]
+	chromedriver!(No symbol) [0x7ff60476778d]
+	chromedriver!(No symbol) [0x7ff60476432e]
+	chromedriver!(No symbol) [0x7ff604754591]
+	chromedriver!(No symbol) [0x7ff6047563ff]
+	chromedriver!(No symbol) [0x7ff604754b33]
+	chromedriver!(No symbol) [0x7ff6047542fb]
+	chromedriver!(No symbol) [0x7ff604753fb1]
+	chromedriver!(No symbol) [0x7ff604751c67]
+	chromedriver!(No symbol) [0x7ff6047523e2]
+	chromedriver!(No symbol) [0x7ff60476ba36]
+	chromedriver!(No symbol) [0x7ff60480f824]
+	chromedriver!(No symbol) [0x7ff6047ea27a]
+	chromedriver!(No symbol) [0x7ff60480e9fc]
+	chromedriver!(No symbol) [0x7ff6047b3eb0]
+	chromedriver!(No symbol) [0x7ff6047b4e23]
+	chromedriver!GetHandleVerifier [0x7ff6051f6c91+5f80d1]
+	chromedriver!GetHandleVerifier [0x7ff6051f101b+5f245b]
+	chromedriver!GetHandleVerifier [0x7ff605216305+617745]
+	chromedriver!GetHandleVerifier [0x7ff604c303ee+3182e]
+	chromedriver!GetHandleVerifier [0x7ff604c38b0c+39f4c]
+	chromedriver!GetHandleVerifier [0x7ff604c1cb04+1df44]
+	chromedriver!GetHandleVerifier [0x7ff604c1cc94+1e0d4]
+	chromedriver!GetHandleVerifier [0x7ff604c00997+1dd7]
+	KERNEL32!BaseThreadInitThunk [0x7ffba329e957+17]
+	ntdll!RtlUserThreadStart [0x7ffba448427c+2c]
+
+[2026-06-10 11:48:22,851] [test_cases] [INFO] 
+================================================================================
+[2026-06-10 11:48:22,851] [test_cases] [INFO] Starting test: test_05_navigate_to_appointments
+[2026-06-10 11:48:22,851] [test_cases] [INFO] ================================================================================
+[2026-06-10 11:48:22,851] [driver] [INFO] Initializing Selenium WebDriver
+[2026-06-10 11:48:22,851] [driver] [INFO] Starting chrome browser
+[2026-06-10 11:48:24,643] [driver] [INFO] Chrome browser initialized
+[2026-06-10 11:48:24,651] [driver] [INFO] ✓ Browser initialized successfully
+[2026-06-10 11:48:24,651] [pages] [INFO] [ACTION] Logging in as rathanreddy676@gmail.com
+[2026-06-10 11:48:24,651] [pages] [INFO] Navigating to login page
+[2026-06-10 11:48:24,651] [driver] [INFO] Navigating to http://localhost:3000/login
+[2026-06-10 11:48:31,347] [driver] [ERROR] ✗ Failed to navigate to http://localhost:3000/login: Message: unknown error: net::ERR_CONNECTION_REFUSED
+  (Session info: chrome=149.0.7827.53)
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff604c13435+14875]
+	chromedriver!GetHandleVerifier [0x7ff604c13490+148d0]
+	chromedriver!(No symbol) [0x7ff60476778d]
+	chromedriver!(No symbol) [0x7ff60476432e]
+	chromedriver!(No symbol) [0x7ff604754591]
+	chromedriver!(No symbol) [0x7ff6047563ff]
+	chromedriver!(No symbol) [0x7ff604754b33]
+	chromedriver!(No symbol) [0x7ff6047542fb]
+	chromedriver!(No symbol) [0x7ff604753fb1]
+	chromedriver!(No symbol) [0x7ff604751c67]
+	chromedriver!(No symbol) [0x7ff6047523e2]
+	chromedriver!(No symbol) [0x7ff60476ba36]
+	chromedriver!(No symbol) [0x7ff60480f824]
+	chromedriver!(No symbol) [0x7ff6047ea27a]
+	chromedriver!(No symbol) [0x7ff60480e9fc]
+	chromedriver!(No symbol) [0x7ff6047b3eb0]
+	chromedriver!(No symbol) [0x7ff6047b4e23]
+	chromedriver!GetHandleVerifier [0x7ff6051f6c91+5f80d1]
+	chromedriver!GetHandleVerifier [0x7ff6051f101b+5f245b]
+	chromedriver!GetHandleVerifier [0x7ff605216305+617745]
+	chromedriver!GetHandleVerifier [0x7ff604c303ee+3182e]
+	chromedriver!GetHandleVerifier [0x7ff604c38b0c+39f4c]
+	chromedriver!GetHandleVerifier [0x7ff604c1cb04+1df44]
+	chromedriver!GetHandleVerifier [0x7ff604c1cc94+1e0d4]
+	chromedriver!GetHandleVerifier [0x7ff604c00997+1dd7]
+	KERNEL32!BaseThreadInitThunk [0x7ffba329e957+17]
+	ntdll!RtlUserThreadStart [0x7ffba448427c+2c]
+
+[2026-06-10 11:48:31,350] [test_cases] [INFO] 
+================================================================================
+[2026-06-10 11:48:31,350] [test_cases] [INFO] Starting test: test_06_navigate_to_medicines
+[2026-06-10 11:48:31,350] [test_cases] [INFO] ================================================================================
+[2026-06-10 11:48:31,350] [driver] [INFO] Initializing Selenium WebDriver
+[2026-06-10 11:48:31,350] [driver] [INFO] Starting chrome browser
+[2026-06-10 11:48:33,130] [driver] [INFO] Chrome browser initialized
+[2026-06-10 11:48:33,134] [driver] [INFO] ✓ Browser initialized successfully
+[2026-06-10 11:48:33,134] [pages] [INFO] [ACTION] Logging in as rathanreddy676@gmail.com
+[2026-06-10 11:48:33,135] [pages] [INFO] Navigating to login page
+[2026-06-10 11:48:33,135] [driver] [INFO] Navigating to http://localhost:3000/login
+[2026-06-10 11:48:39,129] [driver] [ERROR] ✗ Failed to navigate to http://localhost:3000/login: Message: unknown error: net::ERR_CONNECTION_REFUSED
+  (Session info: chrome=149.0.7827.53)
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff604c13435+14875]
+	chromedriver!GetHandleVerifier [0x7ff604c13490+148d0]
+	chromedriver!(No symbol) [0x7ff60476778d]
+	chromedriver!(No symbol) [0x7ff60476432e]
+	chromedriver!(No symbol) [0x7ff604754591]
+	chromedriver!(No symbol) [0x7ff6047563ff]
+	chromedriver!(No symbol) [0x7ff604754b33]
+	chromedriver!(No symbol) [0x7ff6047542fb]
+	chromedriver!(No symbol) [0x7ff604753fb1]
+	chromedriver!(No symbol) [0x7ff604751c67]
+	chromedriver!(No symbol) [0x7ff6047523e2]
+	chromedriver!(No symbol) [0x7ff60476ba36]
+	chromedriver!(No symbol) [0x7ff60480f824]
+	chromedriver!(No symbol) [0x7ff6047ea27a]
+	chromedriver!(No symbol) [0x7ff60480e9fc]
+	chromedriver!(No symbol) [0x7ff6047b3eb0]
+	chromedriver!(No symbol) [0x7ff6047b4e23]
+	chromedriver!GetHandleVerifier [0x7ff6051f6c91+5f80d1]
+	chromedriver!GetHandleVerifier [0x7ff6051f101b+5f245b]
+	chromedriver!GetHandleVerifier [0x7ff605216305+617745]
+	chromedriver!GetHandleVerifier [0x7ff604c303ee+3182e]
+	chromedriver!GetHandleVerifier [0x7ff604c38b0c+39f4c]
+	chromedriver!GetHandleVerifier [0x7ff604c1cb04+1df44]
+	chromedriver!GetHandleVerifier [0x7ff604c1cc94+1e0d4]
+	chromedriver!GetHandleVerifier [0x7ff604c00997+1dd7]
+	KERNEL32!BaseThreadInitThunk [0x7ffba329e957+17]
+	ntdll!RtlUserThreadStart [0x7ffba448427c+2c]
+
+[2026-06-10 11:48:39,132] [test_cases] [INFO] 
+================================================================================
+[2026-06-10 11:48:39,132] [test_cases] [INFO] Starting test: test_07_navigate_to_profile
+[2026-06-10 11:48:39,132] [test_cases] [INFO] ================================================================================
+[2026-06-10 11:48:39,132] [driver] [INFO] Initializing Selenium WebDriver
+[2026-06-10 11:48:39,132] [driver] [INFO] Starting chrome browser
+[2026-06-10 11:48:40,747] [driver] [INFO] Chrome browser initialized
+[2026-06-10 11:48:40,750] [driver] [INFO] ✓ Browser initialized successfully
+[2026-06-10 11:48:40,751] [pages] [INFO] [ACTION] Logging in as rathanreddy676@gmail.com
+[2026-06-10 11:48:40,751] [pages] [INFO] Navigating to login page
+[2026-06-10 11:48:40,751] [driver] [INFO] Navigating to http://localhost:3000/login
+[2026-06-10 11:48:42,407] [driver] [INFO] ✓ Navigated successfully
+[2026-06-10 11:48:43,408] [pages] [INFO] ✓ Page loaded
+[2026-06-10 11:48:43,408] [pages] [INFO] Entering email: rathanreddy676@gmail.com
+[2026-06-10 11:48:43,410] [driver] [ERROR] ✗ Error finding element ('id', 'email'): Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=149.0.7827.53)
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff604c13435+14875]
+	chromedriver!GetHandleVerifier [0x7ff604c13490+148d0]
+	chromedriver!(No symbol) [0x7ff60476778d]
+	chromedriver!(No symbol) [0x7ff60473e1c2]
+	chromedriver!(No symbol) [0x7ff6047f1166]
+	chromedriver!(No symbol) [0x7ff60480e2ed]
+	chromedriver!(No symbol) [0x7ff6047b3eb0]
+	chromedriver!(No symbol) [0x7ff6047b4e23]
+	chromedriver!GetHandleVerifier [0x7ff6051f6c91+5f80d1]
+	chromedriver!GetHandleVerifier [0x7ff6051f101b+5f245b]
+	chromedriver!GetHandleVerifier [0x7ff605216305+617745]
+	chromedriver!GetHandleVerifier [0x7ff604c303ee+3182e]
+	chromedriver!GetHandleVerifier [0x7ff604c38b0c+39f4c]
+	chromedriver!GetHandleVerifier [0x7ff604c1cb04+1df44]
+	chromedriver!GetHandleVerifier [0x7ff604c1cc94+1e0d4]
+	chromedriver!GetHandleVerifier [0x7ff604c00997+1dd7]
+	KERNEL32!BaseThreadInitThunk [0x7ffba329e957+17]
+	ntdll!RtlUserThreadStart [0x7ffba448427c+2c]
+
+[2026-06-10 11:48:43,410] [driver] [ERROR] ✗ Failed to send keys to ('id', 'email'): Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=149.0.7827.53)
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff604c13435+14875]
+	chromedriver!GetHandleVerifier [0x7ff604c13490+148d0]
+	chromedriver!(No symbol) [0x7ff60476778d]
+	chromedriver!(No symbol) [0x7ff60473e1c2]
+	chromedriver!(No symbol) [0x7ff6047f1166]
+	chromedriver!(No symbol) [0x7ff60480e2ed]
+	chromedriver!(No symbol) [0x7ff6047b3eb0]
+	chromedriver!(No symbol) [0x7ff6047b4e23]
+	chromedriver!GetHandleVerifier [0x7ff6051f6c91+5f80d1]
+	chromedriver!GetHandleVerifier [0x7ff6051f101b+5f245b]
+	chromedriver!GetHandleVerifier [0x7ff605216305+617745]
+	chromedriver!GetHandleVerifier [0x7ff604c303ee+3182e]
+	chromedriver!GetHandleVerifier [0x7ff604c38b0c+39f4c]
+	chromedriver!GetHandleVerifier [0x7ff604c1cb04+1df44]
+	chromedriver!GetHandleVerifier [0x7ff604c1cc94+1e0d4]
+	chromedriver!GetHandleVerifier [0x7ff604c00997+1dd7]
+	KERNEL32!BaseThreadInitThunk [0x7ffba329e957+17]
+	ntdll!RtlUserThreadStart [0x7ffba448427c+2c]
+
+[2026-06-10 11:48:43,412] [test_cases] [INFO] 
+================================================================================
+[2026-06-10 11:48:43,413] [test_cases] [INFO] Starting test: test_08_search_doctors
+[2026-06-10 11:48:43,413] [test_cases] [INFO] ================================================================================
+[2026-06-10 11:48:43,413] [driver] [INFO] Initializing Selenium WebDriver
+[2026-06-10 11:48:43,413] [driver] [INFO] Starting chrome browser
+[2026-06-10 11:48:44,994] [driver] [INFO] Chrome browser initialized
+[2026-06-10 11:48:44,998] [driver] [INFO] ✓ Browser initialized successfully
+[2026-06-10 11:48:44,998] [pages] [INFO] [ACTION] Logging in as rathanreddy676@gmail.com
+[2026-06-10 11:48:44,998] [pages] [INFO] Navigating to login page
+[2026-06-10 11:48:44,998] [driver] [INFO] Navigating to http://localhost:3000/login
+[2026-06-10 11:48:46,957] [driver] [INFO] ✓ Navigated successfully
+[2026-06-10 11:48:47,958] [pages] [INFO] ✓ Page loaded
+[2026-06-10 11:48:47,958] [pages] [INFO] Entering email: rathanreddy676@gmail.com
+[2026-06-10 11:48:47,960] [driver] [ERROR] ✗ Error finding element ('id', 'email'): Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=149.0.7827.53)
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff604c13435+14875]
+	chromedriver!GetHandleVerifier [0x7ff604c13490+148d0]
+	chromedriver!(No symbol) [0x7ff60476778d]
+	chromedriver!(No symbol) [0x7ff60473e1c2]
+	chromedriver!(No symbol) [0x7ff6047f1166]
+	chromedriver!(No symbol) [0x7ff60480e2ed]
+	chromedriver!(No symbol) [0x7ff6047b3eb0]
+	chromedriver!(No symbol) [0x7ff6047b4e23]
+	chromedriver!GetHandleVerifier [0x7ff6051f6c91+5f80d1]
+	chromedriver!GetHandleVerifier [0x7ff6051f101b+5f245b]
+	chromedriver!GetHandleVerifier [0x7ff605216305+617745]
+	chromedriver!GetHandleVerifier [0x7ff604c303ee+3182e]
+	chromedriver!GetHandleVerifier [0x7ff604c38b0c+39f4c]
+	chromedriver!GetHandleVerifier [0x7ff604c1cb04+1df44]
+	chromedriver!GetHandleVerifier [0x7ff604c1cc94+1e0d4]
+	chromedriver!GetHandleVerifier [0x7ff604c00997+1dd7]
+	KERNEL32!BaseThreadInitThunk [0x7ffba329e957+17]
+	ntdll!RtlUserThreadStart [0x7ffba448427c+2c]
+
+[2026-06-10 11:48:47,960] [driver] [ERROR] ✗ Failed to send keys to ('id', 'email'): Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=149.0.7827.53)
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff604c13435+14875]
+	chromedriver!GetHandleVerifier [0x7ff604c13490+148d0]
+	chromedriver!(No symbol) [0x7ff60476778d]
+	chromedriver!(No symbol) [0x7ff60473e1c2]
+	chromedriver!(No symbol) [0x7ff6047f1166]
+	chromedriver!(No symbol) [0x7ff60480e2ed]
+	chromedriver!(No symbol) [0x7ff6047b3eb0]
+	chromedriver!(No symbol) [0x7ff6047b4e23]
+	chromedriver!GetHandleVerifier [0x7ff6051f6c91+5f80d1]
+	chromedriver!GetHandleVerifier [0x7ff6051f101b+5f245b]
+	chromedriver!GetHandleVerifier [0x7ff605216305+617745]
+	chromedriver!GetHandleVerifier [0x7ff604c303ee+3182e]
+	chromedriver!GetHandleVerifier [0x7ff604c38b0c+39f4c]
+	chromedriver!GetHandleVerifier [0x7ff604c1cb04+1df44]
+	chromedriver!GetHandleVerifier [0x7ff604c1cc94+1e0d4]
+	chromedriver!GetHandleVerifier [0x7ff604c00997+1dd7]
+	KERNEL32!BaseThreadInitThunk [0x7ffba329e957+17]
+	ntdll!RtlUserThreadStart [0x7ffba448427c+2c]
+
+[2026-06-10 11:48:47,962] [test_cases] [INFO] 
+================================================================================
+[2026-06-10 11:48:47,962] [test_cases] [INFO] Starting test: test_09_view_doctor_details
+[2026-06-10 11:48:47,962] [test_cases] [INFO] ================================================================================
+[2026-06-10 11:48:47,962] [driver] [INFO] Initializing Selenium WebDriver
+[2026-06-10 11:48:47,962] [driver] [INFO] Starting chrome browser
+[2026-06-10 11:48:49,576] [driver] [INFO] Chrome browser initialized
+[2026-06-10 11:48:49,579] [driver] [INFO] ✓ Browser initialized successfully
+[2026-06-10 11:48:49,579] [pages] [INFO] [ACTION] Logging in as rathanreddy676@gmail.com
+[2026-06-10 11:48:49,580] [pages] [INFO] Navigating to login page
+[2026-06-10 11:48:49,580] [driver] [INFO] Navigating to http://localhost:3000/login
+[2026-06-10 11:48:54,814] [driver] [ERROR] ✗ Failed to navigate to http://localhost:3000/login: Message: unknown error: net::ERR_CONNECTION_REFUSED
+  (Session info: chrome=149.0.7827.53)
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff604c13435+14875]
+	chromedriver!GetHandleVerifier [0x7ff604c13490+148d0]
+	chromedriver!(No symbol) [0x7ff60476778d]
+	chromedriver!(No symbol) [0x7ff60476432e]
+	chromedriver!(No symbol) [0x7ff604754591]
+	chromedriver!(No symbol) [0x7ff6047563ff]
+	chromedriver!(No symbol) [0x7ff604754b33]
+	chromedriver!(No symbol) [0x7ff6047542fb]
+	chromedriver!(No symbol) [0x7ff604753fb1]
+	chromedriver!(No symbol) [0x7ff604751c67]
+	chromedriver!(No symbol) [0x7ff6047523e2]
+	chromedriver!(No symbol) [0x7ff60476ba36]
+	chromedriver!(No symbol) [0x7ff60480f824]
+	chromedriver!(No symbol) [0x7ff6047ea27a]
+	chromedriver!(No symbol) [0x7ff60480e9fc]
+	chromedriver!(No symbol) [0x7ff6047b3eb0]
+	chromedriver!(No symbol) [0x7ff6047b4e23]
+	chromedriver!GetHandleVerifier [0x7ff6051f6c91+5f80d1]
+	chromedriver!GetHandleVerifier [0x7ff6051f101b+5f245b]
+	chromedriver!GetHandleVerifier [0x7ff605216305+617745]
+	chromedriver!GetHandleVerifier [0x7ff604c303ee+3182e]
+	chromedriver!GetHandleVerifier [0x7ff604c38b0c+39f4c]
+	chromedriver!GetHandleVerifier [0x7ff604c1cb04+1df44]
+	chromedriver!GetHandleVerifier [0x7ff604c1cc94+1e0d4]
+	chromedriver!GetHandleVerifier [0x7ff604c00997+1dd7]
+	KERNEL32!BaseThreadInitThunk [0x7ffba329e957+17]
+	ntdll!RtlUserThreadStart [0x7ffba448427c+2c]
+
+[2026-06-10 11:48:54,815] [test_cases] [INFO] 
+================================================================================
+[2026-06-10 11:48:54,815] [test_cases] [INFO] Starting test: test_10_view_medicines_list
+[2026-06-10 11:48:54,815] [test_cases] [INFO] ================================================================================
+[2026-06-10 11:48:54,815] [driver] [INFO] Initializing Selenium WebDriver
+[2026-06-10 11:48:54,815] [driver] [INFO] Starting chrome browser
+[2026-06-10 11:48:56,377] [driver] [INFO] Chrome browser initialized
+[2026-06-10 11:48:56,383] [driver] [INFO] ✓ Browser initialized successfully
+[2026-06-10 11:48:56,383] [pages] [INFO] [ACTION] Logging in as rathanreddy676@gmail.com
+[2026-06-10 11:48:56,383] [pages] [INFO] Navigating to login page
+[2026-06-10 11:48:56,383] [driver] [INFO] Navigating to http://localhost:3000/login
+[2026-06-10 11:48:57,402] [driver] [INFO] ✓ Navigated successfully
+[2026-06-10 11:48:58,405] [pages] [INFO] ✓ Page loaded
+[2026-06-10 11:48:58,405] [pages] [INFO] Entering email: rathanreddy676@gmail.com
+[2026-06-10 11:48:58,406] [driver] [ERROR] ✗ Error finding element ('id', 'email'): Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=149.0.7827.53)
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff604c13435+14875]
+	chromedriver!GetHandleVerifier [0x7ff604c13490+148d0]
+	chromedriver!(No symbol) [0x7ff60476778d]
+	chromedriver!(No symbol) [0x7ff60473e1c2]
+	chromedriver!(No symbol) [0x7ff6047f1166]
+	chromedriver!(No symbol) [0x7ff60480e2ed]
+	chromedriver!(No symbol) [0x7ff6047b3eb0]
+	chromedriver!(No symbol) [0x7ff6047b4e23]
+	chromedriver!GetHandleVerifier [0x7ff6051f6c91+5f80d1]
+	chromedriver!GetHandleVerifier [0x7ff6051f101b+5f245b]
+	chromedriver!GetHandleVerifier [0x7ff605216305+617745]
+	chromedriver!GetHandleVerifier [0x7ff604c303ee+3182e]
+	chromedriver!GetHandleVerifier [0x7ff604c38b0c+39f4c]
+	chromedriver!GetHandleVerifier [0x7ff604c1cb04+1df44]
+	chromedriver!GetHandleVerifier [0x7ff604c1cc94+1e0d4]
+	chromedriver!GetHandleVerifier [0x7ff604c00997+1dd7]
+	KERNEL32!BaseThreadInitThunk [0x7ffba329e957+17]
+	ntdll!RtlUserThreadStart [0x7ffba448427c+2c]
+
+[2026-06-10 11:48:58,407] [driver] [ERROR] ✗ Failed to send keys to ('id', 'email'): Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=149.0.7827.53)
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff604c13435+14875]
+	chromedriver!GetHandleVerifier [0x7ff604c13490+148d0]
+	chromedriver!(No symbol) [0x7ff60476778d]
+	chromedriver!(No symbol) [0x7ff60473e1c2]
+	chromedriver!(No symbol) [0x7ff6047f1166]
+	chromedriver!(No symbol) [0x7ff60480e2ed]
+	chromedriver!(No symbol) [0x7ff6047b3eb0]
+	chromedriver!(No symbol) [0x7ff6047b4e23]
+	chromedriver!GetHandleVerifier [0x7ff6051f6c91+5f80d1]
+	chromedriver!GetHandleVerifier [0x7ff6051f101b+5f245b]
+	chromedriver!GetHandleVerifier [0x7ff605216305+617745]
+	chromedriver!GetHandleVerifier [0x7ff604c303ee+3182e]
+	chromedriver!GetHandleVerifier [0x7ff604c38b0c+39f4c]
+	chromedriver!GetHandleVerifier [0x7ff604c1cb04+1df44]
+	chromedriver!GetHandleVerifier [0x7ff604c1cc94+1e0d4]
+	chromedriver!GetHandleVerifier [0x7ff604c00997+1dd7]
+	KERNEL32!BaseThreadInitThunk [0x7ffba329e957+17]
+	ntdll!RtlUserThreadStart [0x7ffba448427c+2c]
+
+[2026-06-10 11:48:58,407] [test_cases] [INFO] 
+================================================================================
+[2026-06-10 11:48:58,408] [test_cases] [INFO] Starting test: test_11_add_medicine
+[2026-06-10 11:48:58,408] [test_cases] [INFO] ================================================================================
+[2026-06-10 11:48:58,408] [driver] [INFO] Initializing Selenium WebDriver
+[2026-06-10 11:48:58,408] [driver] [INFO] Starting chrome browser
+[2026-06-10 11:48:59,926] [driver] [INFO] Chrome browser initialized
+[2026-06-10 11:48:59,930] [driver] [INFO] ✓ Browser initialized successfully
+[2026-06-10 11:48:59,931] [pages] [INFO] [ACTION] Logging in as rathanreddy676@gmail.com
+[2026-06-10 11:48:59,931] [pages] [INFO] Navigating to login page
+[2026-06-10 11:48:59,931] [driver] [INFO] Navigating to http://localhost:3000/login
+[2026-06-10 11:49:00,569] [driver] [INFO] ✓ Navigated successfully
+[2026-06-10 11:49:01,571] [pages] [INFO] ✓ Page loaded
+[2026-06-10 11:49:01,571] [pages] [INFO] Entering email: rathanreddy676@gmail.com
+[2026-06-10 11:49:01,574] [driver] [ERROR] ✗ Error finding element ('id', 'email'): Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=149.0.7827.53)
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff604c13435+14875]
+	chromedriver!GetHandleVerifier [0x7ff604c13490+148d0]
+	chromedriver!(No symbol) [0x7ff60476778d]
+	chromedriver!(No symbol) [0x7ff60473e1c2]
+	chromedriver!(No symbol) [0x7ff6047f1166]
+	chromedriver!(No symbol) [0x7ff60480e2ed]
+	chromedriver!(No symbol) [0x7ff6047b3eb0]
+	chromedriver!(No symbol) [0x7ff6047b4e23]
+	chromedriver!GetHandleVerifier [0x7ff6051f6c91+5f80d1]
+	chromedriver!GetHandleVerifier [0x7ff6051f101b+5f245b]
+	chromedriver!GetHandleVerifier [0x7ff605216305+617745]
+	chromedriver!GetHandleVerifier [0x7ff604c303ee+3182e]
+	chromedriver!GetHandleVerifier [0x7ff604c38b0c+39f4c]
+	chromedriver!GetHandleVerifier [0x7ff604c1cb04+1df44]
+	chromedriver!GetHandleVerifier [0x7ff604c1cc94+1e0d4]
+	chromedriver!GetHandleVerifier [0x7ff604c00997+1dd7]
+	KERNEL32!BaseThreadInitThunk [0x7ffba329e957+17]
+	ntdll!RtlUserThreadStart [0x7ffba448427c+2c]
+
+[2026-06-10 11:49:01,575] [driver] [ERROR] ✗ Failed to send keys to ('id', 'email'): Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=149.0.7827.53)
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff604c13435+14875]
+	chromedriver!GetHandleVerifier [0x7ff604c13490+148d0]
+	chromedriver!(No symbol) [0x7ff60476778d]
+	chromedriver!(No symbol) [0x7ff60473e1c2]
+	chromedriver!(No symbol) [0x7ff6047f1166]
+	chromedriver!(No symbol) [0x7ff60480e2ed]
+	chromedriver!(No symbol) [0x7ff6047b3eb0]
+	chromedriver!(No symbol) [0x7ff6047b4e23]
+	chromedriver!GetHandleVerifier [0x7ff6051f6c91+5f80d1]
+	chromedriver!GetHandleVerifier [0x7ff6051f101b+5f245b]
+	chromedriver!GetHandleVerifier [0x7ff605216305+617745]
+	chromedriver!GetHandleVerifier [0x7ff604c303ee+3182e]
+	chromedriver!GetHandleVerifier [0x7ff604c38b0c+39f4c]
+	chromedriver!GetHandleVerifier [0x7ff604c1cb04+1df44]
+	chromedriver!GetHandleVerifier [0x7ff604c1cc94+1e0d4]
+	chromedriver!GetHandleVerifier [0x7ff604c00997+1dd7]
+	KERNEL32!BaseThreadInitThunk [0x7ffba329e957+17]
+	ntdll!RtlUserThreadStart [0x7ffba448427c+2c]
+
+[2026-06-10 11:49:01,575] [test_cases] [INFO] 
+================================================================================
+[2026-06-10 11:49:01,576] [test_cases] [INFO] Starting test: test_12_view_appointments_list
+[2026-06-10 11:49:01,576] [test_cases] [INFO] ================================================================================
+[2026-06-10 11:49:01,576] [driver] [INFO] Initializing Selenium WebDriver
+[2026-06-10 11:49:01,576] [driver] [INFO] Starting chrome browser
