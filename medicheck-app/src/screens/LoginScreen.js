@@ -50,7 +50,7 @@ export default function LoginScreen({ navigation }) {
       const data = await authAPI.login(email, password);
       await AsyncStorage.setItem('Cureconnect_token', data.access_token);
       await AsyncStorage.setItem('Cureconnect_user', JSON.stringify(data.user));
-      setUser({ uid: data.user.id, name: data.user.name, email: data.user.email });
+      setUser({ uid: data.user.id, name: data.user.name, email: data.user.email, isAdmin: data.user.isAdmin });
       setToken(data.access_token);
       navigation.replace('Main');
     } catch (e) {
@@ -68,7 +68,7 @@ export default function LoginScreen({ navigation }) {
       const data = await authAPI.register(name, email, password);
       await AsyncStorage.setItem('Cureconnect_token', data.access_token);
       await AsyncStorage.setItem('Cureconnect_user', JSON.stringify(data.user));
-      setUser({ uid: data.user.id, name: data.user.name, email: data.user.email });
+      setUser({ uid: data.user.id, name: data.user.name, email: data.user.email, isAdmin: data.user.isAdmin });
       setToken(data.access_token);
       navigation.replace('Main');
     } catch (e) {

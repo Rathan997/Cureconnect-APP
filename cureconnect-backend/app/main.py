@@ -5,7 +5,7 @@ from slowapi.util import get_remote_address
 from slowapi.errors import RateLimitExceeded
 from app.database import engine
 from app.models import models
-from app.routers import appointments, auth, medicines, users, family, symptoms, doctors, chatbot
+from app.routers import appointments, auth, medicines, users, family, symptoms, doctors, chatbot, admin
 import uvicorn
 import logging
 
@@ -44,6 +44,7 @@ app.include_router(family.router,       prefix="/api/family",       tags=["Famil
 app.include_router(symptoms.router,     prefix="/api/symptoms",     tags=["Symptoms"])
 app.include_router(doctors.router,      prefix="/api/doctors",      tags=["Doctors"])
 app.include_router(chatbot.router,      prefix="/api/chatbot",      tags=["Chatbot"])
+app.include_router(admin.router,        prefix="/api/admin",        tags=["Admin"])
 
 @app.get("/")
 def root():

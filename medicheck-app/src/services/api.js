@@ -281,3 +281,28 @@ export const chatbotAPI = {
     return handleResponse(res);
   },
 };
+
+// ─── Admin ────────────────────────────────────────────
+export const adminAPI = {
+  getStats: async () => {
+    const res = await fetchWithTimeout(`${BASE_URL}/api/admin/stats`, {
+      method: 'GET',
+      headers: await headers(),
+    });
+    return handleResponse(res);
+  },
+  getUsers: async () => {
+    const res = await fetchWithTimeout(`${BASE_URL}/api/admin/users`, {
+      method: 'GET',
+      headers: await headers(),
+    });
+    return handleResponse(res);
+  },
+  toggleAdmin: async (userId) => {
+    const res = await fetchWithTimeout(`${BASE_URL}/api/admin/users/${userId}/toggle-admin`, {
+      method: 'POST',
+      headers: await headers(),
+    });
+    return handleResponse(res);
+  },
+};

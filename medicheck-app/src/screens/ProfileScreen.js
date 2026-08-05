@@ -298,6 +298,17 @@ export default function ProfileScreen({ navigation }) {
           </TouchableOpacity>
         )}
 
+        {/* Admin Dashboard */}
+        {user?.isAdmin && (
+          <TouchableOpacity
+            testID="admin-dashboard-btn"
+            style={styles.adminBtn}
+            onPress={() => navigation.navigate('AdminDashboard')}
+          >
+            <Text style={styles.adminBtnText}>⚙️ Admin Dashboard</Text>
+          </TouchableOpacity>
+        )}
+
         {/* Logout */}
         <TouchableOpacity testID="logout-btn" style={styles.logoutBtn} onPress={handleLogout}>
           <Text style={styles.logoutText}>🚪 Log Out</Text>
@@ -426,5 +437,12 @@ const styles = StyleSheet.create({
     borderRadius: 14, paddingVertical: 16, alignItems: 'center',
   },
   logoutText: { color: '#E63946', fontWeight: '700', fontSize: 15 },
+  adminBtn: {
+    marginHorizontal: 20, marginTop: 16, backgroundColor: '#03045E',
+    borderRadius: 14, paddingVertical: 16, alignItems: 'center',
+    shadowColor: '#03045E', shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.2, shadowRadius: 8, elevation: 4,
+  },
+  adminBtnText: { color: '#fff', fontWeight: '700', fontSize: 15 },
   version: { textAlign: 'center', color: '#9CA3AF', fontSize: 11, marginTop: 16 },
 });

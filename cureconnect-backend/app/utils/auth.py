@@ -40,3 +40,8 @@ def get_current_user(token: dict = Depends(verify_token)):
         return user
     finally:
         db.close()
+
+def verify_admin(user: User = Depends(get_current_user)):
+    if not user.is_admin:
+        raise HTTPException(status_code=403, detail="Admin privileges required")
+    return user

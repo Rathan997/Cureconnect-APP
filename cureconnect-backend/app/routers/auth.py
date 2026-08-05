@@ -176,6 +176,7 @@ async def login(body: LoginRequest):
                 "allergies": user.allergies or "",
                 "conditions": user.conditions or "",
                 "emergency_contact": user.emergency_contact or "",
+                "isAdmin": bool(user.is_admin),
             }
         }
 
@@ -219,6 +220,7 @@ async def get_me(token: dict = Depends(verify_token)):
             "allergies": user.allergies or "",
             "conditions": user.conditions or "",
             "emergency_contact": user.emergency_contact or "",
+            "isAdmin": bool(user.is_admin),
         }
 
     except HTTPException:

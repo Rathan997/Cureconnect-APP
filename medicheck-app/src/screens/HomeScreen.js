@@ -141,15 +141,26 @@ export default function HomeScreen({ navigation }) {
               <Text style={styles.greeting}>{greetIcon} {greeting}</Text>
               <Text testID="dashboard-title" style={styles.userName}>{user?.name || 'Friend'} 👋</Text>
             </View>
-            <TouchableOpacity
-              testID="profile-avatar"
-              style={styles.avatarBox}
-              onPress={() => navigation.navigate('Profile')}
-            >
-              <Text style={styles.avatarText}>
-                {user?.name ? user.name[0].toUpperCase() : '?'}
-              </Text>
-            </TouchableOpacity>
+            <View style={{ flexDirection: 'row', alignItems: 'center', gap: 12 }}>
+              {user?.isAdmin && (
+                <TouchableOpacity
+                  testID="home-admin-btn"
+                  style={styles.adminIconBox}
+                  onPress={() => navigation.navigate('AdminDashboard')}
+                >
+                  <Text style={{ fontSize: 20 }}>⚙️</Text>
+                </TouchableOpacity>
+              )}
+              <TouchableOpacity
+                testID="profile-avatar"
+                style={styles.avatarBox}
+                onPress={() => navigation.navigate('Profile')}
+              >
+                <Text style={styles.avatarText}>
+                  {user?.name ? user.name[0].toUpperCase() : '?'}
+                </Text>
+              </TouchableOpacity>
+            </View>
           </View>
 
           {/* Banner */}
@@ -278,6 +289,7 @@ const styles = StyleSheet.create({
   greeting: { fontSize: 13, color: 'rgba(144,224,239,0.8)', fontWeight: '500' },
   userName: { fontSize: 22, fontWeight: '800', color: '#fff', marginTop: 2 },
   avatarBox: { width: 44, height: 44, borderRadius: 22, backgroundColor: '#0077B6', alignItems: 'center', justifyContent: 'center', borderWidth: 2, borderColor: 'rgba(0,180,216,0.4)' },
+  adminIconBox: { width: 44, height: 44, borderRadius: 22, backgroundColor: 'rgba(255,255,255,0.1)', alignItems: 'center', justifyContent: 'center', borderWidth: 1.5, borderColor: 'rgba(255,255,255,0.2)' },
   avatarText: { color: '#fff', fontWeight: '800', fontSize: 18 },
   banner: { marginHorizontal: 20, backgroundColor: 'rgba(255,255,255,0.08)', borderRadius: 20, padding: 20, flexDirection: 'row', alignItems: 'center', borderWidth: 1, borderColor: 'rgba(255,255,255,0.12)' },
   bannerTag: { backgroundColor: 'rgba(0,180,216,0.2)', borderRadius: 6, paddingHorizontal: 8, paddingVertical: 3, alignSelf: 'flex-start', marginBottom: 8 },
