@@ -103,3 +103,28 @@ class SymptomCheck(Base):
     created_at = Column(DateTime(timezone=True), server_default=func.now())
 
     user = relationship("User", back_populates="symptom_checks")
+
+
+class Doctor(Base):
+    __tablename__ = "doctors"
+
+    id = Column(Integer, primary_key=True, index=True)
+    name = Column(String, nullable=False)
+    specialization = Column(String, nullable=False)
+    qualification = Column(String, nullable=True)
+    experience = Column(String, nullable=True)
+    clinic = Column(String, nullable=True)
+    area = Column(String, nullable=True)
+    city = Column(String, nullable=True)
+    state = Column(String, nullable=True)
+    address = Column(String, nullable=True)
+    phone = Column(String, nullable=True)
+    fee = Column(String, nullable=True)
+    rating = Column(Float, nullable=True)
+    reviews = Column(String, nullable=True)
+    timings = Column(String, nullable=True)
+    languages = Column(String, nullable=True)
+    lat = Column(Float, nullable=True)
+    lng = Column(Float, nullable=True)
+    email = Column(String, unique=True, index=True, nullable=True)
+    password = Column(String, nullable=True)

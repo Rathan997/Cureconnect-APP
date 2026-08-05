@@ -1,5 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import { View, Text, StyleSheet, Animated, Dimensions, Platform } from 'react-native';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import useUserStore from '../store/userStore';
 
 const { width, height } = Dimensions.get('window');
 
@@ -28,7 +30,30 @@ export default function SplashScreen({ navigation }) {
     if (Platform.OS === 'web' && window.location.pathname !== '/' && window.location.pathname !== '') {
       return;
     }
-    const timer = setTimeout(() => navigation.replace('Onboarding'), 3000);
+
+    const checkSession = async () => {
+      try {
+        const userStr = await AsyncStorage.getItem('Cureconnect_user');
+        const token = await AsyncStorage.getItem('Cureconnect_token');
+        if (userStr && token) {
+          const userObj = JSON.parse(userStr);
+          useUserStore.getState().setUser(userObj);
+          useUserStore.getState().setToken(token);
+          
+          if (userObj.isDoctor) {
+            navigation.replace('DoctorDashboard');
+          } else {
+            navigation.replace('Main');
+          }
+        } else {
+          navigation.replace('Onboarding');
+        }
+      } catch (e) {
+        navigation.replace('Onboarding');
+      }
+    };
+
+    const timer = setTimeout(checkSession, 3000);
     return () => clearTimeout(timer);
   }, []);
 

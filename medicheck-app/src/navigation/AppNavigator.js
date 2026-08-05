@@ -19,6 +19,7 @@ import EmergencyScreen from '../screens/EmergencyScreen';
 import FamilyScreen from '../screens/FamilyScreen';
 import ChatScreen from '../screens/ChatScreen';
 import AdminDashboardScreen from '../screens/AdminDashboardScreen';
+import DoctorDashboardScreen from '../screens/DoctorDashboardScreen';
 
 import { COLORS } from '../utils/constants';
 
@@ -187,6 +188,11 @@ export default function AppNavigator() {
         <Stack.Screen
           name="AdminDashboard"
           component={AdminDashboardScreen}
+        />
+
+        <Stack.Screen
+          name="DoctorDashboard"
+          component={DoctorDashboardScreen}
         />
 
       </Stack.Navigator>

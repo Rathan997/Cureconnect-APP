@@ -10,10 +10,13 @@ import { authAPI } from '../services/api';
 
 export default function LoginScreen({ navigation }) {
   const [mode, setMode] = useState('login');
+  const [role, setRole] = useState('patient'); // 'patient' or 'doctor'
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
+  const [specialization, setSpecialization] = useState('');
+  const [clinic, setClinic] = useState('');
   const [loading, setLoading] = useState(false);
   const [showPass, setShowPass] = useState(false);
   const slideAnim = useRef(new Animated.Value(0)).current;
@@ -47,12 +50,21 @@ export default function LoginScreen({ navigation }) {
     if (!validate()) return;
     setLoading(true);
     try {
-      const data = await authAPI.login(email, password);
-      await AsyncStorage.setItem('Cureconnect_token', data.access_token);
-      await AsyncStorage.setItem('Cureconnect_user', JSON.stringify(data.user));
-      setUser({ uid: data.user.id, name: data.user.name, email: data.user.email, isAdmin: data.user.isAdmin });
-      setToken(data.access_token);
-      navigation.replace('Main');
+      if (role === 'doctor') {
+        const data = await authAPI.doctorLogin(email, password);
+        await AsyncStorage.setItem('Cureconnect_token', data.access_token);
+        await AsyncStorage.setItem('Cureconnect_user', JSON.stringify(data.doctor));
+        setUser({ uid: data.doctor.id, name: data.doctor.name, email: data.doctor.email, isDoctor: true });
+        setToken(data.access_token);
+        navigation.replace('DoctorDashboard');
+      } else {
+        const data = await authAPI.login(email, password);
+        await AsyncStorage.setItem('Cureconnect_token', data.access_token);
+        await AsyncStorage.setItem('Cureconnect_user', JSON.stringify(data.user));
+        setUser({ uid: data.user.id, name: data.user.name, email: data.user.email, isAdmin: data.user.isAdmin });
+        setToken(data.access_token);
+        navigation.replace('Main');
+      }
     } catch (e) {
       console.log('Login error:', e.message);
       Alert.alert('Login Failed', 'Incorrect email or password. Please try again.');
@@ -65,12 +77,32 @@ export default function LoginScreen({ navigation }) {
     if (!validate()) return;
     setLoading(true);
     try {
-      const data = await authAPI.register(name, email, password);
-      await AsyncStorage.setItem('Cureconnect_token', data.access_token);
-      await AsyncStorage.setItem('Cureconnect_user', JSON.stringify(data.user));
-      setUser({ uid: data.user.id, name: data.user.name, email: data.user.email, isAdmin: data.user.isAdmin });
-      setToken(data.access_token);
-      navigation.replace('Main');
+      if (role === 'doctor') {
+        if (!specialization.trim()) {
+          Alert.alert('Missing Field', 'Please enter your specialization.');
+          setLoading(false);
+          return;
+        }
+        const data = await authAPI.doctorRegister({
+          name: name.trim(),
+          email: email.trim(),
+          password,
+          specialization: specialization.trim(),
+          clinic: clinic.trim(),
+        });
+        await AsyncStorage.setItem('Cureconnect_token', data.access_token);
+        await AsyncStorage.setItem('Cureconnect_user', JSON.stringify(data.doctor));
+        setUser({ uid: data.doctor.id, name: data.doctor.name, email: data.doctor.email, isDoctor: true });
+        setToken(data.access_token);
+        navigation.replace('DoctorDashboard');
+      } else {
+        const data = await authAPI.register(name, email, password);
+        await AsyncStorage.setItem('Cureconnect_token', data.access_token);
+        await AsyncStorage.setItem('Cureconnect_user', JSON.stringify(data.user));
+        setUser({ uid: data.user.id, name: data.user.name, email: data.user.email, isAdmin: data.user.isAdmin });
+        setToken(data.access_token);
+        navigation.replace('Main');
+      }
     } catch (e) {
       console.log('Signup error:', e.message);
       Alert.alert('Signup Failed', e.message || 'Something went wrong.');
@@ -95,6 +127,26 @@ export default function LoginScreen({ navigation }) {
 
         {/* Card */}
         <View style={styles.card}>
+          {/* Role Selection */}
+          <View style={styles.roleToggle}>
+            <TouchableOpacity
+              style={[styles.roleBtn, role === 'patient' && styles.roleBtnActive]}
+              onPress={() => setRole('patient')}
+            >
+              <Text style={[styles.roleText, role === 'patient' && styles.roleTextActive]}>
+                👤 Patient Portal
+              </Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+              style={[styles.roleBtn, role === 'doctor' && styles.roleBtnActive]}
+              onPress={() => setRole('doctor')}
+            >
+              <Text style={[styles.roleText, role === 'doctor' && styles.roleTextActive]}>
+                👨‍⚕️ Doctor Portal
+              </Text>
+            </TouchableOpacity>
+          </View>
+
           {/* Toggle */}
           <View style={styles.toggle}>
             <TouchableOpacity
@@ -139,6 +191,37 @@ export default function LoginScreen({ navigation }) {
                 />
               </View>
             </View>
+          )}
+
+          {role === 'doctor' && mode === 'signup' && (
+            <>
+              <View style={styles.field}>
+                <Text style={styles.fieldLabel}>SPECIALIZATION</Text>
+                <View style={styles.fieldBox}>
+                  <Text style={styles.fieldIcon}>🩺</Text>
+                  <TextInput
+                    style={styles.fieldInput}
+                    placeholder="e.g. Cardiologist, Pediatrician"
+                    placeholderTextColor="#9CA3AF"
+                    value={specialization}
+                    onChangeText={setSpecialization}
+                  />
+                </View>
+              </View>
+              <View style={styles.field}>
+                <Text style={styles.fieldLabel}>CLINIC / HOSPITAL NAME</Text>
+                <View style={styles.fieldBox}>
+                  <Text style={styles.fieldIcon}>🏥</Text>
+                  <TextInput
+                    style={styles.fieldInput}
+                    placeholder="e.g. City Care Center"
+                    placeholderTextColor="#9CA3AF"
+                    value={clinic}
+                    onChangeText={setClinic}
+                  />
+                </View>
+              </View>
+            </>
           )}
 
           <View style={styles.field}>
@@ -258,6 +341,18 @@ const styles = StyleSheet.create({
     flex: 1, backgroundColor: '#fff', borderTopLeftRadius: 32,
     borderTopRightRadius: 32, padding: 28, gap: 16,
   },
+  roleToggle: {
+    flexDirection: 'row', backgroundColor: '#F0F4F8',
+    borderRadius: 14, padding: 4, marginBottom: 8,
+  },
+  roleBtn: { flex: 1, paddingVertical: 10, alignItems: 'center', borderRadius: 11 },
+  roleBtnActive: {
+    backgroundColor: '#0077B6',
+    shadowColor: '#000', shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.1, shadowRadius: 8, elevation: 3,
+  },
+  roleText: { fontSize: 13, fontWeight: '700', color: '#9CA3AF' },
+  roleTextActive: { color: '#fff' },
   toggle: {
     flexDirection: 'row', backgroundColor: '#F0F4F8',
     borderRadius: 14, padding: 4,

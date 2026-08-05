@@ -30,6 +30,20 @@ class RegisterRequest(BaseModel):
     phone: Optional[str] = ""
 
 
+class DoctorRegisterRequest(BaseModel):
+    name: str
+    email: str
+    password: str
+    specialization: str
+    phone: Optional[str] = ""
+    qualification: Optional[str] = ""
+    clinic: Optional[str] = ""
+    city: Optional[str] = ""
+    state: Optional[str] = ""
+    fee: Optional[str] = "500"
+    timings: Optional[str] = "9AM To 5PM"
+
+
 class LoginRequest(BaseModel):
     email: str
     password: str
@@ -230,6 +244,204 @@ async def get_me(token: dict = Depends(verify_token)):
         logger.error(f"Get me error: {e}")
         raise HTTPException(status_code=500, detail=str(e))
 
+    finally:
+        db.close()
+
+
+@router.post("/doctor/login")
+async def doctor_login(body: LoginRequest):
+    db = get_db()
+    try:
+        doctor = db.execute(
+            text("SELECT * FROM doctors WHERE email = :email"),
+            {"email": body.email.lower().strip()}
+        ).fetchone()
+
+        if not doctor:
+            raise HTTPException(
+                status_code=401,
+                detail="Doctor email not found"
+            )
+
+        if doctor.password != hash_password(body.password):
+            raise HTTPException(
+                status_code=401,
+                detail="Incorrect password"
+            )
+
+        token = create_token({
+            "doctor_id": int(doctor.id),
+            "email": body.email
+        })
+
+        return {
+            "access_token": token,
+            "token_type": "bearer",
+            "doctor": {
+                "id": int(doctor.id),
+                "name": doctor.name,
+                "email": doctor.email,
+                "specialization": doctor.specialization,
+                "phone": doctor.phone or "",
+                "qualification": doctor.qualification or "",
+                "clinic": doctor.clinic or "",
+                "fee": doctor.fee or "",
+                "timings": doctor.timings or "",
+                "city": doctor.city or "",
+                "isDoctor": True
+            }
+        }
+    except HTTPException:
+        raise
+    except Exception as e:
+        logger.error(f"Doctor login error: {e}")
+        raise HTTPException(status_code=500, detail=str(e))
+    finally:
+        db.close()
+
+
+@router.post("/doctor/register")
+async def doctor_register(body: DoctorRegisterRequest):
+    db = get_db()
+    try:
+        existing = db.execute(
+            text("SELECT id FROM doctors WHERE email = :email"),
+            {"email": body.email.lower().strip()}
+        ).fetchone()
+
+        if existing:
+            raise HTTPException(
+                status_code=400,
+                detail="Doctor email already registered"
+            )
+
+        db.execute(text("""
+            INSERT INTO doctors (
+                name,
+                email,
+                password,
+                specialization,
+                phone,
+                qualification,
+                clinic,
+                city,
+                state,
+                fee,
+                timings,
+                rating,
+                reviews,
+                languages,
+                lat,
+                lng
+            )
+            VALUES (
+                :name,
+                :email,
+                :password,
+                :specialization,
+                :phone,
+                :qualification,
+                :clinic,
+                :city,
+                :state,
+                :fee,
+                :timings,
+                4.5,
+                '10',
+                'English,Tamil',
+                20.5937,
+                78.9629
+            )
+        """), {
+            "name": body.name.strip(),
+            "email": body.email.lower().strip(),
+            "password": hash_password(body.password),
+            "specialization": body.specialization.strip(),
+            "phone": body.phone or "",
+            "qualification": body.qualification or "",
+            "clinic": body.clinic or "",
+            "city": body.city or "Chennai",
+            "state": body.state or "Tamil Nadu",
+            "fee": body.fee or "500",
+            "timings": body.timings or "9AM To 5PM"
+        })
+
+        db.commit()
+
+        doctor = db.execute(
+            text("SELECT * FROM doctors WHERE email = :email"),
+            {"email": body.email.lower().strip()}
+        ).fetchone()
+
+        token = create_token({
+            "doctor_id": int(doctor.id),
+            "email": body.email
+        })
+
+        return {
+            "access_token": token,
+            "token_type": "bearer",
+            "doctor": {
+                "id": int(doctor.id),
+                "name": doctor.name,
+                "email": doctor.email,
+                "specialization": doctor.specialization,
+                "phone": doctor.phone or "",
+                "qualification": doctor.qualification or "",
+                "clinic": doctor.clinic or "",
+                "fee": doctor.fee or "",
+                "timings": doctor.timings or "",
+                "city": doctor.city or "",
+                "isDoctor": True
+            }
+        }
+    except HTTPException:
+        raise
+    except Exception as e:
+        db.rollback()
+        logger.error(f"Doctor register error: {e}")
+        raise HTTPException(status_code=500, detail=str(e))
+    finally:
+        db.close()
+
+
+@router.get("/doctor/me")
+async def get_doctor_me(token: dict = Depends(verify_token)):
+    db = get_db()
+    try:
+        doctor_id = token.get("doctor_id")
+        if not doctor_id:
+            raise HTTPException(status_code=401, detail="Invalid doctor token")
+
+        doctor = db.execute(
+            text("SELECT * FROM doctors WHERE id = :id"),
+            {"id": doctor_id}
+        ).fetchone()
+
+        if not doctor:
+            raise HTTPException(
+                status_code=404,
+                detail="Doctor not found"
+            )
+
+        return {
+            "id": int(doctor.id),
+            "name": doctor.name,
+            "email": doctor.email,
+            "specialization": doctor.specialization,
+            "phone": doctor.phone or "",
+            "qualification": doctor.qualification or "",
+            "clinic": doctor.clinic or "",
+            "fee": doctor.fee or "",
+            "timings": doctor.timings or "",
+            "city": doctor.city or "",
+            "isDoctor": True
+        }
+    except HTTPException:
+        raise
+    except Exception as e:
+        logger.error(f"Get doctor me error: {e}")
+        raise HTTPException(status_code=500, detail=str(e))
     finally:
         db.close()
 

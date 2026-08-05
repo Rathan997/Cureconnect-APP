@@ -9,14 +9,14 @@ const useUserStore = create((set) => ({
   analysisResults: null,
   setUser: (user) => {
     set({ user, isAuthenticated: !!user });
-    if (user) AsyncStorage.setItem('medicheck_user', JSON.stringify(user));
+    if (user) AsyncStorage.setItem('Cureconnect_user', JSON.stringify(user));
   },
   setToken: (token) => {
     set({ token });
-    if (token) AsyncStorage.setItem('medicheck_token', token);
+    if (token) AsyncStorage.setItem('Cureconnect_token', token);
   },
   logout: async () => {
-    await AsyncStorage.multiRemove(['medicheck_user', 'medicheck_token']);
+    await AsyncStorage.multiRemove(['Cureconnect_user', 'Cureconnect_token']);
     set({ user: null, token: null, isAuthenticated: false });
   },
   setCurrentSymptoms: (s) => set({ currentSymptoms: s }),
@@ -24,7 +24,7 @@ const useUserStore = create((set) => ({
   setSelectedDoctor: (d) => set({ selectedDoctor: d }),
   loadStoredSession: async () => {
     try {
-      const [userStr, token] = await AsyncStorage.multiGet(['medicheck_user', 'medicheck_token']);
+      const [userStr, token] = await AsyncStorage.multiGet(['Cureconnect_user', 'Cureconnect_token']);
       const user = userStr[1] ? JSON.parse(userStr[1]) : null;
       const tok = token[1] || null;
       if (user && tok) set({ user, token: tok, isAuthenticated: true });

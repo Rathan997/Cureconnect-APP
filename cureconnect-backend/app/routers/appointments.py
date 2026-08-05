@@ -82,3 +82,66 @@ def cancel_appointment(
     appointment.status = "cancelled"
     db.commit()
     return {"message": "Appointment cancelled successfully"}
+
+
+from app.models.models import Doctor
+
+@router.get("/doctor-list")
+def get_doctor_appointments(
+    token: dict = Depends(verify_token),
+    db: Session = Depends(get_db)
+):
+    doctor_id = token.get("doctor_id")
+    if not doctor_id:
+        raise HTTPException(status_code=401, detail="Invalid doctor session")
+        
+    doctor = db.query(Doctor).filter(Doctor.id == doctor_id).first()
+    if not doctor:
+        raise HTTPException(status_code=404, detail="Doctor not found")
+        
+    appointments = db.query(Appointment).filter(
+        Appointment.doctor_name == doctor.name
+    ).order_by(Appointment.date.desc(), Appointment.time.desc()).all()
+    
+    results = []
+    for appt in appointments:
+        results.append({
+            "id": appt.id,
+            "patient_name": appt.user.name if appt.user else "Patient",
+            "patient_email": appt.user.email if appt.user else "",
+            "patient_phone": appt.phone,
+            "date": appt.date,
+            "time": appt.time,
+            "status": appt.status,
+            "notes": appt.notes or ""
+        })
+    return results
+
+
+@router.post("/doctor-list/{appointment_id}/status")
+def update_appointment_status(
+    appointment_id: int,
+    status: str,
+    token: dict = Depends(verify_token),
+    db: Session = Depends(get_db)
+):
+    doctor_id = token.get("doctor_id")
+    if not doctor_id:
+        raise HTTPException(status_code=401, detail="Invalid doctor session")
+        
+    doctor = db.query(Doctor).filter(Doctor.id == doctor_id).first()
+    if not doctor:
+        raise HTTPException(status_code=404, detail="Doctor not found")
+        
+    appointment = db.query(Appointment).filter(
+        Appointment.id == appointment_id,
+        Appointment.doctor_name == doctor.name
+    ).first()
+    
+    if not appointment:
+        raise HTTPException(status_code=404, detail="Appointment not found")
+        
+    appointment.status = status
+    db.commit()
+    db.refresh(appointment)
+    return {"message": f"Appointment status updated to {status} successfully", "status": appointment.status}

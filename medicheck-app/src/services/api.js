@@ -102,6 +102,32 @@ export const authAPI = {
     });
     return handleResponse(res);
   },
+
+  doctorLogin: async (email, password) => {
+    const res = await fetchWithTimeout(`${BASE_URL}/api/auth/doctor/login`, {
+      method: 'POST',
+      headers: await headers(false),
+      body: JSON.stringify({ email, password }),
+    });
+    return handleResponse(res);
+  },
+
+  doctorRegister: async (data) => {
+    const res = await fetchWithTimeout(`${BASE_URL}/api/auth/doctor/register`, {
+      method: 'POST',
+      headers: await headers(false),
+      body: JSON.stringify(data),
+    });
+    return handleResponse(res);
+  },
+
+  getDoctorProfile: async () => {
+    const res = await fetchWithTimeout(`${BASE_URL}/api/auth/doctor/me`, {
+      method: 'GET',
+      headers: await headers(true),
+    });
+    return handleResponse(res);
+  },
 };
 
 // ─── Users ────────────────────────────────────────────
@@ -266,6 +292,22 @@ export const doctorsAPI = {
       }
     );
 
+    return handleResponse(res);
+  },
+
+  getAppointments: async () => {
+    const res = await fetchWithTimeout(`${BASE_URL}/api/appointments/doctor-list`, {
+      method: 'GET',
+      headers: await headers(true),
+    });
+    return handleResponse(res);
+  },
+
+  updateAppointmentStatus: async (appointmentId, status) => {
+    const res = await fetchWithTimeout(`${BASE_URL}/api/appointments/doctor-list/${appointmentId}/status?status=${status}`, {
+      method: 'POST',
+      headers: await headers(true),
+    });
     return handleResponse(res);
   },
 };
