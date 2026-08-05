@@ -1,5 +1,6 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { Platform } from 'react-native';
+import useUserStore from '../store/userStore';
 
 // Use 10.0.2.2 for Android emulators to connect to localhost. 
 // If using a physical device, change this to your computer's local IP address (e.g., http://192.168.x.x:8000)
@@ -7,8 +8,9 @@ export const BASE_URL = Platform.OS === 'android' ? 'http://10.66.89.175:8000' :
 
 const getToken = async () => {
   try {
+    const memToken = useUserStore.getState().token;
+    if (memToken) return memToken;
     const token = await AsyncStorage.getItem('Cureconnect_token');
-    console.log('Token:', token ? '✅ Found' : '❌ Missing');
     return token;
   } catch (e) {
     return null;
