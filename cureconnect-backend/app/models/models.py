@@ -108,7 +108,7 @@ class SymptomCheck(Base):
 class Doctor(Base):
     __tablename__ = "doctors"
 
-    id = Column(Integer, primary_key=True, index=True)
+    id = Column(String, primary_key=True, index=True)
     name = Column(String, nullable=False)
     specialization = Column(String, nullable=False)
     qualification = Column(String, nullable=True)

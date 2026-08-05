@@ -270,7 +270,7 @@ async def doctor_login(body: LoginRequest):
             )
 
         token = create_token({
-            "doctor_id": int(doctor.id),
+            "doctor_id": str(doctor.id),
             "email": body.email
         })
 
@@ -278,7 +278,7 @@ async def doctor_login(body: LoginRequest):
             "access_token": token,
             "token_type": "bearer",
             "doctor": {
-                "id": int(doctor.id),
+                "id": str(doctor.id),
                 "name": doctor.name,
                 "email": doctor.email,
                 "specialization": doctor.specialization,
@@ -315,8 +315,11 @@ async def doctor_register(body: DoctorRegisterRequest):
                 detail="Doctor email already registered"
             )
 
+        new_id = f"doc_{uuid.uuid4().hex[:12]}"
+
         db.execute(text("""
             INSERT INTO doctors (
+                id,
                 name,
                 email,
                 password,
@@ -335,6 +338,7 @@ async def doctor_register(body: DoctorRegisterRequest):
                 lng
             )
             VALUES (
+                :id,
                 :name,
                 :email,
                 :password,
@@ -353,6 +357,7 @@ async def doctor_register(body: DoctorRegisterRequest):
                 78.9629
             )
         """), {
+            "id": new_id,
             "name": body.name.strip(),
             "email": body.email.lower().strip(),
             "password": hash_password(body.password),
@@ -374,7 +379,7 @@ async def doctor_register(body: DoctorRegisterRequest):
         ).fetchone()
 
         token = create_token({
-            "doctor_id": int(doctor.id),
+            "doctor_id": str(doctor.id),
             "email": body.email
         })
 
@@ -382,7 +387,7 @@ async def doctor_register(body: DoctorRegisterRequest):
             "access_token": token,
             "token_type": "bearer",
             "doctor": {
-                "id": int(doctor.id),
+                "id": str(doctor.id),
                 "name": doctor.name,
                 "email": doctor.email,
                 "specialization": doctor.specialization,
@@ -425,7 +430,7 @@ async def get_doctor_me(token: dict = Depends(verify_token)):
             )
 
         return {
-            "id": int(doctor.id),
+            "id": str(doctor.id),
             "name": doctor.name,
             "email": doctor.email,
             "specialization": doctor.specialization,
