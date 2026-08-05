@@ -1,8 +1,9 @@
 import React from 'react';
 import {
   View, Text, StyleSheet, ScrollView,
-  TouchableOpacity, SafeAreaView, Linking, Platform
+  TouchableOpacity, Linking, Platform
 } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 export default function DoctorDetailScreen({ navigation, route }) {
   const { doctor } = route.params;

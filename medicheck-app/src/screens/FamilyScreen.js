@@ -1,8 +1,9 @@
 import React, { useState, useEffect, useRef } from 'react';
 import {
   View, Text, StyleSheet, ScrollView, TextInput,
-  TouchableOpacity, SafeAreaView, Alert, ActivityIndicator, AppState, Platform
+  TouchableOpacity, Alert, ActivityIndicator, AppState, Platform
 } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 import * as Notifications from 'expo-notifications';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import useUserStore from '../store/userStore';

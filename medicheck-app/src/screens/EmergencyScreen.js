@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import {
-  View, Text, StyleSheet, ScrollView, TouchableOpacity,
-  SafeAreaView, Linking, Alert, Platform
+  View, Text, StyleSheet, ScrollView, TouchableOpacity, Linking, Alert, Platform
 } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 const EMERGENCY_CONTACTS = [
   { id: '1', name: 'Ambulance', number: '108', icon: '🚑', color: '#E63946', bg: '#FDE8E8' },

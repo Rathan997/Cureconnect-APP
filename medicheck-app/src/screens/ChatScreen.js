@@ -1,33 +1,13 @@
 import React, { useState, useRef, useEffect } from 'react';
 import {
   View, Text, StyleSheet, ScrollView, TextInput,
-  TouchableOpacity, SafeAreaView, ActivityIndicator,
+  TouchableOpacity, ActivityIndicator,
   KeyboardAvoidingView, Platform, Animated
 } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 import useUserStore from '../store/userStore';
 
-const GROQ_API_KEY = process.env.EXPO_PUBLIC_GROQ_API_KEY || ''; // Loaded from .env.local
-const GROQ_MODEL = 'llama-3.3-70b-versatile';
-
-const SYSTEM_PROMPT = `You are CureConnect AI, a friendly and knowledgeable health assistant for users in Tamil Nadu, India. You help with:
-
-1. Health questions and symptoms
-2. Medicine information and dosages
-3. Doctor recommendations and specializations
-4. Diet and nutrition advice
-5. Mental health support
-6. Emergency guidance
-7. General wellness tips
-
-Important rules:
-- Always recommend consulting a real doctor for serious conditions
-- Be empathetic and supportive
-- Give advice relevant to Indian context (Tamil Nadu)
-- For emergencies always say call 108
-- Keep responses concise and easy to understand
-- Use simple language, not medical jargon
-- Add relevant emojis to make responses friendly
-- Never diagnose conditions definitively — always say "possible" or "might be"`;
+import { chatbotAPI } from '../services/api';
 
 const QUICK_QUESTIONS = [
   '🤒 I have fever and headache',
@@ -154,39 +134,18 @@ export default function ChatbotScreen({ navigation }) {
           content: msg.text,
         }));
 
-      conversationHistory.push({
-        role: 'user',
-        content: messageText,
-      });
+      const data = await chatbotAPI.chat(messageText, conversationHistory);
 
-      const response = await fetch('https://api.groq.com/openai/v1/chat/completions', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer ${GROQ_API_KEY}`,
-        },
-        body: JSON.stringify({
-          model: GROQ_MODEL,
-          max_tokens: 1024,
-          messages: [
-            { role: 'system', content: SYSTEM_PROMPT },
-            ...conversationHistory,
-          ],
-        }),
-      });
-
-      const data = await response.json();
-
-      if (data.choices && data.choices[0]) {
+      if (data && data.reply) {
         const botMessage = {
           id: (Date.now() + 1).toString(),
-          text: data.choices[0].message.content,
+          text: data.reply,
           isUser: false,
           timestamp: Date.now(),
         };
         setMessages(prev => [...prev, botMessage]);
       } else {
-        throw new Error(data.error?.message || 'No response from AI');
+        throw new Error('No response from AI');
       }
     } catch (e) {
       console.warn('Chatbot error:', e);

@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Code
-        uses: actions/checkout@v6
+        uses: actions/checkout@v4
 
       - name: Verify Web UI Tests Excel
         run: |
@@ -25,7 +25,7 @@ jobs:
           fi
           
       - name: Upload Selenium Report
-        uses: actions/upload-artifact@v6
+        uses: actions/upload-artifact@v4
         with:
           name: selenium-web-report
           path: tests/selenium-web-report.xlsx
@@ -35,7 +35,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Code
-        uses: actions/checkout@v6
+        uses: actions/checkout@v4
 
       - name: Verify Appium Mobile Tests Excel
         run: |
@@ -47,7 +47,7 @@ jobs:
           fi
 
       - name: Upload Appium Report
-        uses: actions/upload-artifact@v6
+        uses: actions/upload-artifact@v4
         with:
           name: appium-android-report
           path: tests/appium-android-report.xlsx
@@ -57,7 +57,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Code
-        uses: actions/checkout@v6
+        uses: actions/checkout@v4
 
       - name: Verify API Unit Tests Excel
         run: |
@@ -69,7 +69,7 @@ jobs:
           fi
 
       - name: Upload Unit Test Report
-        uses: actions/upload-artifact@v6
+        uses: actions/upload-artifact@v4
         with:
           name: unit-test-report
           path: tests/unit-test-report.xlsx
@@ -79,7 +79,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Code
-        uses: actions/checkout@v6
+        uses: actions/checkout@v4
 
       - name: Verify Validation Security Tests Excel
         run: |
@@ -91,7 +91,7 @@ jobs:
           fi
 
       - name: Upload Validation Report
-        uses: actions/upload-artifact@v6
+        uses: actions/upload-artifact@v4
         with:
           name: validation-test-report
           path: tests/validation-test-report.xlsx
@@ -101,7 +101,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Code
-        uses: actions/checkout@v6
+        uses: actions/checkout@v4
 
       - name: Verify Deployment Readiness Excel
         run: |
@@ -113,7 +113,7 @@ jobs:
           fi
 
       - name: Upload Deployment Report
-        uses: actions/upload-artifact@v6
+        uses: actions/upload-artifact@v4
         with:
           name: deployment-test-report
           path: tests/deployment-test-report.xlsx
@@ -123,7 +123,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Code
-        uses: actions/checkout@v6
+        uses: actions/checkout@v4
 
       - name: Verify Performance Load Tests Excel
         run: |
@@ -135,7 +135,7 @@ jobs:
           fi
 
       - name: Upload Load Testing Report
-        uses: actions/upload-artifact@v6
+        uses: actions/upload-artifact@v4
         with:
           name: load-test-report
           path: tests/load-test-report.xlsx
@@ -146,10 +146,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Code
-        uses: actions/checkout@v6
+        uses: actions/checkout@v4
 
       - name: Download All Reports
-        uses: actions/download-artifact@v7
+        uses: actions/download-artifact@v4
         with:
           path: individual-reports
 
@@ -183,7 +183,7 @@ jobs:
           fi
 
       - name: Upload Full E2E Master Report
-        uses: actions/upload-artifact@v6
+        uses: actions/upload-artifact@v4
         with:
           name: full-e2e-report
           path: master-report/

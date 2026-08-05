@@ -1,7 +1,0 @@
-{
-  "baseUrl": "http://localhost:8000",
-  "testEmail": "test@example.com",
-  "testPassword": "TestPassword123",
-  "testEmail2": "test2@example.com",
-  "testPassword2": "TestPassword456"
-}

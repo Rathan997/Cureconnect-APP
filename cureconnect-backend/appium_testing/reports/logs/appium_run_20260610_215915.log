@@ -1,9 +1,0 @@
-[2026-06-10 21:59:15,103] [runner] [INFO] Log file: D:\cureconnect-backend\appium_testing\reports\logs\appium_run_20260610_215915.log
-[2026-06-10 21:59:15,103] [runner] [INFO] ======================================================================
-[2026-06-10 21:59:15,103] [runner] [INFO] CHECKING PREREQUISITES
-[2026-06-10 21:59:15,103] [runner] [INFO] ======================================================================
-[2026-06-10 21:59:15,111] [driver] [INFO] Appium server is running at http://127.0.0.1:4723
-[2026-06-10 21:59:15,111] [runner] [INFO] [ OK ] Appium server is running at http://127.0.0.1:4723
-[2026-06-10 21:59:15,156] [driver] [INFO] ADB device(s) found: ['RZCY80F76DX\tdevice']
-[2026-06-10 21:59:15,157] [runner] [INFO] [ OK ] ADB device detected.
-[2026-06-10 21:59:15,157] [runner] [INFO] [ OK ] APK found: D:\cureconnect-backend\appium_testing\app-release.apk

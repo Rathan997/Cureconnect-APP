@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import {
   View, Text, StyleSheet, ScrollView, TextInput,
-  TouchableOpacity, ActivityIndicator, SafeAreaView,
+  TouchableOpacity, ActivityIndicator,
   Alert, Linking, Platform
 } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 import * as Location from 'expo-location';
 import useUserStore from '../store/userStore';
 import { symptomsAPI, doctorsAPI } from '../services/api';

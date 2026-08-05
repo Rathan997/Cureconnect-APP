@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import {
-  View, Text, StyleSheet, TextInput, TouchableOpacity,
-  SafeAreaView, Alert, ActivityIndicator, ScrollView,
+  View, Text, StyleSheet, TextInput, TouchableOpacity, Alert, ActivityIndicator, ScrollView,
   KeyboardAvoidingView, Platform
 } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 import { authAPI } from '../services/api';
 
 const STEPS = {

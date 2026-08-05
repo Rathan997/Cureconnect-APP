@@ -269,3 +269,15 @@ export const doctorsAPI = {
     return handleResponse(res);
   },
 };
+
+// ─── Chatbot ──────────────────────────────────────────
+export const chatbotAPI = {
+  chat: async (message, history) => {
+    const res = await fetchWithTimeout(`${BASE_URL}/api/chatbot/chat`, {
+      method: 'POST',
+      headers: await headers(),
+      body: JSON.stringify({ message, history }),
+    }, 45000); // 45s timeout for local LLMs
+    return handleResponse(res);
+  },
+};

@@ -8,6 +8,7 @@ import { Alert, AppState, LogBox, Platform, StyleSheet, View, Text, TouchableOpa
 LogBox.ignoreLogs([
   'expo-notifications: Android Push notifications',
   '`expo-notifications` functionality is not fully supported in Expo Go',
+  'SafeAreaView has been deprecated',
 ]);
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import * as Notifications from 'expo-notifications';
